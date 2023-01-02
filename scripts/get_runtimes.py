@@ -29,14 +29,28 @@ PAR_WORKERS_FMT2="""sed -i 's/max_worker_processes = 8/max_worker_processes = {N
 PAR_WORKERS_FMT_REV="""sed -i 's/max_parallel_workers = {NUM}/max_parallel_workers = 8/g' {PCONF}"""
 PAR_WORKERS_FMT2_REV="""sed -i 's/max_worker_processes = {NUM}/max_worker_processes = 8/g' {PCONF}"""
 
+TABLES = ["title","cast_info",
+        "name", "aka_name", "keyword", "movie_info",
+        "movie_companies", "company_type", "kind_type", "info_type",
+        "role_type", "company_name", "char_name",
+        "link_type", "movie_info_idx", "comp_cast_type",
+        "person_info",
+        "movie_link", "movie_keyword",
+        "aka_title", "complete_cast"]
+
 def read_flags():
     parser = argparse.ArgumentParser()
     parser.add_argument("--samples_type", type=str, required=False,
             default=None)
     parser.add_argument("--parallel_workers", type=int, required=False,
             default=8)
+    parser.add_argument("--no_index", type=int, required=False,
+            default=0)
     parser.add_argument("--drop_cache", type=int, required=False,
             default=0)
+    parser.add_argument("--col_store", type=int, required=False,
+            default=0)
+
     parser.add_argument("--result_dir", type=str, required=False,
             default="./results")
     parser.add_argument("--query_dir", type=str, required=False,
@@ -87,6 +101,13 @@ def execute_sql(sql, cost_model="cm1",
     else:
         sql = sql.replace("explain (format json)", "")
 
+    if args.col_store:
+        for tab in TABLES:
+            if tab + " AS " in sql:
+                sql = sql.replace(tab + " AS", tab+"_am"+" AS")
+            elif tab + " as " in sql:
+                sql = sql.replace(tab + " as", tab+"_am"+" as")
+
     if drop_cache:
         if str(args.port) in PORT_TO_DIR:
             pgdir = PORT_TO_DIR[str(args.port)]
@@ -118,7 +139,15 @@ def execute_sql(sql, cost_model="cm1",
     cursor = con.cursor()
     # cursor.execute("LOAD 'pg_hint_plan';")
     cursor.execute("SET geqo_threshold = {}".format(32))
-    set_cost_model(cursor, cost_model)
+
+    # set_cost_model(cursor, cost_model)
+
+    if args.no_index:
+        cursor.execute("SET enable_indexscan = {}".format("off"))
+        cursor.execute("SET enable_seqscan = {}".format("on"))
+        cursor.execute("SET enable_indexonlyscan = {}".format("off"))
+        cursor.execute("SET enable_bitmapscan = {}".format("off"))
+        cursor.execute("SET enable_tidscan = {}".format("off"))
 
     if materialize:
         cursor.execute("SET enable_material = on")
@@ -223,23 +252,23 @@ def main():
     if str(args.port) in PORT_TO_DIR:
         pgdir = PORT_TO_DIR[str(args.port)]
     else:
-        assert False
-        pgdir = ""
+        pgdir = None
 
-    pconf = pgdir + "/postgresql.conf"
-    pcmd = PAR_WORKERS_FMT.format(NUM = args.parallel_workers, PCONF=pconf)
-    print(pcmd)
-    p = sp.Popen(pcmd, shell=True)
-    p.wait()
+    if pgdir is not None:
+        pconf = pgdir + "/postgresql.conf"
+        pcmd = PAR_WORKERS_FMT.format(NUM = args.parallel_workers, PCONF=pconf)
+        print(pcmd)
+        p = sp.Popen(pcmd, shell=True)
+        p.wait()
 
-    pcmd = PAR_WORKERS_FMT2.format(NUM = args.parallel_workers, PCONF=pconf)
-    print(pcmd)
-    p = sp.Popen(pcmd, shell=True)
-    p.wait()
+        pcmd = PAR_WORKERS_FMT2.format(NUM = args.parallel_workers, PCONF=pconf)
+        print(pcmd)
+        p = sp.Popen(pcmd, shell=True)
+        p.wait()
 
-    drop_cache_cmd = "bash drop_cache.sh {}".format(pgdir)
-    p = sp.Popen(drop_cache_cmd, shell=True)
-    p.wait()
+        drop_cache_cmd = "bash drop_cache.sh {}".format(pgdir)
+        p = sp.Popen(drop_cache_cmd, shell=True)
+        p.wait()
 
     for rep in range(args.reps):
         for i,sql in enumerate(sqls):
@@ -277,15 +306,16 @@ def main():
 
     print("Total runtime was: ", total_rt)
 
-    pcmd = PAR_WORKERS_FMT_REV.format(NUM = args.parallel_workers, PCONF=pconf)
-    print(pcmd)
-    p = sp.Popen(pcmd, shell=True)
-    p.wait()
+    if pgdir is not None:
+        pcmd = PAR_WORKERS_FMT_REV.format(NUM = args.parallel_workers, PCONF=pconf)
+        print(pcmd)
+        p = sp.Popen(pcmd, shell=True)
+        p.wait()
 
-    pcmd = PAR_WORKERS_FMT2_REV.format(NUM = args.parallel_workers, PCONF=pconf)
-    print(pcmd)
-    p = sp.Popen(pcmd, shell=True)
-    p.wait()
+        pcmd = PAR_WORKERS_FMT2_REV.format(NUM = args.parallel_workers, PCONF=pconf)
+        print(pcmd)
+        p = sp.Popen(pcmd, shell=True)
+        p.wait()
 
 if __name__ == "__main__":
     args = read_flags()
