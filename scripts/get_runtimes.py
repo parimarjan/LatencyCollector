@@ -43,7 +43,7 @@ def read_flags():
     parser.add_argument("--samples_type", type=str, required=False,
             default=None)
     parser.add_argument("--parallel_workers", type=int, required=False,
-            default=8)
+            default=0)
     parser.add_argument("--no_index", type=int, required=False,
             default=0)
     parser.add_argument("--drop_cache", type=int, required=False,
@@ -78,12 +78,12 @@ def read_flags():
     parser.add_argument("--db_host", type=str, required=False,
             default="localhost")
     parser.add_argument("--user", type=str, required=False,
-            default="pari")
+            default="ubuntu")
     parser.add_argument("--pwd", type=str, required=False,
             default="")
 
     parser.add_argument("--port", type=str, required=False,
-            default=5440)
+            default=5432)
 
     return parser.parse_args()
 
