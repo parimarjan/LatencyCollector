@@ -1,7 +1,7 @@
 import os
 import errno
-import torch
-from torch.autograd import Variable
+# import torch
+# from torch.autograd import Variable
 import copy
 import numpy as np
 import pandas as pd
@@ -14,11 +14,11 @@ import re
 import pdb
 import random
 # from utils.tf_summaries import TensorboardSummaries
-from torch.optim.lr_scheduler import ReduceLROnPlateau
+# from torch.optim.lr_scheduler import ReduceLROnPlateau
 import time
 import sys
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 import math
 
