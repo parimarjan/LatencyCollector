@@ -19,15 +19,17 @@ from utils import *
 TIMEOUT_CONSTANT = 909
 
 PORT_TO_DIR = {}
-PORT_TO_DIR["5440"] = "/flash1/pari/pg_data_dir"
-PORT_TO_DIR["5441"] = "/spinning/pari/pg_data_dir"
+PORT_TO_DIR["5441"] = "/flash1/pari/pg_data_dir"
+PORT_TO_DIR["5440"] = "/spinning/pari/pg_data_dir"
 PORT_TO_DIR["5442"] = "/flashrd/pari/pg_data_dir"
 
-PAR_WORKERS_FMT="""sed -i 's/max_parallel_workers = 8/max_parallel_workers = {NUM}/g' {PCONF}"""
-PAR_WORKERS_FMT2="""sed -i 's/max_worker_processes = 8/max_worker_processes = {NUM}/g' {PCONF}"""
+PAR_WORKERS_FMT="""sed -i 's/max_parallel_workers = 0/max_parallel_workers = {NUM}/g' {PCONF}"""
+PAR_WORKERS_FMT2="""sed -i 's/max_worker_processes = 0/max_worker_processes = {NUM}/g' {PCONF}"""
+PAR_WORKERS_FMT3="""sed -i 's/max_parallel_workers_per_gather = 0/max_parallel_workers_per_gather = {NUM}/g' {PCONF}"""
 
-PAR_WORKERS_FMT_REV="""sed -i 's/max_parallel_workers = {NUM}/max_parallel_workers = 8/g' {PCONF}"""
-PAR_WORKERS_FMT2_REV="""sed -i 's/max_worker_processes = {NUM}/max_worker_processes = 8/g' {PCONF}"""
+PAR_WORKERS_FMT_REV="""sed -i 's/max_parallel_workers = {NUM}/max_parallel_workers = 0/g' {PCONF}"""
+PAR_WORKERS_FMT2_REV="""sed -i 's/max_worker_processes = {NUM}/max_worker_processes = 0/g' {PCONF}"""
+PAR_WORKERS_FMT3_REV="""sed -i 's/max_parallel_workers_per_gather = {NUM}/max_parallel_workers_per_gather = 0/g' {PCONF}"""
 
 TABLES = ["title","cast_info",
         "name", "aka_name", "keyword", "movie_info",
@@ -52,7 +54,7 @@ def read_flags():
             default=0)
 
     parser.add_argument("--result_dir", type=str, required=False,
-            default="./results")
+            default="./rt_results")
     parser.add_argument("--query_dir", type=str, required=False,
             default="./queries/job")
 
@@ -96,10 +98,13 @@ def execute_sql(sql, cost_model="cm1",
         ):
     '''
     '''
-    if explain:
-        sql = sql.replace("explain (format json)", "explain (analyze,costs, format json)")
+    if "explain" in sql:
+        if explain:
+            sql = sql.replace("explain (format json)", "explain (analyze,costs, format json)")
+        else:
+            sql = sql.replace("explain (format json)", "")
     else:
-        sql = sql.replace("explain (format json)", "")
+        sql = "explain (analyze,costs, format json) " + sql
 
     if args.col_store:
         for tab in TABLES:
@@ -199,11 +204,16 @@ def execute_sql(sql, cost_model="cm1",
     return explain_output, end-start
 
 def main():
-    def add_runtime_row(qname, rt, exp_analyze):
+    def add_runtime_row(qname, rt, exp_analyze, start_time):
         cur_runtimes["qname"].append(qname)
         cur_runtimes["runtime"].append(rt)
         cur_runtimes["exp_analyze"].append(exp_analyze)
+        cur_runtimes["start_time"].append(start_time)
+        akeys = vars(args)
+        for k,v in akeys.items():
+            cur_runtimes[k] = v
 
+    print(vars(args))
     cost_model = args.cost_model
     # costs_fn = args.costs_fn_tmp.format(args.cost_model)
     # costs_fn = os.path.join(args.result_dir, costs_fn)
@@ -221,7 +231,7 @@ def main():
         runtimes = None
 
     if runtimes is None:
-        columns = ["qname", "runtime", "exp_analyze"]
+        columns = ["start_time", "qname", "runtime", "exp_analyze"]
         runtimes = pd.DataFrame(columns=columns)
 
     cur_runtimes = defaultdict(list)
@@ -266,6 +276,11 @@ def main():
         p = sp.Popen(pcmd, shell=True)
         p.wait()
 
+        pcmd = PAR_WORKERS_FMT3.format(NUM = args.parallel_workers, PCONF=pconf)
+        print(pcmd)
+        p = sp.Popen(pcmd, shell=True)
+        p.wait()
+
         drop_cache_cmd = "bash drop_cache.sh {}".format(pgdir)
         p = sp.Popen(drop_cache_cmd, shell=True)
         p.wait()
@@ -274,6 +289,7 @@ def main():
         for i,sql in enumerate(sqls):
             if args.num_queries != -1 and i >= args.num_queries:
                 continue
+            start_time = time.time()
 
             # check for reps
             exp_analyze, rt = execute_sql(sql,
@@ -286,14 +302,15 @@ def main():
             if rt >= 0.0:
                 total_rt += rt
 
-            add_runtime_row(sql_fns[i], rt, exp_analyze)
+            add_runtime_row(sql_fns[i], rt, exp_analyze, start_time)
 
             rts = np.array(cur_runtimes["runtime"])
             rts = rts[rts >= 0.0]
             num_fails = len(cur_runtimes["runtime"]) - len(rts)
 
-            print("{}, Rep: {}, Cur: {}, CurRT: {}, TotalRT: {}, #Queries:{}, AvgRt: {}, #Fails: {}"\
+            print("{}, {}, Rep: {}, Cur: {}, CurRT: {}, TotalRT: {}, #Queries:{}, AvgRt: {}, #Fails: {}"\
                 .format(
+                start_time,
                 args.result_dir,
                 rep,
                 sql_fns[i], rts[-1],
@@ -313,6 +330,11 @@ def main():
         p.wait()
 
         pcmd = PAR_WORKERS_FMT2_REV.format(NUM = args.parallel_workers, PCONF=pconf)
+        print(pcmd)
+        p = sp.Popen(pcmd, shell=True)
+        p.wait()
+
+        pcmd = PAR_WORKERS_FMT3_REV.format(NUM = args.parallel_workers, PCONF=pconf)
         print(pcmd)
         p = sp.Popen(pcmd, shell=True)
         p.wait()
