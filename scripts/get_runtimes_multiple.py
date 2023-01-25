@@ -259,7 +259,8 @@ def run_single(pnum, args):
             df = pd.concat([runtimes, pd.DataFrame(cur_runtimes)], ignore_index=True)
             df.to_csv(rt_fn, index=False)
 
-            stime = random.randint(0,120)
+            ## should be a function of how long the execution took
+            stime = random.randint(0,int(rt))
             print("Going to sleep for: ", stime)
             time.sleep(stime)
 
