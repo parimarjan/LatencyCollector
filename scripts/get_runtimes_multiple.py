@@ -259,10 +259,23 @@ def run_single(pnum, args):
             df = pd.concat([runtimes, pd.DataFrame(cur_runtimes)], ignore_index=True)
             df.to_csv(rt_fn, index=False)
 
-            ## should be a function of how long the execution took
-            stime = random.randint(0,int(rt))
-            print("Going to sleep for: ", stime)
-            time.sleep(stime)
+            if pnum <= 2:
+                continue
+            elif pnum > 2 and pnum <= 6:
+                ## should be a function of how long the execution took
+                stime = random.randint(0,int(rt))
+                print("Going to sleep for: ", stime)
+                time.sleep(stime)
+            elif pnum > 6 and pnum <= 12:
+                ## should be a function of how long the execution took
+                stime = random.randint(0,120)
+                print("Going to sleep for: ", stime)
+                time.sleep(stime)
+            elif pnum > 12:
+                ## should be a function of how long the execution took
+                stime = random.randint(0,int(rt)+120)
+                print("Going to sleep for: ", stime)
+                time.sleep(stime)
 
     print("Total runtime was: ", total_rt)
 
