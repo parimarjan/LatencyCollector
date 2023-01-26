@@ -203,7 +203,8 @@ def run_single(pnum, args):
 
     assert os.path.exists(args.query_dir)
     sql_fns = os.listdir(args.query_dir)
-    sql_fns.sort()
+    # sql_fns.sort()
+    random.shuffle(sql_fns)
 
     sqls = []
     new_sql_fns = []
@@ -218,7 +219,6 @@ def run_single(pnum, args):
         new_sql_fns.append(sfn)
 
     sql_fns = new_sql_fns
-    random.shuffle(sql_fns)
 
     print("Going to execute {} queries, {} reps each".format(
         len(sqls), args.reps))
