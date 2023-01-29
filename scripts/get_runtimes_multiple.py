@@ -183,8 +183,9 @@ def run_single(pnum, args):
         for k,v in akeys.items():
             cur_runtimes[k] = v
 
-    cost_model = args.cost_model
+    exp_start_time = time.time()
 
+    cost_model = args.cost_model
     make_dir(args.result_dir)
     rt_fn = os.path.join(args.result_dir, "Runtimes{}.csv".format(pnum))
 
@@ -203,7 +204,6 @@ def run_single(pnum, args):
 
     assert os.path.exists(args.query_dir)
     sql_fns = os.listdir(args.query_dir)
-    # sql_fns.sort()
     random.shuffle(sql_fns)
 
     sqls = []
@@ -227,7 +227,18 @@ def run_single(pnum, args):
         for i,sql in enumerate(sqls):
             if args.num_queries != -1 and i >= args.num_queries:
                 continue
+
             start_time = time.time()
+            exp_time = start_time - exp_start_time
+            block = int(exp_time / 900)
+
+            if pnum > 2 and pnum <= 5:
+                if block % 2 == 0:
+                    time.sleep(800)
+
+            elif pnum >= 6:
+                if block % 4 != 2:
+                    time.sleep(600)
 
             # check for reps
             exp_analyze, rt = execute_sql(sql,
@@ -261,21 +272,21 @@ def run_single(pnum, args):
 
             if pnum <= 2:
                 continue
-            elif pnum > 2 and pnum <= 6:
-                ## should be a function of how long the execution took
-                stime = random.randint(0,int(rt))
-                print("Going to sleep for: ", stime)
-                time.sleep(stime)
-            elif pnum > 6 and pnum <= 12:
-                ## should be a function of how long the execution took
-                stime = random.randint(0,120)
-                print("Going to sleep for: ", stime)
-                time.sleep(stime)
-            elif pnum > 12:
-                ## should be a function of how long the execution took
-                stime = random.randint(0,int(rt)+120)
-                print("Going to sleep for: ", stime)
-                time.sleep(stime)
+            # elif pnum > 2 and pnum <= 6:
+                # ## should be a function of how long the execution took
+                # stime = random.randint(0,int(rt))
+                # print("Going to sleep for: ", stime)
+                # time.sleep(stime)
+            # elif pnum > 6 and pnum <= 12:
+                # ## should be a function of how long the execution took
+                # stime = random.randint(0,120)
+                # print("Going to sleep for: ", stime)
+                # time.sleep(stime)
+            # elif pnum > 12:
+                # ## should be a function of how long the execution took
+                # stime = random.randint(0,int(rt)+120)
+                # print("Going to sleep for: ", stime)
+                # time.sleep(stime)
 
     print("Total runtime was: ", total_rt)
 
