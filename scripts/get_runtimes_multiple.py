@@ -301,8 +301,9 @@ def main():
         p.start()
         processes.append(p)
 
-    for p in processes:
-        p.join()
+    for pi, p in enumerate(processes):
+        if pi <= 2:
+            p.join()
 
 if __name__ == "__main__":
     args = read_flags()
