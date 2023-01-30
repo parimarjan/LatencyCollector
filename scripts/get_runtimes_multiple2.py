@@ -174,7 +174,8 @@ def execute_sql(sql, cost_model="cm1",
     return explain_output, end-start
 
 def run_stress(pnum, args):
-    cmds = ["stress-ng --all 1 -t 2m", "stress-ng --seq 0 -t 5m"]
+    cmds = ["stress-ng --all 1 -t 2m > /dev/null",
+            "stress-ng --seq 0 -t 5m > /dev/null"]
 
     while True:
         for cmd in cmds:
@@ -298,19 +299,28 @@ def run_single(pnum, args):
 
     print("Total runtime was: ", total_rt)
 
-# def test(i, args):
-    # print(i)
-    # print(args)
+def test(i, args):
+    print(i)
+    print(args)
+    for n in range(10):
+        print("Hello 1")
+        time.sleep(0.1)
+
+def test2(i, args):
+    while True:
+        # print("Hello world!")
+        os.system("ls > /dev/null")
+        time.sleep(2)
 
 def main():
-    processes = []
     p = Process(target=run_single, args=(0, args))
     p.start()
-    processes.append(p)
 
     t = Process(target=run_stress, args=(0, args))
     t.start()
+
     p.join()
+    t.terminate()
 
 if __name__ == "__main__":
     args = read_flags()
