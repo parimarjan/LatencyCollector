@@ -174,7 +174,7 @@ def execute_sql(sql, cost_model="cm1",
     return explain_output, end-start
 
 def run_stress(pnum, args):
-    cmds = ["stress-ng --all -t 10", "stress-ng --seq 0 -t 10"]
+    cmds = ["stress-ng --all 1 -t 2m", "stress-ng --seq 0 -t 5m"]
 
     while True:
         for cmd in cmds:
