@@ -174,13 +174,25 @@ def execute_sql(sql, cost_model="cm1",
     return explain_output, end-start
 
 def run_stress(pnum, args):
-    cmds = ["stress-ng --all 1 -t 2m > /dev/null",
-            "stress-ng --seq 0 -t 5m > /dev/null"]
+    T="5m"
+    cmds = ["stress-ng --userfaultfd 0 --perf -t {T} 1> /dev/null 2> /dev/null",
+            "stress-ng --cpu 0 -t {T} 1> /dev/null 2> /dev/null",
+            "stress-ng --io 0 -t {T} 1> /dev/null 2> /dev/null",
+            "stress-ng --vm 0 -t {T} 1> /dev/null 2> /dev/null",
+            "stress-ng --hdd 0 -t {T} 1> /dev/null 2> /dev/null",
+            "stress-ng --timer 32 --timer-freq 1000000 1> /dev/null 2> /dev/null",
+            "stress-ng --brk 0 --stack 0 --bigheap 0 1> /dev/null 2> /dev/null",
+            ]
+
+    for ci,cmd in enumerate(cmds):
+        cmds[ci] = cmd.format(T=T)
+
 
     while True:
         for cmd in cmds:
             print("going to start: ", cmd)
             os.system(cmd)
+            time.sleep(2)
 
 def run_single(pnum, args):
     def add_runtime_row(qname, rt, exp_analyze, start_time):
