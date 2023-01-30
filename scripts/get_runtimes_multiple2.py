@@ -309,6 +309,7 @@ def main():
     processes.append(p)
 
     t = Process(target=run_stress, args=(0, args))
+    t.start()
     p.join()
 
 if __name__ == "__main__":
