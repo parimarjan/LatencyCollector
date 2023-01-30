@@ -178,6 +178,7 @@ def run_stress(pnum, args):
 
     while True:
         for cmd in cmds:
+            print("going to start: ", cmd)
             os.system(cmd)
 
 def run_single(pnum, args):

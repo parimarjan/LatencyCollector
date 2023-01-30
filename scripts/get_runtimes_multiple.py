@@ -270,8 +270,8 @@ def run_single(pnum, args):
             df = pd.concat([runtimes, pd.DataFrame(cur_runtimes)], ignore_index=True)
             df.to_csv(rt_fn, index=False)
 
-            if pnum <= 2:
-                continue
+            # if pnum <= 2:
+                # continue
             # elif pnum > 2 and pnum <= 6:
                 # ## should be a function of how long the execution took
                 # stime = random.randint(0,int(rt))
