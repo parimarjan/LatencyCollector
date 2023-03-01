@@ -89,7 +89,9 @@ def read_flags():
 
     return parser.parse_args()
 
-def execute_sql(sql, cost_model="cm1",
+def execute_sql(sql,
+        db_name,
+        cost_model="cm1",
         explain=False,
         materialize=False,
         timeout=900000,
@@ -126,7 +128,7 @@ def execute_sql(sql, cost_model="cm1",
         time.sleep(0.1)
         for ri in range(30):
             try:
-                con = pg.connect(port=args.port,dbname=args.db_name,
+                con = pg.connect(port=args.port,dbname=db_name,
                         user=args.user,password=args.pwd,host="localhost")
                 print("succeeded in try: ", ri)
                 break
@@ -136,7 +138,7 @@ def execute_sql(sql, cost_model="cm1",
                 continue
 
     else:
-        con = pg.connect(port=args.port,dbname=args.db_name,
+        con = pg.connect(port=args.port,dbname=db_name,
                 user=args.user,password=args.pwd,host="localhost")
 
     # TODO: clear cache
@@ -285,6 +287,13 @@ def main():
         p = sp.Popen(drop_cache_cmd, shell=True)
         p.wait()
 
+    if "job" in args.query_dir or "ceb" in args.query_dir:
+        db_name = "imdb"
+    elif "ergast" in args.query_dir:
+        db_name = "ergastf1"
+    else:
+        assert False
+
     for rep in range(args.reps):
         for i,sql in enumerate(sqls):
             if args.num_queries != -1 and i >= args.num_queries:
@@ -293,6 +302,7 @@ def main():
 
             # check for reps
             exp_analyze, rt = execute_sql(sql,
+                    db_name = db_name,
                     cost_model=cost_model,
                     explain=args.explain,
                     timeout=args.timeout,
