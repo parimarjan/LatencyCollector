@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM title AS t,movie_companies AS mc,cast_info AS ci WHERE t.id=mc.movie_id AND t.id=ci.movie_id AND t.kind_id=7 AND t.production_year>1996 AND mc.company_type_id=2

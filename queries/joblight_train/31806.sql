@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM title AS t,cast_info AS ci,movie_keyword AS mk WHERE t.id=ci.movie_id AND t.id=mk.movie_id AND t.kind_id=1 AND t.production_year=1998 AND ci.person_id<1123767 AND ci.role_id<9 AND mk.keyword_id>14313
