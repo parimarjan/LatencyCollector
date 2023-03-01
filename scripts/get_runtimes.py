@@ -291,6 +291,8 @@ def main():
         db_name = "imdb"
     elif "ergast" in args.query_dir:
         db_name = "ergastf1"
+    elif "stats" in args.query_dir:
+        db_name = "stats"
     else:
         assert False
 
