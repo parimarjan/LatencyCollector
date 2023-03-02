@@ -293,6 +293,10 @@ def main():
         db_name = "ergastf1"
     elif "stats" in args.query_dir:
         db_name = "stats"
+    elif "stack" in args.query_dir:
+        db_name = "stack"
+    elif "tpch" in args.query_dir:
+        db_name = "tpch"
     else:
         assert False
 
