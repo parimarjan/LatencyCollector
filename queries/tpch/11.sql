@@ -1,22 +1,14 @@
-
-
-
-
-
--- q11 using 31988 as a seed to the RNG
-
-
 select
 	ps_partkey,
 	sum(ps_supplycost * ps_availqty) as value
 from
-	partsupp, -- skan_memo_stash_11
+	partsupp,
 	supplier,
 	nation
 where
 	ps_suppkey = s_suppkey
 	and s_nationkey = n_nationkey
-	and n_name = 'BRAZIL'
+	and n_name = 'VIETNAM'
 group by
 	ps_partkey having
 		sum(ps_supplycost * ps_availqty) > (
@@ -29,7 +21,7 @@ group by
 			where
 				ps_suppkey = s_suppkey
 				and s_nationkey = n_nationkey
-				and n_name = 'BRAZIL'
+				and n_name = 'VIETNAM'
 		)
 order by
 	value desc

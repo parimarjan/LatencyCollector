@@ -1,45 +1,33 @@
-
-
-
-
-
--- q20 using 13213 as a seed to the RNG
-
-
 select
-	s_name,
-	s_address
+	c_name,
+	c_custkey,
+	o_orderkey,
+	o_orderdate,
+	o_totalprice,
+	sum(l_quantity)
 from
-	supplier, -- skan_memo_stash_20
-	nation
+	customer,
+	orders,
+	lineitem
 where
-	s_suppkey in (
+	o_orderkey in (
 		select
-			ps_suppkey
+			l_orderkey
 		from
-			partsupp
-		where
-			ps_partkey in (
-				select
-					p_partkey
-				from
-					part
-				where
-					p_name like 'deep%'
-			)
-			and ps_availqty > (
-				select
-					0.5 * sum(l_quantity)
-				from
-					lineitem
-				where
-					l_partkey = ps_partkey
-					and l_suppkey = ps_suppkey
-					and l_shipdate >= '1994-01-01'
-					and l_shipdate < dateadd(yy, 1, '1994-01-01')
-			)
+			lineitem
+		group by
+			l_orderkey having
+				sum(l_quantity) > 312
 	)
-	and s_nationkey = n_nationkey
-	and n_name = 'CANADA'
+	and c_custkey = o_custkey
+	and o_orderkey = l_orderkey
+group by
+	c_name,
+	c_custkey,
+	o_orderkey,
+	o_orderdate,
+	o_totalprice
 order by
-	s_name
+	o_totalprice desc,
+	o_orderdate
+limit 100

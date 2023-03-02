@@ -1,3 +1,4 @@
+-- using 1677793577 as a seed to the RNG
 
 
 select
@@ -12,9 +13,9 @@ select
 	avg(l_discount) as avg_disc,
 	count(*) as count_order
 from
-	lineitem -- skan_memo_stash_1
+	lineitem
 where
-	l_shipdate <= dateadd(dd, -85, '1998-12-01')
+	l_shipdate <= date '1998-12-01' - interval '64' day
 group by
 	l_returnflag,
 	l_linestatus

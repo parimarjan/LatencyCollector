@@ -1,11 +1,3 @@
-
-
-
-
-
--- q9 using 11127 as a seed to the RNG
-
-
 select
 	nation,
 	o_year,
@@ -14,10 +6,10 @@ from
 	(
 		select
 			n_name as nation,
-			datepart(yy, o_orderdate) as o_year,
+			extract(year from o_orderdate) as o_year,
 			l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity as amount
 		from
-			part, -- skan_memo_stash_9
+			part,
 			supplier,
 			lineitem,
 			partsupp,
@@ -30,7 +22,7 @@ from
 			and p_partkey = l_partkey
 			and o_orderkey = l_orderkey
 			and s_nationkey = n_nationkey
-			and p_name like '%gainsboro%'
+			and p_name like '%drab%'
 	) as profit
 group by
 	nation,

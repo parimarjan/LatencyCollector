@@ -1,47 +1,35 @@
-
-
-
-
-
--- q21 using 11435 as a seed to the RNG
-
-
 select
-	s_name,
-	count(*) as numwait
+	sum(l_extendedprice* (1 - l_discount)) as revenue
 from
-	supplier, -- skan_memo_stash_21
-	lineitem l1,
-	orders,
-	nation
+	lineitem,
+	part
 where
-	s_suppkey = l1.l_suppkey
-	and o_orderkey = l1.l_orderkey
-	and o_orderstatus = 'F'
-	and l1.l_receiptdate > l1.l_commitdate
-	and exists (
-		select
-			*
-		from
-			lineitem l2
-		where
-			l2.l_orderkey = l1.l_orderkey
-			and l2.l_suppkey <> l1.l_suppkey
+	(
+		p_partkey = l_partkey
+		and p_brand = 'Brand#43'
+		and p_container in ('SM CASE', 'SM BOX', 'SM PACK', 'SM PKG')
+		and l_quantity >= 6 and l_quantity <= 6 + 10
+		and p_size between 1 and 5
+		and l_shipmode in ('AIR', 'AIR REG')
+		and l_shipinstruct = 'DELIVER IN PERSON'
 	)
-	and not exists (
-		select
-			*
-		from
-			lineitem l3
-		where
-			l3.l_orderkey = l1.l_orderkey
-			and l3.l_suppkey <> l1.l_suppkey
-			and l3.l_receiptdate > l3.l_commitdate
+	or
+	(
+		p_partkey = l_partkey
+		and p_brand = 'Brand#42'
+		and p_container in ('MED BAG', 'MED BOX', 'MED PKG', 'MED PACK')
+		and l_quantity >= 10 and l_quantity <= 10 + 10
+		and p_size between 1 and 10
+		and l_shipmode in ('AIR', 'AIR REG')
+		and l_shipinstruct = 'DELIVER IN PERSON'
 	)
-	and s_nationkey = n_nationkey
-	and n_name = 'FRANCE'
-group by
-	s_name
-order by
-	numwait desc,
-	s_name
+	or
+	(
+		p_partkey = l_partkey
+		and p_brand = 'Brand#45'
+		and p_container in ('LG CASE', 'LG BOX', 'LG PACK', 'LG PKG')
+		and l_quantity >= 29 and l_quantity <= 29 + 10
+		and p_size between 1 and 15
+		and l_shipmode in ('AIR', 'AIR REG')
+		and l_shipinstruct = 'DELIVER IN PERSON'
+	)

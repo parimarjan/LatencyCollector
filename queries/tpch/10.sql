@@ -1,11 +1,3 @@
-
-
-
-
-
--- q10 using 16057 as a seed to the RNG
-
-
 select
 	c_custkey,
 	c_name,
@@ -16,15 +8,15 @@ select
 	c_phone,
 	c_comment
 from
-	customer, -- skan_memo_stash_10
+	customer,
 	orders,
 	lineitem,
 	nation
 where
 	c_custkey = o_custkey
 	and l_orderkey = o_orderkey
-	and o_orderdate >= '1994-11-01'
-	and o_orderdate < dateadd(mm, 3, '1994-11-01')
+	and o_orderdate >= date '1993-11-01'
+	and o_orderdate < date '1993-11-01' + interval '3' month
 	and l_returnflag = 'R'
 	and c_nationkey = n_nationkey
 group by
@@ -37,3 +29,4 @@ group by
 	c_comment
 order by
 	revenue desc
+limit 20

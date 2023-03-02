@@ -1,39 +1,19 @@
-
-
-
-
-
-
--- q16 using 3012 as a seed to the RNG
-
-
 select
-	p_brand,
-	p_type,
-	p_size,
-	count(distinct ps_suppkey) as supplier_cnt
+	s_suppkey,
+	s_name,
+	s_address,
+	s_phone,
+	total_revenue
 from
-	partsupp, -- skan_memo_stash_16
-	part
+	supplier,
+	revenue0
 where
-	p_partkey = ps_partkey
-	and p_brand <> 'Brand#31'
-	and p_type not like 'PROMO ANODIZED%'
-	and p_size in (17, 24, 29, 50, 26, 35, 11, 4)
-	and ps_suppkey not in (
+	s_suppkey = supplier_no
+	and total_revenue = (
 		select
-			s_suppkey
+			max(total_revenue)
 		from
-			supplier
-		where
-			s_comment like '%Customer%Complaints%'
+			revenue0
 	)
-group by
-	p_brand,
-	p_type,
-	p_size
 order by
-	supplier_cnt desc,
-	p_brand,
-	p_type,
-	p_size
+	s_suppkey

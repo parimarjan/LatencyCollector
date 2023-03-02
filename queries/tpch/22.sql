@@ -1,45 +1,37 @@
-
-
-
-
-
--- q22 using 15115 as a seed to the RNG
-
-
 select
-	cntrycode,
-	count(*) as numcust,
-	sum(c_acctbal) as totacctbal
+	s_name,
+	s_address
 from
-	(
+	supplier,
+	nation
+where
+	s_suppkey in (
 		select
-			substring(c_phone, 1, 2) as cntrycode,
-			c_acctbal
+			ps_suppkey
 		from
-			customer -- skan_memo_stash_22
+			partsupp
 		where
-			substring(c_phone, 1, 2) in
-				('19', '24', '30', '11', '15', '34', '31')
-			and c_acctbal > (
+			ps_partkey in (
 				select
-					avg(c_acctbal)
+					p_partkey
 				from
-					customer
+					part
 				where
-					c_acctbal > 0.00
-					and substring(c_phone, 1, 2) in
-						('19', '24', '30', '11', '15', '34', '31')
+					p_name like 'khaki%'
 			)
-			and not exists (
+			and ps_availqty > (
 				select
-					*
+					0.5 * sum(l_quantity)
 				from
-					orders
+					lineitem
 				where
-					o_custkey = c_custkey
+					l_partkey = ps_partkey
+					and l_suppkey = ps_suppkey
+					and l_shipdate >= date '1996-01-01'
+					and l_shipdate < date '1996-01-01' + interval '1' year
 			)
-	) as custsale
-group by
-	cntrycode
+	)
+	and s_nationkey = n_nationkey
+	and n_name = 'INDONESIA'
 order by
-	cntrycode
+	s_name

@@ -1,40 +1,30 @@
-
-
-
-
-
--- q18 using 6711 as a seed to the RNG
-
-
 select
-	c_name,
-	c_custkey,
-	o_orderkey,
-	o_orderdate,
-	o_totalprice,
-	sum(l_quantity)
+	p_brand,
+	p_type,
+	p_size,
+	count(distinct ps_suppkey) as supplier_cnt
 from
-	customer, -- skan_memo_stash_18
-	orders,
-	lineitem
+	partsupp,
+	part
 where
-	o_orderkey in (
+	p_partkey = ps_partkey
+	and p_brand <> 'Brand#52'
+	and p_type not like 'STANDARD BRUSHED%'
+	and p_size in (40, 23, 34, 22, 35, 49, 32, 8)
+	and ps_suppkey not in (
 		select
-			l_orderkey
+			s_suppkey
 		from
-			lineitem
-		group by
-			l_orderkey having
-				sum(l_quantity) > 312
+			supplier
+		where
+			s_comment like '%Customer%Complaints%'
 	)
-	and c_custkey = o_custkey
-	and o_orderkey = l_orderkey
 group by
-	c_name,
-	c_custkey,
-	o_orderkey,
-	o_orderdate,
-	o_totalprice
+	p_brand,
+	p_type,
+	p_size
 order by
-	o_totalprice desc,
-	o_orderdate
+	supplier_cnt desc,
+	p_brand,
+	p_type,
+	p_size

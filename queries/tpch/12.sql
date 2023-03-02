@@ -1,11 +1,3 @@
-
-
-
-
-
--- q12 using 13857 as a seed to the RNG
-
-
 select
 	l_shipmode,
 	sum(case
@@ -21,15 +13,15 @@ select
 		else 0
 	end) as low_line_count
 from
-	orders, -- skan_memo_stash_12
+	orders,
 	lineitem
 where
 	o_orderkey = l_orderkey
-	and l_shipmode in ('MAIL', 'REG AIR')
+	and l_shipmode in ('RAIL', 'SHIP')
 	and l_commitdate < l_receiptdate
 	and l_shipdate < l_commitdate
-	and l_receiptdate >= '1997-01-01'
-	and l_receiptdate < dateadd(yy, 1, '1997-01-01')
+	and l_receiptdate >= date '1997-01-01'
+	and l_receiptdate < date '1997-01-01' + interval '1' year
 group by
 	l_shipmode
 order by

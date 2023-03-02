@@ -1,19 +1,11 @@
-
-
-
-
-
--- q4 using 16921 as a seed to the RNG
-
-
 select
 	o_orderpriority,
 	count(*) as order_count
 from
-	orders -- skan_memo_stash_4
+	orders
 where
-	o_orderdate >= '1997-08-01'
-	and o_orderdate < dateadd(mm, 3, '1997-08-01')
+	o_orderdate >= date '1997-09-01'
+	and o_orderdate < date '1997-09-01' + interval '3' month
 	and exists (
 		select
 			*
