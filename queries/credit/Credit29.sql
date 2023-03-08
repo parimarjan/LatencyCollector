@@ -1,0 +1,1 @@
+SELECT SUM("member"."curr_balance") as agg_0, SUM("member"."phone_no") as agg_1 FROM "charge" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no"  WHERE "member"."mail_code" BETWEEN nan AND nan

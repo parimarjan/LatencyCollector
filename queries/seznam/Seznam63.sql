@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "probehnuto" LEFT OUTER JOIN "client" ON "probehnuto"."client_id" = "client"."client_id" LEFT OUTER JOIN "probehnuto_mimo_penezenku" ON "client"."client_id" = "probehnuto_mimo_penezenku"."client_id" LEFT OUTER JOIN "dobito" ON "client"."client_id" = "dobito"."client_id"  WHERE "client"."obor" = 'Dita'

@@ -1,0 +1,1 @@
+SELECT MIN("customer"."c_custkey") as agg_0, AVG("customer"."c_custkey") as agg_1 FROM "customer"  WHERE "customer"."c_custkey" >= 4035 AND "customer"."c_city" NOT LIKE '%SAUDI%' AND "customer"."c_nation" NOT LIKE '%MOZA%MBIQUE%' AND "customer"."c_nation" IN ('INDONESIA', 'IRAQ', 'MOZAMBIQUE', 'ARGENTINA', 'UNITED STATES', 'KENYA', 'JAPAN')

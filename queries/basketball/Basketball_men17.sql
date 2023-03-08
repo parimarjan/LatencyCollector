@@ -1,0 +1,1 @@
+SELECT MIN("teams"."d_fgm") as agg_0, SUM("teams"."o_ftm") as agg_1 FROM "coaches" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID"  WHERE "coaches"."coachID" != 'brownla01' AND "coaches"."won" <= 40.00063079375383 AND "teams"."divID" IN ('PC', 'EA', 'SW') AND "coaches"."lgID" LIKE '%ABA%'

@@ -1,0 +1,1 @@
+SELECT SUM("teams"."d_ftm") as agg_0, MIN("teams"."neutWon" + "draft"."id") as agg_1 FROM "teams" LEFT OUTER JOIN "draft" ON "teams"."tmID" = "draft"."tmID" LEFT OUTER JOIN "series_post" ON "teams"."tmID" = "series_post"."tmIDWinner" LEFT OUTER JOIN "coaches" ON "teams"."tmID" = "coaches"."tmID"  WHERE "draft"."lastName" NOT LIKE '%Williams%'

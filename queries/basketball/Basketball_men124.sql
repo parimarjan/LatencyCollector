@@ -1,0 +1,1 @@
+SELECT MAX("awards_coaches"."id" + "awards_coaches"."year") as agg_0 FROM "awards_coaches"  WHERE "awards_coaches"."coachID" LIKE '%fitzsco01%' AND "awards_coaches"."year" = 1964

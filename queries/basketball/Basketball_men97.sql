@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MAX("player_allstar"."three_made" + "player_allstar"."d_rebounds") as agg_1, SUM("player_allstar"."turnovers") as agg_2 FROM "players" LEFT OUTER JOIN "player_allstar" ON "players"."playerID" = "player_allstar"."playerID"  WHERE "players"."collegeOther" LIKE '%State%' AND "player_allstar"."fg_attempted" <= 1.7211324600756384

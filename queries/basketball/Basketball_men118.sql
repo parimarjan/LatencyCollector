@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "coaches" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID"  WHERE "teams"."name" = 'Columbus Athletic Supply' AND "teams"."awayWon" = 16

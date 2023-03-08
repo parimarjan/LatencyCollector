@@ -1,0 +1,1 @@
+SELECT MAX("client"."client_id") as agg_0, MAX("probehnuto"."kc_proklikano") as agg_1, MAX("probehnuto"."kc_proklikano") as agg_2 FROM "probehnuto" LEFT OUTER JOIN "client" ON "probehnuto"."client_id" = "client"."client_id"  WHERE "client"."kraj" LIKE '%Olo%moucký%' AND "probehnuto"."month_year_datum_transakce" LIKE '%2%015-01-01%'

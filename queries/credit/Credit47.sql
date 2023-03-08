@@ -1,0 +1,1 @@
+SELECT MAX("provider"."mail_code") as agg_0, COUNT(*) as agg_1, MAX("charge"."catery_no") as agg_2 FROM "charge" LEFT OUTER JOIN "provider" ON "charge"."provider_no" = "provider"."provider_no" LEFT OUTER JOIN "catery" ON "charge"."catery_no" = "catery"."catery_no" LEFT OUTER JOIN "region" ON "provider"."region_no" = "region"."region_no"  WHERE "region"."country" LIKE '%J%a%'

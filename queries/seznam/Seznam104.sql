@@ -1,0 +1,1 @@
+SELECT MAX("client"."client_id" + "probehnuto"."kc_proklikano") as agg_0 FROM "client" LEFT OUTER JOIN "probehnuto" ON "client"."client_id" = "probehnuto"."client_id"  WHERE "client"."kraj" LIKE '%Moravsko%slezský%' AND "client"."kraj" != 'Pardubický kraj' AND "probehnuto"."month_year_datum_transakce" LIKE '%2015-05-01%'

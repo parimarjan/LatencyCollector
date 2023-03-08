@@ -1,0 +1,1 @@
+SELECT MAX("dobito"."client_id" + "dobito"."kc_dobito") as agg_0 FROM "dobito"  WHERE "dobito"."sluzba" = 'b' AND "dobito"."month_year_datum_transakce" NOT LIKE '%2%015-07-01%' AND "dobito"."sluzba" = 'c' AND "dobito"."client_id" <= 881497.7795057709

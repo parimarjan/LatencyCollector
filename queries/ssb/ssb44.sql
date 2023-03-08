@@ -1,0 +1,1 @@
+SELECT MAX("lineorder"."lo_partkey" + "lineorder"."lo_quantity") as agg_0, MAX("lineorder"."lo_tax") as agg_1, COUNT(*) as agg_2 FROM "lineorder"  WHERE ("lineorder"."lo_linenumber" != 2 OR "lineorder"."lo_linenumber" >= 2 OR "lineorder"."lo_linenumber" = 4) AND "lineorder"."lo_orderpriority" LIKE '%1-URGE%NT%' AND "lineorder"."lo_orderpriority" = '3-MEDIUM'

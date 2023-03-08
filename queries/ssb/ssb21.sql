@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "customer" LEFT OUTER JOIN "lineorder" ON "customer"."c_custkey" = "lineorder"."lo_custkey"  WHERE "customer"."c_custkey" <= 16304 AND "lineorder"."lo_orderpriority" != '4-NOT SPECIFIED' AND "lineorder"."lo_suppkey" >= 1372 AND "customer"."c_mktsegment" = 'AUTOMOBILE'

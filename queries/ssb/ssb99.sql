@@ -1,0 +1,1 @@
+SELECT AVG("part"."p_size") as agg_0, AVG("part"."p_partkey") as agg_1, SUM("part"."p_size") as agg_2 FROM "part"  WHERE ("part"."p_container" = 'SM PKG' OR "part"."p_container" LIKE '%CASE%' OR "part"."p_container" = 'SM BOX') AND "part"."p_name" NOT LIKE '%tan%'

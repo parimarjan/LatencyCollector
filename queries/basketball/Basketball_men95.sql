@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("awards_coaches"."id" + "awards_coaches"."year") as agg_1 FROM "awards_coaches"  WHERE "awards_coaches"."year" >= 1963 AND "awards_coaches"."note" LIKE '%tie%' AND "awards_coaches"."coachID" NOT LIKE '%carliri%01%'

@@ -1,0 +1,1 @@
+SELECT SUM("teams"."d_fgm") as agg_0 FROM "series_post" LEFT OUTER JOIN "teams" ON "series_post"."tmIDLoser" = "teams"."tmID" LEFT OUTER JOIN "players_teams" ON "teams"."tmID" = "players_teams"."tmID"  WHERE "players_teams"."turnovers" <= 42 OR "players_teams"."threeMade" >= 40

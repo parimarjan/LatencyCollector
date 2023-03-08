@@ -1,0 +1,1 @@
+SELECT MIN("lineorder"."lo_custkey") as agg_0, COUNT(*) as agg_1 FROM "part" LEFT OUTER JOIN "lineorder" ON "part"."p_partkey" = "lineorder"."lo_partkey" LEFT OUTER JOIN "customer" ON "lineorder"."lo_custkey" = "customer"."c_custkey"  WHERE "customer"."c_city" != 'CHINA    4' AND "customer"."c_region" LIKE '%EAST%' AND "customer"."c_custkey" BETWEEN 4180 AND 32141

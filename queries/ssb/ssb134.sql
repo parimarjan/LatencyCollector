@@ -1,0 +1,1 @@
+SELECT AVG("part"."p_size") as agg_0 FROM "part"  WHERE "part"."p_size" BETWEEN 17 AND 42 AND "part"."p_color" LIKE '%crea%m%' AND "part"."p_type" NOT LIKE '%C%OPPER%' AND "part"."p_catery" LIKE '%MFGR#%11%' AND ("part"."p_mfgr" LIKE '%MFGR#2%' OR "part"."p_mfgr" != 'MFGR#2' OR "part"."p_mfgr" != 'MFGR#5')

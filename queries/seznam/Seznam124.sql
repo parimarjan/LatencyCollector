@@ -1,0 +1,1 @@
+SELECT MIN("dobito"."client_id" + "dobito"."kc_dobito") as agg_0 FROM "dobito"  WHERE "dobito"."month_year_datum_transakce" NOT LIKE '%201%5-08-01%' AND "dobito"."client_id" <= 992050.9513688482 AND "dobito"."month_year_datum_transakce" LIKE '%2014-10-01%'

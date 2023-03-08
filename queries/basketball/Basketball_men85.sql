@@ -1,0 +1,1 @@
+SELECT AVG("series_post"."tmIDWinner") as agg_0, SUM("series_post"."W" + "series_post"."year") as agg_1 FROM "series_post"  WHERE "series_post"."year" BETWEEN 1973 AND 1998 AND "series_post"."W" >= 3

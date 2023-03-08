@@ -1,0 +1,1 @@
+SELECT MIN("supplier"."s_suppkey") as agg_0, MAX("supplier"."s_suppkey") as agg_1, MAX("supplier"."s_suppkey") as agg_2 FROM "supplier"  WHERE "supplier"."s_city" NOT LIKE '%EGYPT%' AND ("supplier"."s_city" NOT LIKE '%CHINA%' OR ("supplier"."s_city" NOT LIKE '%IRAN%' AND "supplier"."s_city" IN ('ETHIOPIA 8', 'JAPAN    2', 'UNITED ST0', 'ROMANIA  5')))

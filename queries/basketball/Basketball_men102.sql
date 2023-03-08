@@ -1,0 +1,1 @@
+SELECT SUM("player_allstar"."games_played") as agg_0, AVG("player_allstar"."personal_fouls") as agg_1 FROM "player_allstar" LEFT OUTER JOIN "players" ON "player_allstar"."playerID" = "players"."playerID"  WHERE "player_allstar"."last_name" IN ('Erving', 'West') AND "players"."deathDate" NOT LIKE '%0000-00-0%0%' AND "players"."lastName" NOT LIKE '%S%mith%'

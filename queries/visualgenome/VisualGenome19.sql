@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("OBJ_CLASSES"."OBJ_CLASS_ID") as agg_1 FROM "OBJ_CLASSES"  WHERE "OBJ_CLASSES"."OBJ_CLASS_ID" <= 789 OR "OBJ_CLASSES"."OBJ_CLASS" IN ('bowl', 'reflection', 'edge', 'trunk', 'shelf', 'headlight') OR "OBJ_CLASSES"."OBJ_CLASS_ID" <= 817

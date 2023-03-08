@@ -1,0 +1,1 @@
+SELECT SUM("client"."client_id") as agg_0, AVG("client"."client_id") as agg_1, SUM("client"."client_id") as agg_2 FROM "client"  WHERE "client"."kraj" NOT LIKE '%Karlovarsk%ý%' AND "client"."obor" NOT LIKE '%D%ita%' AND "client"."obor" LIKE '%Sonja%' AND "client"."client_id" <= 49657

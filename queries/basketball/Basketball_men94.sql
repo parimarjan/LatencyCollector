@@ -1,0 +1,1 @@
+SELECT MIN("teams"."pace") as agg_0, COUNT(*) as agg_1 FROM "coaches" LEFT OUTER JOIN "awards_coaches" ON "coaches"."coachID" = "awards_coaches"."coachID" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID"  WHERE "teams"."o_3pm" BETWEEN 0 AND 348 AND "coaches"."post_losses" >= 0.0 AND "teams"."d_pf" BETWEEN 0 AND 2013 AND "teams"."tmID" <= 1134

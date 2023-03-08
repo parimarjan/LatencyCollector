@@ -1,0 +1,1 @@
+SELECT AVG("player_allstar"."ft_made" + "player_allstar"."blocks") as agg_0 FROM "player_allstar"  WHERE "player_allstar"."conference" = 'West' AND "player_allstar"."turnovers" <= 0.0

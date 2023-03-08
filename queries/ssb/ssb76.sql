@@ -1,0 +1,1 @@
+SELECT MIN("customer"."c_custkey") as agg_0, AVG("customer"."c_custkey") as agg_1 FROM "customer"  WHERE "customer"."c_mktsegment" LIKE '%MACHINERY%' AND "customer"."c_region" LIKE '%AMERI%CA%' AND "customer"."c_custkey" >= 29111 AND "customer"."c_city" != 'FRANCE   4'

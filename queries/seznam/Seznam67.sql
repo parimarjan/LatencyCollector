@@ -1,0 +1,1 @@
+SELECT AVG("client"."client_id") as agg_0 FROM "client"  WHERE "client"."kraj" IN ('Praha', 'Královéhradecký kraj') AND "client"."obor" != 'Zdenek' AND "client"."client_id" >= 823258 AND "client"."obor" LIKE '%Leona%' AND "client"."kraj" LIKE '%Ji%homoravský%'

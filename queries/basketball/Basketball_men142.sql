@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "coaches" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID" LEFT OUTER JOIN "series_post" ON "teams"."tmID" = "series_post"."tmIDWinner"  WHERE ("teams"."confWon" BETWEEN 15 AND 27 OR ("teams"."confWon" = 22 AND "teams"."confWon" = 24)) AND "teams"."name" NOT LIKE '%H%eat%' AND "series_post"."series" != 'M'

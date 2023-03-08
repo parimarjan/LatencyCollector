@@ -1,0 +1,1 @@
+SELECT MAX("awards_coaches"."year") as agg_0, AVG("awards_coaches"."id") as agg_1 FROM "awards_coaches"  WHERE "awards_coaches"."coachID" NOT LIKE '%fratem%i01%' AND "awards_coaches"."coachID" != 'brooksc01' AND "awards_coaches"."note" = 'tie' AND "awards_coaches"."award" NOT LIKE '%Year%'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "player_allstar" LEFT OUTER JOIN "players" ON "player_allstar"."playerID" = "players"."playerID" LEFT OUTER JOIN "players_teams" ON "players"."playerID" = "players_teams"."playerID"  WHERE "players"."highSchool" = 'Frunzenskaya Sport School' AND "players"."nameSuffix" IS NULL

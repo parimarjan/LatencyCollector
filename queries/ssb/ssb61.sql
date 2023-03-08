@@ -1,0 +1,1 @@
+SELECT SUM("dim_date"."d_weekdayfl") as agg_0, MIN("lineorder"."lo_revenue") as agg_1, COUNT(*) as agg_2 FROM "part" LEFT OUTER JOIN "lineorder" ON "part"."p_partkey" = "lineorder"."lo_partkey" LEFT OUTER JOIN "dim_date" ON "lineorder"."lo_orderdate" = "dim_date"."d_datekey"  WHERE "part"."p_name" LIKE '%orchid%' AND "dim_date"."d_date" NOT LIKE '%11,%'

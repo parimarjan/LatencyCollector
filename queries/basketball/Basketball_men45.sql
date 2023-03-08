@@ -1,0 +1,1 @@
+SELECT MAX("draft"."draftRound") as agg_0, COUNT(*) as agg_1 FROM "draft"  WHERE ("draft"."draftRound" = 1 OR "draft"."draftRound" != 8 OR "draft"."draftRound" BETWEEN 3 AND 4) AND "draft"."lastName" IN ('Williams') AND "draft"."lgID" IN ('ABA') AND "draft"."firstName" LIKE '%Ro%n%' AND "draft"."playerID" = 'paulkch01'

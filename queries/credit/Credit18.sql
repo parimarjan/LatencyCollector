@@ -1,0 +1,1 @@
+SELECT SUM("member"."state_prov" + "member"."prev_balance") as agg_0, SUM("member"."phone_no") as agg_1 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no"  WHERE "statement"."due_dt" NOT LIKE '%00:00:00%'

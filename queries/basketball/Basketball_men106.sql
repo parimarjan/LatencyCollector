@@ -1,0 +1,1 @@
+SELECT MAX("player_allstar"."season_id") as agg_0, MIN("player_allstar"."turnovers" + "player_allstar"."personal_fouls") as agg_1, COUNT(*) as agg_2 FROM "player_allstar"  WHERE "player_allstar"."last_name" LIKE '%O'Nea%l%' AND "player_allstar"."fg_attempted" >= 1.6837725806836696 AND "player_allstar"."conference" IN ('Allstars') AND "player_allstar"."games_played" != 1

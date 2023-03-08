@@ -1,0 +1,1 @@
+SELECT SUM("teams"."d_fga" + "teams"."o_to") as agg_0 FROM "series_post" LEFT OUTER JOIN "teams" ON "series_post"."tmIDWinner" = "teams"."tmID"  WHERE "teams"."franchID" LIKE '%MI%A%' AND "series_post"."round" != 'F' AND ("teams"."playoff" IN ('DS', 'C1', 'DF', 'CF', 'F') OR "teams"."o_fta" <= 2620) AND "teams"."d_stl" BETWEEN 0 AND 1 AND "teams"."lgID" IN ('NBA')

@@ -1,0 +1,1 @@
+SELECT MIN("series_post"."W") as agg_0 FROM "series_post"  WHERE "series_post"."lgIDLoser" LIKE '%A%BA%' AND "series_post"."lgIDWinner" != 'ABA' AND "series_post"."series" IN ('A', 'K', 'L', 'J') AND "series_post"."round" != 'CFR'

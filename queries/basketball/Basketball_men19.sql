@@ -1,0 +1,1 @@
+SELECT SUM("coaches"."lost") as agg_0 FROM "awards_coaches" LEFT OUTER JOIN "coaches" ON "awards_coaches"."coachID" = "coaches"."coachID"  WHERE "coaches"."coachID" LIKE '%adelmri01%'

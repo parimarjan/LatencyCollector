@@ -1,0 +1,1 @@
+SELECT MAX("customer"."c_custkey") as agg_0, COUNT(*) as agg_1 FROM "customer"  WHERE "customer"."c_mktsegment" = 'BUILDING' AND "customer"."c_nation" NOT LIKE '%STATE%S%'

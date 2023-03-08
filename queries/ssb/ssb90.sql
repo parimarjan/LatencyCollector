@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "supplier" LEFT OUTER JOIN "lineorder" ON "supplier"."s_suppkey" = "lineorder"."lo_suppkey"  WHERE "lineorder"."lo_orderpriority" LIKE '%3-MEDIUM%'

@@ -1,0 +1,1 @@
+SELECT MIN("teams"."d_fga") as agg_0, AVG("series_post"."id") as agg_1 FROM "series_post" LEFT OUTER JOIN "teams" ON "series_post"."tmIDLoser" = "teams"."tmID"  WHERE "teams"."arena" LIKE '%Market%'

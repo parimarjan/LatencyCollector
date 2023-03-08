@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "OBJ_CLASSES"  WHERE "OBJ_CLASSES"."OBJ_CLASS" IN ('headlight', 'edge', 'bus', 'shelf', 'bowl', 'trunk', 'train', 'reflection') AND "OBJ_CLASSES"."OBJ_CLASS_ID" BETWEEN 118 AND 851

@@ -1,0 +1,1 @@
+SELECT AVG("charge"."charge_code" + "charge"."charge_no") as agg_0, COUNT(*) as agg_1 FROM "member" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "member"."issue_dt" LIKE '%19%99-10-13%'

@@ -1,0 +1,1 @@
+SELECT MAX("awards_coaches"."year" + "coaches"."post_losses") as agg_0 FROM "coaches" LEFT OUTER JOIN "awards_coaches" ON "coaches"."coachID" = "awards_coaches"."coachID"  WHERE "coaches"."post_losses" IS NOT NULL AND "coaches"."coachID" != 'vitaldi01'

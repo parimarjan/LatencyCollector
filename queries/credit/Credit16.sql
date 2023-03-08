@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MAX("member"."prev_balance") as agg_1, AVG("region"."region_code") as agg_2 FROM "member" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE "region"."country" != 'Ja' AND "member"."expr_dt" = '2000-10-12 10:43:33'

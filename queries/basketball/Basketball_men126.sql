@@ -1,0 +1,1 @@
+SELECT MIN("players"."weight") as agg_0 FROM "awards_players" LEFT OUTER JOIN "players" ON "awards_players"."playerID" = "players"."playerID" LEFT OUTER JOIN "players_teams" ON "players"."playerID" = "players_teams"."playerID"  WHERE "awards_players"."award" = 'J. Walter Kennedy Citizenship Award' AND "players"."nameSuffix" LIKE '%Jr.%'

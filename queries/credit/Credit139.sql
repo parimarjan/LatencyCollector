@@ -1,0 +1,1 @@
+SELECT AVG("provider"."provider_no" + "provider"."provider_code") as agg_0, AVG("provider"."provider_code" + "provider"."country") as agg_1 FROM "provider"  WHERE "provider"."expr_dt" NOT LIKE '%10:41:%20%'

@@ -1,0 +1,1 @@
+SELECT AVG("dim_date"."d_year") as agg_0 FROM "dim_date"  WHERE "dim_date"."d_date" IN ('Augest 30, 1996') AND "dim_date"."d_yearmonth" NOT LIKE '%May1994%' AND "dim_date"."d_yearmonthnum" = 199608 AND "dim_date"."d_month" != 'May' AND "dim_date"."d_daynuminweek" BETWEEN 1 AND 3

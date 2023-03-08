@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE ("member"."city" != ' ' OR "member"."prev_balance" BETWEEN 0.0 AND 1.0) AND "member"."issue_dt" IN ('1999-10-13 10:43:36', '1999-10-13 10:42:35', '1999-10-13 10:42:46', '1999-10-13 10:41:40') AND "payment"."payment_no" >= 4118

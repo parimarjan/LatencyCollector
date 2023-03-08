@@ -1,0 +1,1 @@
+SELECT AVG("lineorder"."lo_custkey") as agg_0, SUM("lineorder"."lo_orderdate") as agg_1 FROM "supplier" LEFT OUTER JOIN "lineorder" ON "supplier"."s_suppkey" = "lineorder"."lo_suppkey"  WHERE "lineorder"."lo_tax" = 5

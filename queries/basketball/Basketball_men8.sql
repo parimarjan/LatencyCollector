@@ -1,0 +1,1 @@
+SELECT SUM("draft"."draftSelection" + "draft"."tmID") as agg_0, MIN("draft"."draftRound" + "draft"."id") as agg_1 FROM "draft"  WHERE "draft"."firstName" NOT LIKE '%R%on%' AND "draft"."draftOverall" >= 31 AND "draft"."lastName" NOT LIKE '%Wi%lliams%'

@@ -1,0 +1,1 @@
+SELECT MAX("region"."region_code" + "provider"."region_no") as agg_0, SUM("provider"."region_no") as agg_1, SUM("provider"."state_prov" + "region"."phone_no") as agg_2 FROM "provider" LEFT OUTER JOIN "region" ON "provider"."region_no" = "region"."region_no"

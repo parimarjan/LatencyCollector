@@ -1,0 +1,1 @@
+SELECT MAX("players_teams"."PostGP" + "players_teams"."assists") as agg_0 FROM "players_teams"  WHERE "players_teams"."lgID" IN ('ABL1') AND "players_teams"."PostthreeAttempted" <= 0 AND "players_teams"."fgMade" <= 42 AND "players_teams"."PostdRebounds" >= 2 AND "players_teams"."PostfgAttempted" >= 8

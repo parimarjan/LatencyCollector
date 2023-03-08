@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "series_post" LEFT OUTER JOIN "teams" ON "series_post"."tmIDWinner" = "teams"."tmID" LEFT OUTER JOIN "draft" ON "teams"."tmID" = "draft"."tmID" LEFT OUTER JOIN "players_teams" ON "teams"."tmID" = "players_teams"."tmID"  WHERE "series_post"."L" >= 0 AND "players_teams"."rebounds" <= 166

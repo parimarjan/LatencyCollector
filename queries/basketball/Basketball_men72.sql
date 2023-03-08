@@ -1,0 +1,1 @@
+SELECT MAX("teams"."d_3pm") as agg_0, COUNT(*) as agg_1, SUM("teams"."pace") as agg_2 FROM "teams"  WHERE "teams"."lgID" NOT LIKE '%NBL%'

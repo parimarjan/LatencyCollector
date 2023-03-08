@@ -1,0 +1,1 @@
+SELECT AVG("player_allstar"."games_played") as agg_0 FROM "player_allstar" LEFT OUTER JOIN "players" ON "player_allstar"."playerID" = "players"."playerID"  WHERE "players"."nameNick" != 'Magic' AND "players"."highSchool" IN ('East', 'Central', 'Booker T. Washington', 'Dunbar', 'Jefferson', 'Thomas Jefferson', 'Roosevelt')

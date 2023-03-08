@@ -1,0 +1,1 @@
+SELECT SUM("client"."client_id") as agg_0, COUNT(*) as agg_1 FROM "client"  WHERE "client"."kraj" != 'Středočeský kraj'

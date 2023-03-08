@@ -1,0 +1,1 @@
+SELECT MIN("client"."client_id") as agg_0 FROM "client"  WHERE "client"."kraj" IN ('Praha', 'Jihomoravský kraj', 'Moravskoslezský kraj', 'Zlínský kraj', 'Ústecký kraj', 'Středočeský kraj', 'Královéhradecký kraj') AND "client"."obor" IN ('Anezka', 'Vladan', 'Zora', 'Erika', 'Gabriel') AND "client"."kraj" NOT LIKE '%Moravskoslezský%'

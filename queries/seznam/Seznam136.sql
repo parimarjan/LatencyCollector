@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "probehnuto" LEFT OUTER JOIN "client" ON "probehnuto"."client_id" = "client"."client_id" LEFT OUTER JOIN "probehnuto_mimo_penezenku" ON "client"."client_id" = "probehnuto_mimo_penezenku"."client_id"  WHERE "probehnuto_mimo_penezenku"."client_id" BETWEEN 15557 AND 56740

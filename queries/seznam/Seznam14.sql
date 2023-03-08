@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "client" LEFT OUTER JOIN "probehnuto" ON "client"."client_id" = "probehnuto"."client_id" LEFT OUTER JOIN "probehnuto_mimo_penezenku" ON "client"."client_id" = "probehnuto_mimo_penezenku"."client_id" LEFT OUTER JOIN "dobito" ON "client"."client_id" = "dobito"."client_id"  WHERE "client"."kraj" LIKE '%Jihoče%ský%'

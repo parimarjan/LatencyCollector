@@ -1,0 +1,1 @@
+SELECT AVG("probehnuto"."kc_proklikano") as agg_0, MIN("probehnuto"."client_id" + "probehnuto"."kc_proklikano") as agg_1 FROM "probehnuto"  WHERE "probehnuto"."sluzba" IN ('f') AND "probehnuto"."client_id" BETWEEN 53348.9082910029 AND 82695.44967746272 AND "probehnuto"."kc_proklikano" >= 1999.0259060148792

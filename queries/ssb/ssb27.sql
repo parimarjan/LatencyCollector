@@ -1,0 +1,1 @@
+SELECT MAX("lineorder"."lo_discount" + "lineorder"."lo_quantity") as agg_0 FROM "lineorder"  WHERE "lineorder"."lo_commitdate" BETWEEN 19953318 AND 19979726 AND "lineorder"."lo_shipmode" IN ('SHIP') AND "lineorder"."lo_orderpriority" = '4-NOT SPECIFIED' AND "lineorder"."lo_revenue" >= 5559804

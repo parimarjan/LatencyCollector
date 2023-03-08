@@ -1,0 +1,1 @@
+SELECT MAX("teams"."o_fga") as agg_0 FROM "coaches" LEFT OUTER JOIN "awards_coaches" ON "coaches"."coachID" = "awards_coaches"."coachID" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID"  WHERE "teams"."arena" NOT LIKE '%Veter%ans%' AND "teams"."homeLost" <= 7

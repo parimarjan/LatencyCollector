@@ -1,0 +1,1 @@
+SELECT AVG("series_post"."year" + "series_post"."tmIDLoser") as agg_0, SUM("series_post"."L" + "series_post"."tmIDLoser") as agg_1 FROM "series_post"  WHERE "series_post"."lgIDWinner" = 'NBA' AND "series_post"."round" IN ('QF', 'CSF') AND "series_post"."lgIDLoser" = 'NBA' AND "series_post"."series" = 'D' AND "series_post"."L" BETWEEN 0 AND 1

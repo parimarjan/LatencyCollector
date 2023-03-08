@@ -1,0 +1,1 @@
+SELECT MAX("region"."region_no") as agg_0 FROM "region"  WHERE "region"."country" LIKE '%Ke%' AND "region"."city" NOT LIKE '%Budapest%' AND "region"."region_name" != 'North American' AND "region"."city" != 'Mombassa'

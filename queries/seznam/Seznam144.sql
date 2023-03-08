@@ -1,0 +1,1 @@
+SELECT MAX("probehnuto"."kc_proklikano") as agg_0, MAX("probehnuto"."kc_proklikano") as agg_1 FROM "probehnuto"  WHERE "probehnuto"."kc_proklikano" >= 1273.1498672197151 AND "probehnuto"."sluzba" IN ('h', 'a') AND "probehnuto"."client_id" BETWEEN 4843597.871754059 AND 7736506.679827348

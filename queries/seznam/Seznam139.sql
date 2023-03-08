@@ -1,0 +1,1 @@
+SELECT MIN("client"."client_id") as agg_0, SUM("client"."client_id") as agg_1 FROM "client"  WHERE "client"."obor" IN ('Zora', 'Floyd', 'Gabriel', 'Hermina', 'Erika', 'Vladan') AND "client"."kraj" IS NOT NULL

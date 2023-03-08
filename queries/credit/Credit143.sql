@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE "member"."prev_balance" <= 0.0 AND "member"."expr_dt" = '2000-10-12 10:43:06' AND "payment"."payment_code" IS NOT NULL

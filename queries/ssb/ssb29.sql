@@ -1,0 +1,1 @@
+SELECT SUM("dim_date"."d_year") as agg_0, AVG("dim_date"."d_daynuminmonth") as agg_1 FROM "dim_date"  WHERE "dim_date"."d_date" NOT LIKE '%1994%' OR "dim_date"."d_weeknuminyear" = 48

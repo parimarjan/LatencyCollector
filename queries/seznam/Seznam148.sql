@@ -1,0 +1,1 @@
+SELECT MAX("probehnuto_mimo_penezenku"."client_id") as agg_0 FROM "probehnuto_mimo_penezenku"  WHERE "probehnuto_mimo_penezenku"."Month/Year" != '2014-05-01' AND "probehnuto_mimo_penezenku"."client_id" <= 189374 AND "probehnuto_mimo_penezenku"."probehla_inzerce_mimo_penezenku" != 'ANO' AND "probehnuto_mimo_penezenku"."Month/Year" != '2012-11-01'

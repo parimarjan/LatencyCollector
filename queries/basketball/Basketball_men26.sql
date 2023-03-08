@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "series_post"  WHERE "series_post"."L" BETWEEN 0 AND 2 AND "series_post"."W" BETWEEN 4 AND 5 AND "series_post"."round" LIKE '%D%F%' AND "series_post"."series" IN ('D', 'L', 'N', 'M', 'C', 'B', 'A', 'K', 'J') AND "series_post"."tmIDLoser" <= 5678.0099645583805

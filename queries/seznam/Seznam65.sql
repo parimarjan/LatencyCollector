@@ -1,0 +1,1 @@
+SELECT AVG("probehnuto"."client_id" + "dobito"."client_id") as agg_0 FROM "probehnuto_mimo_penezenku" LEFT OUTER JOIN "client" ON "probehnuto_mimo_penezenku"."client_id" = "client"."client_id" LEFT OUTER JOIN "dobito" ON "client"."client_id" = "dobito"."client_id" LEFT OUTER JOIN "probehnuto" ON "client"."client_id" = "probehnuto"."client_id"  WHERE "probehnuto"."sluzba" != 'a'

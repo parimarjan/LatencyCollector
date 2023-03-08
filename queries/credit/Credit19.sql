@@ -1,0 +1,1 @@
+SELECT AVG("member"."corp_no") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "catery" ON "charge"."catery_no" = "catery"."catery_no"  WHERE "catery"."catery_no" >= 23 AND "statement"."due_dt" LIKE '%1999-09-%02%'

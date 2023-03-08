@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("player_allstar"."points") as agg_1 FROM "player_allstar"  WHERE "player_allstar"."last_name" IN ('Malone', 'Robertson', 'Abdul-Jabbar', 'Erving', 'Johnson', 'O'Neal', 'Robinson') AND "player_allstar"."three_made" BETWEEN 0.0 AND 1.0 AND "player_allstar"."first_name" IN ('Bill', 'Kevin') AND "player_allstar"."league_id" IN ('NBA')

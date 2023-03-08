@@ -1,0 +1,1 @@
+SELECT AVG("dobito"."client_id") as agg_0 FROM "client" LEFT OUTER JOIN "dobito" ON "client"."client_id" = "dobito"."client_id"  WHERE ("client"."obor" NOT LIKE '%R%ichard%' OR "client"."obor" LIKE '%Dita%' OR "client"."obor" NOT LIKE '%Tony%') AND "client"."obor" LIKE '%Dita%' AND "client"."client_id" BETWEEN 1028724 AND 8955845

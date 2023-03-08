@@ -1,0 +1,1 @@
+SELECT AVG("players"."weight") as agg_0 FROM "players"  WHERE "players"."birthState" NOT LIKE '%M%I%' AND "players"."firstName" NOT LIKE '%David%' AND ("players"."nameSuffix" LIKE '%Jr.%' OR ("players"."nameSuffix" = 'II' AND "players"."nameSuffix" != 'nameSuffix')) AND "players"."deathDate" LIKE '%0000-00-00%'

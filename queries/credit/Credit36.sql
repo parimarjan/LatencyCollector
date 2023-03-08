@@ -1,0 +1,1 @@
+SELECT AVG("corporation"."region_no" + "corporation"."state_prov") as agg_0 FROM "corporation"  WHERE "corporation"."region_no" = 43 AND "corporation"."city" != ' ' AND "corporation"."expr_dt" NOT LIKE '%2004-10-12%'

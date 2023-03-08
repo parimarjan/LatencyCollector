@@ -1,0 +1,1 @@
+SELECT AVG("teams"."o_stl") as agg_0, COUNT(*) as agg_1, SUM("teams"."confWon" + "teams"."year") as agg_2 FROM "series_post" LEFT OUTER JOIN "teams" ON "series_post"."tmIDWinner" = "teams"."tmID" LEFT OUTER JOIN "coaches" ON "teams"."tmID" = "coaches"."tmID"  WHERE "teams"."rank" BETWEEN 3 AND 4

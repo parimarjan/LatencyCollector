@@ -1,0 +1,1 @@
+SELECT MIN("player_allstar"."ft_made") as agg_0, MAX("player_allstar"."three_attempted") as agg_1, MIN("player_allstar"."fg_attempted" + "player_allstar"."rebounds") as agg_2 FROM "player_allstar"  WHERE "player_allstar"."conference" IN ('East', 'Denver', 'West', 'Allstars')

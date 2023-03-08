@@ -1,0 +1,1 @@
+SELECT MAX("charge"."charge_code") as agg_0, SUM("member"."curr_balance" + "member"."region_no") as agg_1 FROM "member" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "member"."corp_no" >= 314.74287548266074 AND ("member"."issue_dt" LIKE '%1%999-10-13%' OR "member"."street" != ' ')

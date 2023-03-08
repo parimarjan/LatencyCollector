@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "probehnuto" LEFT OUTER JOIN "client" ON "probehnuto"."client_id" = "client"."client_id"  WHERE "client"."client_id" >= 9784704 OR ("client"."kraj" LIKE '%Praha%' AND "client"."client_id" >= 9603760)

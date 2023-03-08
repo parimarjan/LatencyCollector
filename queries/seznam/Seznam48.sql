@@ -1,0 +1,1 @@
+SELECT SUM("dobito"."kc_dobito" + "dobito"."client_id") as agg_0 FROM "dobito"  WHERE "dobito"."month_year_datum_transakce" IN ('2015-05-01', '2015-10-01') AND "dobito"."month_year_datum_transakce" NOT LIKE '%20%14-10-01%' AND "dobito"."kc_dobito" BETWEEN 4761.020570092685 AND 6558.914230636444

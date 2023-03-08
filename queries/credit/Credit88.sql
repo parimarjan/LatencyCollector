@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MAX("corporation"."state_prov" + "corporation"."corp_no") as agg_1 FROM "corporation"

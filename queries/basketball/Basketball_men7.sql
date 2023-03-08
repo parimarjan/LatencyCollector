@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, SUM("teams"."awayWon" + "teams"."lost") as agg_1, MAX("teams"."d_stl") as agg_2 FROM "teams" LEFT OUTER JOIN "series_post" ON "teams"."tmID" = "series_post"."tmIDLoser" LEFT OUTER JOIN "draft" ON "teams"."tmID" = "draft"."tmID"  WHERE "draft"."lgID" != 'NBA' AND ("draft"."firstName" NOT LIKE '%Do%n%' OR "draft"."firstName" LIKE '%Ste%ve%')

@@ -1,0 +1,1 @@
+SELECT AVG("lineorder"."lo_tax" + "part"."p_size") as agg_0 FROM "part" LEFT OUTER JOIN "lineorder" ON "part"."p_partkey" = "lineorder"."lo_partkey"  WHERE "part"."p_container" LIKE '%J%AR%' AND "part"."p_mfgr" IN ('MFGR#2', 'MFGR#4', 'MFGR#1', 'MFGR#3') AND "lineorder"."lo_shipmode" NOT LIKE '%AI%R%'

@@ -1,0 +1,1 @@
+SELECT MIN("client"."client_id") as agg_0, MAX("client"."client_id") as agg_1, MAX("client"."client_id") as agg_2 FROM "client"  WHERE "client"."obor" IN ('Ozzy', 'Erika', 'Gabriel') AND "client"."kraj" LIKE '%Královéhradecký%' AND "client"."kraj" = 'Praha'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("corporation"."phone_no" + "corporation"."mail_code") as agg_1, MIN("corporation"."corp_no") as agg_2 FROM "corporation"  WHERE "corporation"."corp_name" = 'Corp. Computer NeedleworkLtd.' AND "corporation"."corp_name" NOT LIKE '%Apex%'

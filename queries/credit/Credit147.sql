@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "region" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"

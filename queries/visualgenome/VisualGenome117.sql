@@ -1,0 +1,1 @@
+SELECT AVG("IMG_OBJ"."IMG_ID" + "IMG_OBJ"."W") as agg_0, COUNT(*) as agg_1 FROM "IMG_OBJ"  WHERE "IMG_OBJ"."W" <= 76

@@ -1,0 +1,1 @@
+SELECT SUM("supplier"."s_suppkey") as agg_0, AVG("supplier"."s_suppkey") as agg_1, AVG("supplier"."s_suppkey") as agg_2 FROM "supplier"  WHERE "supplier"."s_name" IN ('Supplier#000002665') OR ("supplier"."s_city" = 'SAUDI ARA6' AND "supplier"."s_name" IN ('Supplier#000002660', 'Supplier#000002664', 'Supplier#000002666', 'Supplier#000002659'))

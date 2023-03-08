@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("coaches"."year") as agg_1, MAX("coaches"."lost") as agg_2 FROM "coaches"  WHERE "coaches"."coachID" LIKE '%fitzsco01%' AND "coaches"."post_wins" BETWEEN 0.0 AND 0.5757330326507429 AND "coaches"."coachID" IN ('karlge01', 'sloanje01')

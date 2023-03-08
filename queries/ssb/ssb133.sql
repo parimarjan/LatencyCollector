@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("lineorder"."lo_discount" + "lineorder"."lo_extendedprice") as agg_1 FROM "supplier" LEFT OUTER JOIN "lineorder" ON "supplier"."s_suppkey" = "lineorder"."lo_suppkey"  WHERE "lineorder"."lo_shipmode" != 'RAIL' AND "lineorder"."lo_partkey" >= 36660 AND "lineorder"."lo_shipmode" NOT LIKE '%AIR%'

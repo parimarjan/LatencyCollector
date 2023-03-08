@@ -1,0 +1,1 @@
+SELECT MAX("coaches"."stint") as agg_0 FROM "awards_coaches" LEFT OUTER JOIN "coaches" ON "awards_coaches"."coachID" = "coaches"."coachID"  WHERE "coaches"."stint" = 1 AND ("awards_coaches"."note" LIKE '%ti%e%' OR "awards_coaches"."award" = 'ABA Coach of the Year' OR "awards_coaches"."note" LIKE '%tie%') AND "awards_coaches"."id" >= 57

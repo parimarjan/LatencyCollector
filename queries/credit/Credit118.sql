@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("member"."phone_no") as agg_1 FROM "member"

@@ -1,0 +1,1 @@
+SELECT SUM("PRED_CLASSES"."PRED_CLASS_ID") as agg_0 FROM "PRED_CLASSES"  WHERE "PRED_CLASSES"."PRED_CLASS" IN ('made of', 'against', 'from', 'playing on') AND "PRED_CLASSES"."PRED_CLASS_ID" >= 388

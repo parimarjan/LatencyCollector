@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, SUM("client"."client_id" + "dobito"."kc_dobito") as agg_1 FROM "dobito" LEFT OUTER JOIN "client" ON "dobito"."client_id" = "client"."client_id"  WHERE "dobito"."month_year_datum_transakce" IN ('2014-12-01', '2015-06-01', '2015-04-01') AND "client"."obor" IN ('Pink', 'Hermina', 'Gabriel', 'Floyd')

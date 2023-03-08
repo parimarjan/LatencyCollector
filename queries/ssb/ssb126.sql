@@ -1,0 +1,1 @@
+SELECT AVG("lineorder"."lo_ordertotalprice" + "lineorder"."lo_suppkey") as agg_0 FROM "lineorder"  WHERE "lineorder"."lo_orderpriority" NOT LIKE '%4-N%OT%' OR "lineorder"."lo_orderpriority" NOT LIKE '%5%-LOW%'

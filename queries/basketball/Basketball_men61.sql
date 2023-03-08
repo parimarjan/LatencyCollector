@@ -1,0 +1,1 @@
+SELECT SUM("players"."height") as agg_0, COUNT(*) as agg_1 FROM "awards_players" LEFT OUTER JOIN "players" ON "awards_players"."playerID" = "players"."playerID" LEFT OUTER JOIN "players_teams" ON "players"."playerID" = "players_teams"."playerID"  WHERE "players"."playerID" BETWEEN 256982 AND 349677 AND "awards_players"."note" LIKE '%tie%'

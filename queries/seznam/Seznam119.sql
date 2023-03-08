@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "client"  WHERE "client"."kraj" NOT LIKE '%Jihomorav%ský%'

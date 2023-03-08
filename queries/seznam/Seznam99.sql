@@ -1,0 +1,1 @@
+SELECT MAX("probehnuto_mimo_penezenku"."client_id") as agg_0, MIN("probehnuto_mimo_penezenku"."client_id") as agg_1 FROM "probehnuto_mimo_penezenku"  WHERE "probehnuto_mimo_penezenku"."client_id" <= 84064

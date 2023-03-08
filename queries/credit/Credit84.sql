@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MAX("statement"."statement_amt" + "statement"."statement_code") as agg_1, SUM("statement"."member_no" + "statement"."statement_amt") as agg_2 FROM "statement"  WHERE "statement"."statement_dt" NOT LIKE '%00:00:00%' AND "statement"."due_dt" IN ('1999-09-02 00:00:00') AND "statement"."member_no" >= 2757

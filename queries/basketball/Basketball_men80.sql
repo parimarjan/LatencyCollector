@@ -1,0 +1,1 @@
+SELECT AVG("series_post"."tmIDLoser") as agg_0, MIN("series_post"."year" + "series_post"."tmIDWinner") as agg_1 FROM "series_post"  WHERE ("series_post"."round" != 'DSF' OR "series_post"."series" = 'M') AND "series_post"."W" != 4

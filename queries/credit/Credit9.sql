@@ -1,0 +1,1 @@
+SELECT AVG("charge"."charge_amt") as agg_0, COUNT(*) as agg_1 FROM "charge"  WHERE "charge"."charge_code" BETWEEN nan AND nan

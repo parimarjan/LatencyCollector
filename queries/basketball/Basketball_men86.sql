@@ -1,0 +1,1 @@
+SELECT AVG("teams"."lost") as agg_0, MAX("teams"."min") as agg_1, AVG("teams"."won" + "teams"."pace") as agg_2 FROM "teams"  WHERE "teams"."year" BETWEEN 1966 AND 2005 AND "teams"."awayLost" >= 23

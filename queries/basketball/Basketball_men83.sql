@@ -1,0 +1,1 @@
+SELECT MIN("draft"."id") as agg_0, AVG("draft"."draftOverall" + "draft"."draftYear") as agg_1 FROM "draft"  WHERE "draft"."lgID" NOT LIKE '%N%BA%'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "part"  WHERE "part"."p_container" NOT LIKE '%B%AG%' AND "part"."p_type" NOT LIKE '%POL%ISHED%' AND "part"."p_mfgr" LIKE '%MFGR#2%' AND "part"."p_color" LIKE '%misty%'

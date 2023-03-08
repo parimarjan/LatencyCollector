@@ -1,0 +1,1 @@
+SELECT MIN("players"."playerID") as agg_0 FROM "awards_players" LEFT OUTER JOIN "players" ON "awards_players"."playerID" = "players"."playerID"  WHERE "awards_players"."award" = 'Rookie of the Year' AND "players"."playerID" BETWEEN 303416 AND 472497 AND "players"."hsCity" LIKE '%Chica%'

@@ -1,0 +1,1 @@
+SELECT SUM("awards_players"."year") as agg_0, MIN("awards_players"."year" + "awards_players"."playerID") as agg_1, AVG("awards_players"."playerID" + "awards_players"."year") as agg_2 FROM "awards_players"  WHERE "awards_players"."pos" IN ('F', 'C', 'G', 'F/G') OR "awards_players"."award" LIKE '%Improved%'

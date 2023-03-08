@@ -1,0 +1,1 @@
+SELECT MIN("players"."height" + "players"."lastseason") as agg_0, MAX("players"."weight") as agg_1, COUNT(*) as agg_2 FROM "players" LEFT OUTER JOIN "awards_players" ON "players"."playerID" = "awards_players"."playerID"  WHERE "players"."nameSuffix" NOT LIKE '%Jr%.%' AND "awards_players"."award" LIKE '%Rookie%'

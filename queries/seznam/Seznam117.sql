@@ -1,0 +1,1 @@
+SELECT MIN("dobito"."kc_dobito") as agg_0, MAX("dobito"."kc_dobito") as agg_1, MAX("dobito"."kc_dobito" + "dobito"."client_id") as agg_2 FROM "dobito"  WHERE "dobito"."month_year_datum_transakce" LIKE '%2015-01-0%1%' AND "dobito"."client_id" IS NOT NULL AND "dobito"."month_year_datum_transakce" LIKE '%2014-12-01%'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "draft" LEFT OUTER JOIN "teams" ON "draft"."tmID" = "teams"."tmID" LEFT OUTER JOIN "coaches" ON "teams"."tmID" = "coaches"."tmID" LEFT OUTER JOIN "players_teams" ON "teams"."tmID" = "players_teams"."tmID"  WHERE "coaches"."lgID" IN ('NBA', 'ABA') AND "coaches"."lgID" LIKE '%NBA%'

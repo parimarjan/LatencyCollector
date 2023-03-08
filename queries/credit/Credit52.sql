@@ -1,0 +1,1 @@
+SELECT MIN("payment"."payment_code") as agg_0, AVG("payment"."member_no" + "payment"."payment_amt") as agg_1, MIN("payment"."payment_no" + "payment"."payment_amt") as agg_2 FROM "payment"  WHERE "payment"."payment_no" <= 9854 OR "payment"."statement_no" BETWEEN 0 AND 1

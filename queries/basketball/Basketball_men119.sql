@@ -1,0 +1,1 @@
+SELECT MIN("player_allstar"."playerID") as agg_0, MAX("player_allstar"."three_made") as agg_1 FROM "player_allstar"  WHERE "player_allstar"."league_id" LIKE '%A%BA%' AND "player_allstar"."conference" NOT LIKE '%Ea%st%' AND "player_allstar"."personal_fouls" <= 0.0 AND "player_allstar"."three_made" <= 0.0 AND "player_allstar"."first_name" LIKE '%Chris%'

@@ -1,0 +1,1 @@
+SELECT SUM("probehnuto_mimo_penezenku"."client_id") as agg_0, AVG("probehnuto_mimo_penezenku"."client_id") as agg_1, SUM("probehnuto_mimo_penezenku"."client_id") as agg_2 FROM "probehnuto_mimo_penezenku"  WHERE "probehnuto_mimo_penezenku"."Month/Year" LIKE '%2012-10-01%'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("players_teams"."assists" + "players"."lastseason") as agg_1, SUM("players_teams"."points" + "players"."playerID") as agg_2 FROM "players" LEFT OUTER JOIN "players_teams" ON "players"."playerID" = "players_teams"."playerID"  WHERE "players"."firstName" IN ('James', 'John', 'George', 'Robert', 'Charles', 'Paul', 'Richard', 'David', 'Michael')

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "dim_date" LEFT OUTER JOIN "lineorder" ON "dim_date"."d_datekey" = "lineorder"."lo_orderdate"  WHERE "dim_date"."d_sellingseason" = 'Winter' AND "dim_date"."d_yearmonth" NOT LIKE '%Feb1996%' AND "dim_date"."d_dayofweek" NOT LIKE '%Tuesday%' AND "lineorder"."lo_orderkey" >= 4197648

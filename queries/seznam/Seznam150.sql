@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "probehnuto_mimo_penezenku"  WHERE "probehnuto_mimo_penezenku"."probehla_inzerce_mimo_penezenku" NOT LIKE '%ANO%' AND "probehnuto_mimo_penezenku"."Month/Year" LIKE '%2013-12-01%' AND "probehnuto_mimo_penezenku"."client_id" <= 31329 AND "probehnuto_mimo_penezenku"."Month/Year" LIKE '%2013-08-01%'

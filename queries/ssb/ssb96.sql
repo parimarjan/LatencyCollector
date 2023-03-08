@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "lineorder" LEFT OUTER JOIN "part" ON "lineorder"."lo_partkey" = "part"."p_partkey"  WHERE "lineorder"."lo_shipmode" NOT LIKE '%RAIL%' AND "part"."p_partkey" <= 362620 AND "part"."p_name" NOT LIKE '%s%pring%' AND ("lineorder"."lo_tax" = 1 OR "lineorder"."lo_commitdate" >= 19934742 OR "lineorder"."lo_tax" <= 0)

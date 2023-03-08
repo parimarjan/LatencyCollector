@@ -1,0 +1,1 @@
+SELECT MIN("corporation"."country" + "corporation"."mail_code") as agg_0 FROM "corporation"

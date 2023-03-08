@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("player_allstar"."personal_fouls" + "player_allstar"."points") as agg_1, COUNT(*) as agg_2 FROM "player_allstar"  WHERE "player_allstar"."rebounds" >= 2.451102462120775 AND "player_allstar"."d_rebounds" BETWEEN 2.150689992248271 AND 3.3771425925851464

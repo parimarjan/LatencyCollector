@@ -1,0 +1,1 @@
+SELECT MIN("payment"."member_no") as agg_0, SUM("payment"."payment_no" + "payment"."payment_code") as agg_1, AVG("payment"."payment_amt") as agg_2 FROM "payment"  WHERE "payment"."payment_dt" NOT LIKE '%00:00:00%' AND "payment"."payment_dt" NOT LIKE '%1999-10-03%' AND "payment"."payment_amt" >= 18424.288147643943 AND "payment"."member_no" BETWEEN 45778 AND 47159

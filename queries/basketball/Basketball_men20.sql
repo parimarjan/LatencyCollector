@@ -1,0 +1,1 @@
+SELECT MAX("awards_players"."year") as agg_0, COUNT(*) as agg_1, SUM("awards_players"."year" + "players"."weight") as agg_2 FROM "awards_players" LEFT OUTER JOIN "players" ON "awards_players"."playerID" = "players"."playerID"  WHERE "players"."hsCountry" != 'TCH' OR ("players"."hsCountry" NOT LIKE '%USA%' AND "players"."hsCountry" LIKE '%USA%')

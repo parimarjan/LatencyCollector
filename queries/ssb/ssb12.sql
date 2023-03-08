@@ -1,0 +1,1 @@
+SELECT SUM("dim_date"."d_lastdayinmonthfl") as agg_0, COUNT(*) as agg_1 FROM "dim_date"  WHERE "dim_date"."d_sellingseason" LIKE '%Summ%er%' AND ("dim_date"."d_month" IN ('September', 'Octorber', 'July', 'May', 'January', 'March') OR ("dim_date"."d_month" IN ('May', 'Octorber', 'Augest', 'June') AND "dim_date"."d_month" NOT LIKE '%November%'))

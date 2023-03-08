@@ -1,0 +1,1 @@
+SELECT AVG("teams"."confRank" + "teams"."d_ftm") as agg_0 FROM "draft" LEFT OUTER JOIN "teams" ON "draft"."tmID" = "teams"."tmID"  WHERE "teams"."bbtmID" IN ('ATL', 'LAL', 'BOS', 'SEA', 'CHI', 'IND') AND "teams"."divID" NOT LIKE '%W%E%'

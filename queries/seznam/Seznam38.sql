@@ -1,0 +1,1 @@
+SELECT AVG("probehnuto"."client_id" + "probehnuto"."kc_proklikano") as agg_0 FROM "probehnuto"  WHERE "probehnuto"."sluzba" IN ('b', 'f', 'd', 'e', 'a', 'h', 'g') OR "probehnuto"."kc_proklikano" BETWEEN 2731.7625831107075 AND 3051.403074271176

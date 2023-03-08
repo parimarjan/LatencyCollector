@@ -1,0 +1,1 @@
+SELECT MIN("customer"."c_custkey") as agg_0 FROM "customer"  WHERE "customer"."c_nation" NOT LIKE '%CHIN%A%' AND "customer"."c_city" IN ('IRAQ     6', 'MOZAMBIQU4', 'INDIA    5', 'UNITED ST6') AND "customer"."c_region" LIKE '%AMERI%CA%'

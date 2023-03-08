@@ -1,0 +1,1 @@
+SELECT MIN("teams"."min") as agg_0, SUM("teams"."won") as agg_1 FROM "coaches" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID"  WHERE "teams"."divID" != 'PC' AND "teams"."o_dreb" BETWEEN 2283 AND 2309

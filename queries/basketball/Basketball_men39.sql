@@ -1,0 +1,1 @@
+SELECT AVG("teams"."neutWon") as agg_0, SUM("teams"."o_3pa" + "teams"."year") as agg_1, COUNT(*) as agg_2 FROM "teams"  WHERE "teams"."confID" LIKE '%E%C%' AND "teams"."lgID" != 'ABA' AND "teams"."d_reb" >= 3148 AND "teams"."playoff" NOT LIKE '%NC%'

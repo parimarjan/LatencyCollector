@@ -1,0 +1,1 @@
+SELECT MIN("lineorder"."lo_commitdate") as agg_0, AVG("lineorder"."lo_quantity") as agg_1 FROM "lineorder"  WHERE "lineorder"."lo_shipmode" NOT LIKE '%RAI%L%'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("customer"."c_custkey") as agg_1 FROM "customer"  WHERE "customer"."c_custkey" BETWEEN 31132 AND 49533 AND "customer"."c_mktsegment" IN ('MACHINERY', 'BUILDING')

@@ -1,0 +1,1 @@
+SELECT MAX("statement"."statement_code") as agg_0, COUNT(*) as agg_1 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no"  WHERE "statement"."due_dt" IN ('1999-09-02 00:00:00') AND "statement"."statement_dt" = '1999-08-13 00:00:00' AND "statement"."statement_dt" NOT LIKE '%1999-08-13%' AND "member"."city" != ' '

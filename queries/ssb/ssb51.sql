@@ -1,0 +1,1 @@
+SELECT SUM("dim_date"."d_holidayfl" + "dim_date"."d_year") as agg_0 FROM "dim_date"  WHERE "dim_date"."d_yearmonth" NOT LIKE '%Jan19%93%'

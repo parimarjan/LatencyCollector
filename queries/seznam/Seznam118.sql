@@ -1,0 +1,1 @@
+SELECT AVG("client"."client_id") as agg_0, MIN("client"."client_id") as agg_1 FROM "client"  WHERE "client"."client_id" >= 101449

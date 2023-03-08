@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1, MAX("dobito"."kc_dobito" + "dobito"."client_id") as agg_2 FROM "dobito"  WHERE "dobito"."client_id" BETWEEN 19752.441790321987 AND 5758304.678917466

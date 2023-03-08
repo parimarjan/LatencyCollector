@@ -1,0 +1,1 @@
+SELECT MAX("charge"."catery_no") as agg_0 FROM "charge"  WHERE "charge"."catery_no" = 42

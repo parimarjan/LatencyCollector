@@ -1,0 +1,1 @@
+SELECT SUM("teams"."o_asts") as agg_0 FROM "coaches" LEFT OUTER JOIN "teams" ON "coaches"."tmID" = "teams"."tmID" LEFT OUTER JOIN "awards_coaches" ON "coaches"."coachID" = "awards_coaches"."coachID"  WHERE "coaches"."lgID" NOT LIKE '%ABL1%' AND "awards_coaches"."lgID" LIKE '%NBA%' AND "teams"."bbtmID" NOT LIKE '%MIL%' AND "coaches"."won" >= 34.31290310496785

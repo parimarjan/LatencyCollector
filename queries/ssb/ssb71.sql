@@ -1,0 +1,1 @@
+SELECT MIN("lineorder"."lo_ordertotalprice") as agg_0, MIN("lineorder"."lo_extendedprice" + "part"."p_partkey") as agg_1 FROM "part" LEFT OUTER JOIN "lineorder" ON "part"."p_partkey" = "lineorder"."lo_partkey"  WHERE "part"."p_type" = 'MEDIUM BRUSHED COPPER' AND "part"."p_mfgr" LIKE '%MFGR#%2%' AND "lineorder"."lo_discount" BETWEEN 4 AND 9

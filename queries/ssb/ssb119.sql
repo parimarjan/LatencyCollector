@@ -1,0 +1,1 @@
+SELECT AVG("customer"."c_custkey") as agg_0, MAX("customer"."c_custkey") as agg_1, COUNT(*) as agg_2 FROM "customer"  WHERE ("customer"."c_nation" IN ('KENYA', 'INDONESIA', 'RUSSIA', 'CHINA', 'MOZAMBIQUE', 'IRAQ') OR "customer"."c_nation" = 'VIETNAM') AND "customer"."c_city" NOT LIKE '%ETHIOPIA%'

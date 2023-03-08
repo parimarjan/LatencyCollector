@@ -1,0 +1,1 @@
+SELECT SUM("lineorder"."lo_ordertotalprice") as agg_0 FROM "lineorder"  WHERE "lineorder"."lo_shipmode" NOT LIKE '%TRU%CK%'

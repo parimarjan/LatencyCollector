@@ -1,0 +1,1 @@
+SELECT MAX("corporation"."corp_no") as agg_0, COUNT(*) as agg_1 FROM "corporation"  WHERE "corporation"."region_no" BETWEEN 20 AND 30 AND "corporation"."expr_dt" = '2004-10-12 10:41:26'

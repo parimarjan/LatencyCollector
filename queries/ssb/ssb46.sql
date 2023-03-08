@@ -1,0 +1,1 @@
+SELECT AVG("supplier"."s_suppkey") as agg_0 FROM "supplier"  WHERE "supplier"."s_city" != 'JORDAN   2' AND "supplier"."s_nation" LIKE '%ARA%BIA%' AND "supplier"."s_nation" NOT LIKE '%EGYP%T%' AND "supplier"."s_city" LIKE '%RUS%SIA%'

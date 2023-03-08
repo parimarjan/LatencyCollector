@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("statement"."member_no") as agg_1 FROM "statement"  WHERE "statement"."statement_dt" IN ('1999-09-13 00:00:00') AND "statement"."member_no" <= 34517 AND "statement"."due_dt" = '1999-09-02 00:00:00' AND "statement"."statement_dt" != '1999-09-13 00:00:00'

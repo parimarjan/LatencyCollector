@@ -1,0 +1,1 @@
+SELECT MAX("probehnuto_mimo_penezenku"."client_id") as agg_0, COUNT(*) as agg_1, COUNT(*) as agg_2 FROM "probehnuto_mimo_penezenku"  WHERE "probehnuto_mimo_penezenku"."client_id" BETWEEN 5792 AND 27930

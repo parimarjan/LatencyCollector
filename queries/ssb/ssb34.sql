@@ -1,0 +1,1 @@
+SELECT AVG("dim_date"."d_daynuminmonth" + "dim_date"."d_datekey") as agg_0, MIN("dim_date"."d_lastdayinmonthfl" + "dim_date"."d_monthnuminyear") as agg_1 FROM "dim_date"  WHERE ("dim_date"."d_yearmonthnum" != 199390 OR "dim_date"."d_date" IN ('September 2, 1996') OR "dim_date"."d_yearmonthnum" <= 199711) AND "dim_date"."d_sellingseason" != 'Fall'

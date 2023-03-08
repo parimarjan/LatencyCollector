@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "client"  WHERE "client"."obor" NOT LIKE '%Hu%%' AND "client"."kraj" NOT LIKE '%Plzeňský%' AND "client"."obor" IN ('Floyd', 'Hermina', 'Anezka', 'Vladan', 'Gabriel', 'Richard', 'Zora', 'Ozzy', 'Pink') AND "client"."client_id" <= 1053421 AND "client"."kraj" LIKE '%Jihomoravský%'
