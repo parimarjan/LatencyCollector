@@ -1,0 +1,1 @@
+SELECT MIN("transactions_1k"."Price") as agg_0, MAX("transactions_1k"."ProductID" + "transactions_1k"."Amount") as agg_1 FROM "transactions_1k"  WHERE "transactions_1k"."Date" LIKE '%2012-08-26%' AND "transactions_1k"."Price" <= 53.90233283940532 AND "transactions_1k"."ProductID" = 2

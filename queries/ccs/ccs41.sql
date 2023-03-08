@@ -1,0 +1,1 @@
+SELECT SUM("transactions_1k"."Amount" + "transactions_1k"."ProductID") as agg_0 FROM "transactions_1k" LEFT OUTER JOIN "products" ON "transactions_1k"."ProductID" = "products"."ProductID"  WHERE "transactions_1k"."Date" IN ('2012-08-25', '2012-08-26', '2012-08-24') AND "transactions_1k"."TransactionID" BETWEEN 557 AND 701

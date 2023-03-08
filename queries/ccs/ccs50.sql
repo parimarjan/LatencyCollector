@@ -1,0 +1,1 @@
+SELECT SUM("products"."ProductID") as agg_0, COUNT(*) as agg_1 FROM "products"  WHERE "products"."Description" NOT LIKE '%L-Dálni%cní%'

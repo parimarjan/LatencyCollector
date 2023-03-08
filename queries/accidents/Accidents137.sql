@@ -1,0 +1,1 @@
+SELECT AVG("nesreca"."upravna_enota") as agg_0 FROM "nesreca" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca" LEFT OUTER JOIN "upravna_enota" ON "nesreca"."upravna_enota" = "upravna_enota"."id_upravna_enota"

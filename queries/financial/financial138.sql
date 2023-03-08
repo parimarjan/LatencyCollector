@@ -1,0 +1,1 @@
+SELECT MIN("disp"."disp_id" + "disp"."account_id") as agg_0, MIN("disp"."client_id" + "disp"."account_id") as agg_1 FROM "disp"  WHERE "disp"."account_id" BETWEEN 4911 AND 65184 AND "disp"."type" IN ('DISPONENT') AND "disp"."client_id" BETWEEN 60063 AND 93302

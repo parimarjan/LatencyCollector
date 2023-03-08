@@ -1,0 +1,1 @@
+SELECT MAX("L_STATE_FIPS"."Code") as agg_0, SUM("L_STATE_FIPS"."Code") as agg_1 FROM "L_STATE_FIPS"  WHERE "L_STATE_FIPS"."Description" = 'Missouri' AND "L_STATE_FIPS"."Code" <= 22

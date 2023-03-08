@@ -1,0 +1,1 @@
+SELECT MAX("transactions_1k"."GasStationID") as agg_0 FROM "transactions_1k"  WHERE "transactions_1k"."Date" NOT LIKE '%20%12-08-25%' AND "transactions_1k"."Price" <= 803.2923558989592 AND "transactions_1k"."Time" = '09:33:00' AND "transactions_1k"."CardID" <= 590098 AND "transactions_1k"."CustomerID" >= 288384

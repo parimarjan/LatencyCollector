@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("nesreca"."y" + "nesreca"."stacionazna_ali_hisna_st") as agg_1, MAX("nesreca"."y" + "nesreca"."x") as agg_2 FROM "nesreca"  WHERE "nesreca"."katerija_cesta" = '0'

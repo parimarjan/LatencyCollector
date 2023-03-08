@@ -1,0 +1,1 @@
+SELECT MIN("products"."ProductID" + "transactions_1k"."ProductID") as agg_0 FROM "products" LEFT OUTER JOIN "transactions_1k" ON "products"."ProductID" = "transactions_1k"."ProductID"  WHERE "transactions_1k"."Date" LIKE '%2%012-08-26%' AND "transactions_1k"."Date" IN ('2012-08-26') AND "products"."Description" NOT LIKE '%UTA%'

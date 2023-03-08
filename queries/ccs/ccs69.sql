@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("transactions_1k"."GasStationID" + "transactions_1k"."ProductID") as agg_1, SUM("transactions_1k"."Price") as agg_2 FROM "transactions_1k"  WHERE "transactions_1k"."Date" LIKE '%201%2-08-24%' AND "transactions_1k"."Price" <= 133.35250883418885 AND "transactions_1k"."TransactionID" <= 744

@@ -1,0 +1,1 @@
+SELECT SUM("L_STATE_FIPS"."Code") as agg_0, SUM("L_STATE_FIPS"."Code") as agg_1, SUM("L_STATE_FIPS"."Code") as agg_2 FROM "L_STATE_FIPS"  WHERE "L_STATE_FIPS"."Description" LIKE '%Palm%yra%' AND ("L_STATE_FIPS"."Description" NOT LIKE '%<2,000,000%' OR "L_STATE_FIPS"."Description" LIKE '%Okla%homa%') AND "L_STATE_FIPS"."Code" BETWEEN 205 AND 257

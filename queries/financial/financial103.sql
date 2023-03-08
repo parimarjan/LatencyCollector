@@ -1,0 +1,1 @@
+SELECT AVG("card"."disp_id") as agg_0, MAX("card"."disp_id") as agg_1 FROM "card"  WHERE "card"."type" IN ('junior', 'ld') AND ("card"."type" LIKE '%junior%' OR ("card"."card_id" <= 341 AND "card"."type" NOT LIKE '%ld%')) AND ("card"."disp_id" BETWEEN 408 AND 62967 OR ("card"."disp_id" >= 54857 AND "card"."disp_id" <= 890)) AND "card"."issued" = '1996-02-04'

@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."vozniski_staz_MM") as agg_0 FROM "oseba" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"  WHERE "nesreca"."tekst_odsek_ali_ulica" NOT LIKE '%VAS%' AND "oseba"."strokovni_pregled" IS NULL

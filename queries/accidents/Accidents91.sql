@@ -1,0 +1,1 @@
+SELECT SUM("oseba"."strokovni_pregled") as agg_0, MAX("oseba"."alkotest") as agg_1, COUNT(*) as agg_2 FROM "nesreca" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca" LEFT OUTER JOIN "upravna_enota" ON "nesreca"."upravna_enota" = "upravna_enota"."id_upravna_enota"  WHERE "nesreca"."tekst_odsek_ali_ulica" LIKE '%UL%IC%' AND "nesreca"."vreme_nesreca" != 'O'

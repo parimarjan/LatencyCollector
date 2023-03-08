@@ -1,0 +1,1 @@
+SELECT MAX("loan"."account_id") as agg_0, MAX("account"."district_id") as agg_1 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id"  WHERE "account"."frequency" != 'POPLATEK MESICNE' AND "loan"."date" IN ('1997-03-17', '1997-06-19', '1994-12-21', '1997-09-07', '1997-04-01')

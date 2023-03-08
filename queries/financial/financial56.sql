@@ -1,0 +1,1 @@
+SELECT SUM("disp"."client_id" + "client"."client_id") as agg_0, COUNT(*) as agg_1, AVG("client"."client_id") as agg_2 FROM "client" LEFT OUTER JOIN "disp" ON "client"."client_id" = "disp"."client_id"  WHERE "client"."district_id" >= 394 AND "disp"."account_id" >= 82145

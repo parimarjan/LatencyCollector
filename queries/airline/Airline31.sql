@@ -1,0 +1,1 @@
+SELECT AVG("On_Time_On_Time_Performance_2016_1"."DepTime") as agg_0 FROM "L_AIRLINE_ID" LEFT OUTER JOIN "On_Time_On_Time_Performance_2016_1" ON "L_AIRLINE_ID"."Code" = "On_Time_On_Time_Performance_2016_1"."AirlineID"  WHERE "On_Time_On_Time_Performance_2016_1"."DepTimeBlk" LIKE '%0600-%0659%'

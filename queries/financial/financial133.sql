@@ -1,0 +1,1 @@
+SELECT SUM("client"."district_id") as agg_0 FROM "client"  WHERE "client"."gender" = 'F' AND "client"."client_id" BETWEEN 17411 AND 45094 AND "client"."district_id" <= 349 AND "client"."birth_date" != '1957-08-03'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "yearmonth" LEFT OUTER JOIN "customers" ON "yearmonth"."CustomerID" = "customers"."CustomerID"  WHERE "yearmonth"."CustomerID" >= 1363624

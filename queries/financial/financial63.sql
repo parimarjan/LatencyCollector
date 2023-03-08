@@ -1,0 +1,1 @@
+SELECT AVG("loan"."payments" + "loan"."loan_id") as agg_0, MIN("loan"."amount" + "loan"."payments") as agg_1, SUM("loan"."account_id") as agg_2 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id"  WHERE "loan"."date" != '1996-04-29' AND "account"."frequency" LIKE '%POPLATEK%' AND "account"."date" != '1996-07-17'

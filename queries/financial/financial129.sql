@@ -1,0 +1,1 @@
+SELECT SUM("account"."account_id") as agg_0, MIN("account"."district_id" + "account"."account_id") as agg_1, SUM("account"."district_id") as agg_2 FROM "account"  WHERE "account"."frequency" != 'POPLATEK MESICNE' AND "account"."frequency" != 'POPLATEK MESICNE' AND "account"."account_id" <= 35074

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "card" LEFT OUTER JOIN "disp" ON "card"."disp_id" = "disp"."disp_id" LEFT OUTER JOIN "account" ON "disp"."account_id" = "account"."account_id" LEFT OUTER JOIN "client" ON "disp"."client_id" = "client"."client_id"  WHERE "client"."gender" IN ('F')

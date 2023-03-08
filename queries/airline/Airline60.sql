@@ -1,0 +1,1 @@
+SELECT MIN("L_CITY_MARKET_ID"."Code") as agg_0, MAX("L_CITY_MARKET_ID"."Code") as agg_1 FROM "L_CITY_MARKET_ID"  WHERE "L_CITY_MARKET_ID"."Description" IN ('Bonners Ferry, ID', 'Shingletown, CA', 'Nimiuk Point, AK', 'Westminster, MD', 'Sealing Point, AK', 'Pittsfield, ME', 'Afognak Lake, AK', 'Keyes Point, AK', 'Stevensville, MT') AND "L_CITY_MARKET_ID"."Code" >= 30248

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id" LEFT OUTER JOIN "disp" ON "account"."account_id" = "disp"."account_id" LEFT OUTER JOIN "card" ON "disp"."disp_id" = "card"."disp_id"  WHERE "disp"."type" != 'OWNER' AND "account"."frequency" LIKE '%TYDNE%'

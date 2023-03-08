@@ -1,0 +1,1 @@
+SELECT SUM("account"."district_id") as agg_0 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id"  WHERE "loan"."loan_id" BETWEEN 5272 AND 6977 AND "loan"."payments" >= 1294.1499311652792 AND "account"."account_id" <= 109599 AND "loan"."amount" <= 194748

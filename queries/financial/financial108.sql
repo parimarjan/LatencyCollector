@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "loan"  WHERE "loan"."date" = '1998-06-05'

@@ -1,0 +1,1 @@
+SELECT AVG("disp"."disp_id" + "disp"."client_id") as agg_0 FROM "disp" LEFT OUTER JOIN "client" ON "disp"."client_id" = "client"."client_id"  WHERE ("disp"."disp_id" BETWEEN 91110 AND 95802 OR "disp"."disp_id" >= 118136 OR "disp"."disp_id" BETWEEN 36086 AND 47286) AND "disp"."account_id" <= 19653 AND ("client"."client_id" BETWEEN 10627 AND 41564 OR "client"."gender" IN ('F'))

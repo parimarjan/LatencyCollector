@@ -1,0 +1,1 @@
+SELECT SUM("oseba"."strokovni_pregled") as agg_0 FROM "oseba"  WHERE "oseba"."strokovni_pregled" BETWEEN 0.0 AND 7.765234158381668 AND "oseba"."povzrocitelj_ali_udelezenec" = 'N' AND "oseba"."vrsta_udelezenca" IS NOT NULL

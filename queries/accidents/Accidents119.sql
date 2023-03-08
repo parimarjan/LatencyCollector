@@ -1,0 +1,1 @@
+SELECT SUM("upravna_enota"."povrsina") as agg_0, SUM("upravna_enota"."povrsina") as agg_1 FROM "upravna_enota"  WHERE "upravna_enota"."ime_upravna_enota" LIKE '%Lju%bljana%' AND "upravna_enota"."id_upravna_enota" <= 5515 AND "upravna_enota"."ime_upravna_enota" LIKE '%Ljublj%ana%'

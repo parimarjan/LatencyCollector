@@ -1,0 +1,1 @@
+SELECT AVG("nesreca"."y") as agg_0, MAX("nesreca"."y") as agg_1 FROM "nesreca"  WHERE "nesreca"."vzrok_nesreca" NOT LIKE '%S%V%' AND "nesreca"."y_wgs84" <= 46.402023962430754 AND "nesreca"."tekst_odsek_ali_ulica" IN ('DUNAJSKA CESTA', 'ŠMARTINSKA CESTA')

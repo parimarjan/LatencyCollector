@@ -1,0 +1,1 @@
+SELECT MAX("L_AIRPORT_ID"."Code") as agg_0, MIN("L_AIRPORT_ID"."Code") as agg_1, COUNT(*) as agg_2 FROM "L_AIRPORT_ID"  WHERE "L_AIRPORT_ID"."Code" BETWEEN 10305 AND 397617 AND "L_AIRPORT_ID"."Description" NOT LIKE '%N%ew%'

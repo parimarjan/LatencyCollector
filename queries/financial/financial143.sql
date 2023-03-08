@@ -1,0 +1,1 @@
+SELECT SUM("district"."A16" + "district"."A10") as agg_0, COUNT(*) as agg_1, MIN("district"."A15" + "district"."district_id") as agg_2 FROM "account" LEFT OUTER JOIN "disp" ON "account"."account_id" = "disp"."account_id" LEFT OUTER JOIN "district" ON "account"."district_id" = "district"."district_id"  WHERE "district"."A8" >= 1 AND "disp"."disp_id" >= 21591

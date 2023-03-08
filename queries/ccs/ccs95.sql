@@ -1,0 +1,1 @@
+SELECT SUM("yearmonth"."Date" + "yearmonth"."CustomerID") as agg_0 FROM "yearmonth"  WHERE "yearmonth"."Consumption" <= 6633.552898921082 AND "yearmonth"."CustomerID" >= 23019

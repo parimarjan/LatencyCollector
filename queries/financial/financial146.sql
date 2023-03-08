@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, SUM("trans"."account_id" + "trans"."account") as agg_1 FROM "trans"  WHERE "trans"."date" IN ('1998-06-30', '1998-09-30') AND "trans"."type" LIKE '%VYDA%J%'

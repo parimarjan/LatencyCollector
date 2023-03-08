@@ -1,0 +1,1 @@
+SELECT AVG("oseba"."alkotest" + "nesreca"."x") as agg_0 FROM "upravna_enota" LEFT OUTER JOIN "nesreca" ON "upravna_enota"."id_upravna_enota" = "nesreca"."upravna_enota" LEFT OUTER JOIN "oseba" ON "upravna_enota"."id_upravna_enota" = "oseba"."upravna_enota"  WHERE "nesreca"."vzrok_nesreca" LIKE '%SV%'

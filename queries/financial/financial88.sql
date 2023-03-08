@@ -1,0 +1,1 @@
+SELECT MIN("loan"."amount") as agg_0 FROM "loan"  WHERE "loan"."status" IN ('A', 'D', 'C') AND "loan"."account_id" >= 80540 AND "loan"."duration" BETWEEN 48 AND 60 AND "loan"."status" IN ('D', 'C', 'A') AND ("loan"."payments" <= 6073.086558244326 OR "loan"."amount" BETWEEN 45812 AND 184440 OR "loan"."payments" <= 1411.7524960214566)

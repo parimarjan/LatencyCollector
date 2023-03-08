@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("disp"."client_id" + "card"."disp_id") as agg_1, MAX("disp"."client_id" + "card"."disp_id") as agg_2 FROM "card" LEFT OUTER JOIN "disp" ON "card"."disp_id" = "disp"."disp_id"  WHERE "card"."type" NOT LIKE '%ld%' AND "disp"."type" = 'DISPONENT' AND "card"."type" LIKE '%junior%'

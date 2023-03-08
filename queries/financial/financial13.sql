@@ -1,0 +1,1 @@
+SELECT SUM("client"."district_id") as agg_0, AVG("client"."client_id") as agg_1 FROM "client"  WHERE ("client"."district_id" >= 164 OR "client"."birth_date" IN ('1956-02-18')) AND "client"."client_id" <= 111171

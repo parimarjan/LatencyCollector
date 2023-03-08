@@ -1,0 +1,1 @@
+SELECT AVG("products"."ProductID") as agg_0, MAX("products"."ProductID") as agg_1, AVG("products"."ProductID") as agg_2 FROM "products"  WHERE "products"."Description" NOT LIKE '%Ca%rd%'

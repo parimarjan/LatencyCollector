@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("customers"."CustomerID") as agg_1, COUNT(*) as agg_2 FROM "customers"  WHERE "customers"."CustomerID" >= 1028195 AND "customers"."Segment" NOT LIKE '%SM%E%' AND "customers"."Segment" IN ('LAM', 'KAM')

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "products" LEFT OUTER JOIN "transactions_1k" ON "products"."ProductID" = "transactions_1k"."ProductID" LEFT OUTER JOIN "gasstations" ON "transactions_1k"."GasStationID" = "gasstations"."GasStationID"  WHERE "transactions_1k"."Date" LIKE '%2012-08-26%'

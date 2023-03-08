@@ -1,0 +1,1 @@
+SELECT AVG("L_AIRPORT_ID"."Code") as agg_0, SUM("L_AIRPORT_ID"."Code") as agg_1, AVG("L_AIRPORT_ID"."Code") as agg_2 FROM "L_AIRPORT_ID"  WHERE "L_AIRPORT_ID"."Description" LIKE '%County%' AND "L_AIRPORT_ID"."Description" = 'Craig, AK: Craig Seaplane Base' AND "L_AIRPORT_ID"."Code" <= 102334

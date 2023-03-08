@@ -1,0 +1,1 @@
+SELECT SUM("customers"."CustomerID") as agg_0, AVG("customers"."CustomerID") as agg_1 FROM "customers"  WHERE "customers"."Currency" NOT LIKE '%CZK%' AND "customers"."Segment" IN ('KAM') AND "customers"."Currency" NOT LIKE '%EU%R%' AND "customers"."Segment" LIKE '%SME%' AND "customers"."CustomerID" BETWEEN 677414 AND 1537138

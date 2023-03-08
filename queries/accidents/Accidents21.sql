@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."alkotest" + "nesreca"."upravna_enota") as agg_0, MAX("oseba"."upravna_enota") as agg_1 FROM "oseba" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"  WHERE "nesreca"."oznaka_cesta_ali_naselje" NOT LIKE '%010-8%' AND "nesreca"."y" BETWEEN 35937.47990445176 AND 73258.57749656941

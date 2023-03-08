@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "oseba" LEFT OUTER JOIN "upravna_enota" ON "oseba"."upravna_enota" = "upravna_enota"."id_upravna_enota" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"  WHERE "upravna_enota"."ime_upravna_enota" != 'Tržič' AND "upravna_enota"."id_upravna_enota" = 5558 AND "nesreca"."id_nesreca" <= 471253

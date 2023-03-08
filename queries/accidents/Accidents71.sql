@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("nesreca"."stacionazna_ali_hisna_st" + "nesreca"."upravna_enota") as agg_1 FROM "nesreca"  WHERE "nesreca"."tip_nesreca" NOT LIKE '%T%O%'

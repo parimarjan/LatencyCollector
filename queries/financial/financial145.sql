@@ -1,0 +1,1 @@
+SELECT MAX("district"."A8" + "district"."A16") as agg_0, COUNT(*) as agg_1 FROM "client" LEFT OUTER JOIN "district" ON "client"."district_id" = "district"."district_id"  WHERE "client"."birth_date" != '1961-01-07'

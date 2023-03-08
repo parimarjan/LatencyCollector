@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "district"  WHERE "district"."A9" <= 6 AND ("district"."A14" >= 119 OR ("district"."A14" <= 113 AND "district"."A14" = 149)) AND "district"."A6" BETWEEN 28 AND 29 AND "district"."A3" LIKE '%centra%l%'

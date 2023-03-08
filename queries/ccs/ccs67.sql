@@ -1,0 +1,1 @@
+SELECT MAX("products"."ProductID") as agg_0, MAX("products"."ProductID") as agg_1, SUM("products"."ProductID") as agg_2 FROM "products"  WHERE "products"."Description" != 'Tyres/Breakdown' AND "products"."ProductID" <= 148 AND "products"."Description" IN ('Umývanie voz', 'Service charge', 'Potraviny', 'Servisní poplatek', 'Vratné obaly', 'Provozní poplatek')

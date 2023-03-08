@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."vozniski_staz_MM" + "upravna_enota"."povrsina") as agg_0, COUNT(*) as agg_1, COUNT(*) as agg_2 FROM "upravna_enota" LEFT OUTER JOIN "oseba" ON "upravna_enota"."id_upravna_enota" = "oseba"."upravna_enota"  WHERE "oseba"."poskodba" IN ('S', 'H', 'B', 'U')

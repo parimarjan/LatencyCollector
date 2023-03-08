@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("district"."A12") as agg_1 FROM "client" LEFT OUTER JOIN "district" ON "client"."district_id" = "district"."district_id"  WHERE "district"."A13" <= 4.32377814971067 AND "district"."A3" LIKE '%west%' AND "client"."birth_date" = '1952-09-05' AND "district"."A10" BETWEEN 68.69057471119918 AND 97.27987243193158

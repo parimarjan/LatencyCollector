@@ -1,0 +1,1 @@
+SELECT AVG("trans"."trans_id" + "trans"."account") as agg_0 FROM "trans"  WHERE "trans"."operation" IN ('VYBER KARTOU', 'PREVOD Z UCTU') AND "trans"."type" = 'VYDAJ' AND "trans"."account" >= 40368995.48018157 AND "trans"."amount" >= 11 AND "trans"."operation" IN ('VKLAD', 'PREVOD Z UCTU', 'VYBER') AND "trans"."account_id" <= 105614

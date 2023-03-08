@@ -1,0 +1,1 @@
+SELECT MAX("upravna_enota"."st_prebivalcev") as agg_0, COUNT(*) as agg_1, COUNT(*) as agg_2 FROM "upravna_enota"  WHERE ("upravna_enota"."ime_upravna_enota" NOT LIKE '%Ljubljan%a%' OR "upravna_enota"."id_upravna_enota" BETWEEN 5505 AND 5524) AND "upravna_enota"."st_prebivalcev" != 1779 AND "upravna_enota"."povrsina" >= 749

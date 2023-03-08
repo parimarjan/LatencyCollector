@@ -1,0 +1,1 @@
+SELECT MIN("upravna_enota"."st_prebivalcev") as agg_0, MIN("upravna_enota"."povrsina") as agg_1 FROM "upravna_enota"  WHERE "upravna_enota"."id_upravna_enota" != 5531 AND "upravna_enota"."ime_upravna_enota" LIKE '%Bist%rica%' AND "upravna_enota"."st_prebivalcev" >= 17030

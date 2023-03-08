@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "nesreca" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca"  WHERE ("oseba"."drzavljanstvo" <= 5 OR "oseba"."vozniski_staz_MM" BETWEEN 0.0 AND 4.415450746601429) AND "oseba"."strokovni_pregled" <= 0.0

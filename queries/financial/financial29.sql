@@ -1,0 +1,1 @@
+SELECT MAX("loan"."account_id") as agg_0, AVG("trans"."account_id" + "trans"."amount") as agg_1 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id" LEFT OUTER JOIN "trans" ON "account"."account_id" = "trans"."account_id"  WHERE "account"."frequency" = 'POPLATEK PO OBRATU' AND "loan"."status" != 'A'

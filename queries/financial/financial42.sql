@@ -1,0 +1,1 @@
+SELECT SUM("loan"."account_id" + "loan"."amount") as agg_0, AVG("loan"."amount") as agg_1 FROM "loan"  WHERE "loan"."loan_id" <= 5469 AND "loan"."payments" >= 8817.58746959937

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "upravna_enota"  WHERE "upravna_enota"."povrsina" != 694 AND "upravna_enota"."ime_upravna_enota" NOT LIKE '%p%ri%'

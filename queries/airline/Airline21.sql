@@ -1,0 +1,1 @@
+SELECT SUM("L_CITY_MARKET_ID"."Code") as agg_0, COUNT(*) as agg_1 FROM "L_CITY_MARKET_ID"  WHERE "L_CITY_MARKET_ID"."Description" IN ('Sealing Point, AK', 'Grass Valley, CA', 'Bonners Ferry, ID', 'Shingletown, CA', 'Stevensville, MT') AND "L_CITY_MARKET_ID"."Description" = 'Wharton, TX' AND "L_CITY_MARKET_ID"."Code" BETWEEN 172559 AND 243062

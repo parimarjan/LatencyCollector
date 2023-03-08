@@ -1,0 +1,1 @@
+SELECT AVG("nesreca"."stacionazna_ali_hisna_st" + "nesreca"."x_wgs84") as agg_0, MAX("oseba"."vozniski_staz_LL") as agg_1 FROM "oseba" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"  WHERE "oseba"."spol" >= 2 AND "oseba"."starost_d" = 'J'

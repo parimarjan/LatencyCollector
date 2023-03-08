@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, SUM("disp"."client_id") as agg_1 FROM "disp"  WHERE "disp"."type" NOT LIKE '%DI%SPONENT%' AND "disp"."account_id" BETWEEN 4771 AND 80124

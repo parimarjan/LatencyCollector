@@ -297,6 +297,16 @@ def main():
         db_name = "stack"
     elif "tpch" in args.query_dir:
         db_name = "tpch"
+    elif "ccs" in args.query_dir:
+        db_name = "ccs"
+    elif "financial" in args.query_dir:
+        db_name = "financial"
+    elif "accidents" in args.query_dir:
+        db_name = "accidents"
+    elif "airline" in args.query_dir:
+        db_name = "airline"
+    elif "consumer" in args.query_dir:
+        db_name = "consumerexpenditure"
     else:
         assert False
 

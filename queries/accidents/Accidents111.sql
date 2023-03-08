@@ -1,0 +1,1 @@
+SELECT MIN("oseba"."starost") as agg_0, MAX("oseba"."drzavljanstvo" + "oseba"."spol") as agg_1, AVG("oseba"."vozniski_staz_LL") as agg_2 FROM "oseba"  WHERE "oseba"."poskodba" != 'L' AND "oseba"."strokovni_pregled_d" = 'I' AND "oseba"."vozniski_staz_MM" >= 2.3634913755326696

@@ -1,0 +1,1 @@
+SELECT SUM("account"."account_id" + "loan"."duration") as agg_0, COUNT(*) as agg_1, MAX("account"."district_id" + "trans"."balance") as agg_2 FROM "trans" LEFT OUTER JOIN "account" ON "trans"."account_id" = "account"."account_id" LEFT OUTER JOIN "loan" ON "account"."account_id" = "loan"."account_id"

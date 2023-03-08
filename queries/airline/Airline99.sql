@@ -1,0 +1,1 @@
+SELECT SUM("L_STATE_FIPS"."Code") as agg_0 FROM "L_STATE_FIPS"  WHERE "L_STATE_FIPS"."Description" IN ('Not Applicable') AND "L_STATE_FIPS"."Description" != 'Kansas' AND "L_STATE_FIPS"."Code" <= 368

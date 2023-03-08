@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."spol" + "oseba"."starost") as agg_0 FROM "nesreca" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca"  WHERE "oseba"."poskodba" IN ('S', 'U', 'L') AND "nesreca"."oznaka_odsek_ali_ulica" NOT LIKE '%00%000%' AND "nesreca"."x_wgs84" >= 16.451269030939674 AND "nesreca"."x" >= 525868.5961678467

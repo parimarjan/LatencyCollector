@@ -1,0 +1,1 @@
+SELECT AVG("upravna_enota"."id_upravna_enota" + "upravna_enota"."st_prebivalcev") as agg_0 FROM "upravna_enota"  WHERE "upravna_enota"."ime_upravna_enota" LIKE '%o%b%'

@@ -1,0 +1,1 @@
+SELECT MIN("customers"."CustomerID") as agg_0, SUM("yearmonth"."CustomerID" + "yearmonth"."Consumption") as agg_1, COUNT(*) as agg_2 FROM "yearmonth" LEFT OUTER JOIN "customers" ON "yearmonth"."CustomerID" = "customers"."CustomerID"  WHERE "customers"."Currency" = 'EUR' OR ("customers"."Currency" IN ('EUR') AND "customers"."Currency" IN ('CZK'))

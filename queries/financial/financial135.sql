@@ -1,0 +1,1 @@
+SELECT SUM("disp"."client_id" + "disp"."disp_id") as agg_0, MAX("disp"."account_id") as agg_1 FROM "disp"  WHERE "disp"."type" IN ('OWNER') AND "disp"."type" LIKE '%DI%SPONENT%'

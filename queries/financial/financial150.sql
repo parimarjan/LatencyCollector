@@ -1,0 +1,1 @@
+SELECT MAX("card"."card_id") as agg_0 FROM "card"  WHERE "card"."type" IN ('junior', 'classic') AND "card"."disp_id" >= 124599 AND "card"."issued" IN ('1998-10-01', '1997-05-17', '1998-09-29', '1998-04-16', '1998-12-08', '1998-10-11', '1998-02-26') AND "card"."type" = 'junior' AND "card"."card_id" BETWEEN 462 AND 604

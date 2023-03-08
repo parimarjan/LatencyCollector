@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, AVG("account"."account_id") as agg_1, COUNT(*) as agg_2 FROM "account"  WHERE "account"."frequency" NOT LIKE '%POPL%ATEK%' AND "account"."frequency" != 'POPLATEK MESICNE'

@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MAX("nesreca"."y") as agg_1, MAX("nesreca"."stacionazna_ali_hisna_st" + "nesreca"."y") as agg_2 FROM "nesreca"  WHERE "nesreca"."opis_prizorisce" IN ('Ž', 'R') AND "nesreca"."tip_nesreca" IN ('PP', 'PZ') AND "nesreca"."x_wgs84" <= 15.688729859185038 AND "nesreca"."vzrok_nesreca" IN ('SV', 'PR', 'CE', 'PD', 'HI', 'NP')

@@ -1,0 +1,1 @@
+SELECT AVG("client"."client_id" + "client"."district_id") as agg_0, MAX("client"."client_id") as agg_1 FROM "client"  WHERE ("client"."gender" = 'M' OR "client"."gender" IN ('M')) AND "client"."gender" IN ('M') AND "client"."district_id" <= 259 AND "client"."birth_date" IN ('1956-02-18') AND "client"."client_id" >= 86054

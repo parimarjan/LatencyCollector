@@ -1,0 +1,1 @@
+SELECT SUM("account"."district_id" + "account"."account_id") as agg_0, MIN("disp"."account_id" + "account"."district_id") as agg_1, MIN("account"."account_id" + "disp"."disp_id") as agg_2 FROM "account" LEFT OUTER JOIN "disp" ON "account"."account_id" = "disp"."account_id"  WHERE "disp"."type" NOT LIKE '%DISPONEN%T%'

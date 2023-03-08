@@ -1,0 +1,1 @@
+SELECT AVG("district"."A10") as agg_0, COUNT(*) as agg_1 FROM "client" LEFT OUTER JOIN "disp" ON "client"."client_id" = "disp"."client_id" LEFT OUTER JOIN "district" ON "client"."district_id" = "district"."district_id"  WHERE "client"."gender" IN ('F') AND "disp"."account_id" BETWEEN 49206 AND 66957

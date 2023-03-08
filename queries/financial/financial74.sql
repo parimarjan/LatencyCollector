@@ -1,0 +1,1 @@
+SELECT SUM("account"."account_id") as agg_0 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id"  WHERE "account"."frequency" IN ('POPLATEK PO OBRATU', 'POPLATEK TYDNE') AND "account"."district_id" <= 121

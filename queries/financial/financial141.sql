@@ -1,0 +1,1 @@
+SELECT MAX("disp"."account_id" + "disp"."client_id") as agg_0, SUM("disp"."client_id" + "disp"."account_id") as agg_1 FROM "card" LEFT OUTER JOIN "disp" ON "card"."disp_id" = "disp"."disp_id"  WHERE "card"."card_id" >= 352 AND ("disp"."type" IN ('DISPONENT') OR ("disp"."disp_id" <= 47747 AND "disp"."type" != 'DISPONENT')) AND "card"."type" != 'ld' AND "disp"."type" LIKE '%OWNER%'

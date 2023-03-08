@@ -1,0 +1,1 @@
+SELECT SUM("nesreca"."id_nesreca") as agg_0, MAX("nesreca"."x_wgs84") as agg_1 FROM "oseba" LEFT OUTER JOIN "upravna_enota" ON "oseba"."upravna_enota" = "upravna_enota"."id_upravna_enota" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"

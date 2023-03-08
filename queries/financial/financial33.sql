@@ -1,0 +1,1 @@
+SELECT AVG("district"."A15") as agg_0, MIN("district"."A9" + "district"."A15") as agg_1, SUM("district"."A5") as agg_2 FROM "client" LEFT OUTER JOIN "district" ON "client"."district_id" = "district"."district_id"  WHERE "client"."gender" IN ('M') AND "district"."A13" <= 3.6190470857944512 AND "district"."A3" != 'Prague'

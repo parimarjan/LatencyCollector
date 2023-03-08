@@ -1,0 +1,1 @@
+SELECT SUM("gasstations"."GasStationID" + "gasstations"."ChainID") as agg_0, MIN("gasstations"."GasStationID" + "gasstations"."ChainID") as agg_1, MAX("gasstations"."ChainID" + "gasstations"."GasStationID") as agg_2 FROM "gasstations"  WHERE "gasstations"."Country" LIKE '%SV%K%' AND "gasstations"."Segment" NOT LIKE '%fo%r%' AND "gasstations"."ChainID" >= 8

@@ -1,0 +1,1 @@
+SELECT SUM("nesreca"."y") as agg_0, SUM("oseba"."alkotest") as agg_1 FROM "upravna_enota" LEFT OUTER JOIN "nesreca" ON "upravna_enota"."id_upravna_enota" = "nesreca"."upravna_enota" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca"  WHERE "oseba"."vrsta_udelezenca" IN ('OS', 'OA', 'KM', 'MK', 'TV') AND "oseba"."povzrocitelj_ali_udelezenec" IN ('D')

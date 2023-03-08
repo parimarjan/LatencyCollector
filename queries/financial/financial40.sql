@@ -1,0 +1,1 @@
+SELECT SUM("trans"."account") as agg_0, SUM("trans"."amount") as agg_1, SUM("account"."district_id" + "trans"."trans_id") as agg_2 FROM "trans" LEFT OUTER JOIN "account" ON "trans"."account_id" = "account"."account_id"  WHERE "trans"."balance" >= 61574 AND "account"."frequency" = 'POPLATEK TYDNE' AND "trans"."bank" = 'AB'

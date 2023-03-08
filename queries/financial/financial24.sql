@@ -1,0 +1,1 @@
+SELECT SUM("disp"."disp_id") as agg_0 FROM "disp"  WHERE "disp"."type" != 'OWNER' AND ("disp"."type" LIKE '%OWNE%R%' OR "disp"."disp_id" BETWEEN 46398 AND 67829 OR "disp"."type" NOT LIKE '%OWN%ER%')

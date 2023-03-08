@@ -1,0 +1,1 @@
+SELECT SUM("transactions_1k"."GasStationID") as agg_0, COUNT(*) as agg_1, SUM("gasstations"."ChainID") as agg_2 FROM "transactions_1k" LEFT OUTER JOIN "gasstations" ON "transactions_1k"."GasStationID" = "gasstations"."GasStationID"  WHERE "transactions_1k"."Date" NOT LIKE '%2012-08%-26%' OR "transactions_1k"."Date" LIKE '%2012-08-26%'

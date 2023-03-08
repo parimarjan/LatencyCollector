@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "gasstations" LEFT OUTER JOIN "transactions_1k" ON "gasstations"."GasStationID" = "transactions_1k"."GasStationID"  WHERE "gasstations"."Country" NOT LIKE '%SVK%'

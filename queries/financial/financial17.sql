@@ -1,0 +1,1 @@
+SELECT AVG("card"."card_id" + "disp"."client_id") as agg_0, COUNT(*) as agg_1 FROM "disp" LEFT OUTER JOIN "client" ON "disp"."client_id" = "client"."client_id" LEFT OUTER JOIN "card" ON "disp"."disp_id" = "card"."disp_id"  WHERE "card"."card_id" <= 215 AND "card"."issued" = '1998-11-09'

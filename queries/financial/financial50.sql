@@ -1,0 +1,1 @@
+SELECT MIN("account"."account_id") as agg_0, MAX("account"."account_id" + "loan"."loan_id") as agg_1 FROM "loan" LEFT OUTER JOIN "account" ON "loan"."account_id" = "account"."account_id"  WHERE "loan"."duration" BETWEEN 38 AND 48

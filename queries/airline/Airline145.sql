@@ -1,0 +1,1 @@
+SELECT SUM("L_ONTIME_DELAY_GROUPS"."Code") as agg_0, SUM("L_ONTIME_DELAY_GROUPS"."Code") as agg_1, MIN("L_ONTIME_DELAY_GROUPS"."Code") as agg_2 FROM "L_ONTIME_DELAY_GROUPS"  WHERE "L_ONTIME_DELAY_GROUPS"."Code" != 15 AND "L_ONTIME_DELAY_GROUPS"."Description" IN ('Delay between 105 to 119 minutes') AND "L_ONTIME_DELAY_GROUPS"."Description" != 'Delay < -15 minutes'

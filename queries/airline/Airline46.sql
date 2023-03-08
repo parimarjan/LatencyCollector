@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "On_Time_On_Time_Performance_2016_1" LEFT OUTER JOIN "L_AIRLINE_ID" ON "On_Time_On_Time_Performance_2016_1"."AirlineID" = "L_AIRLINE_ID"."Code"  WHERE "L_AIRLINE_ID"."Code" BETWEEN 26510 AND 31235 OR "L_AIRLINE_ID"."Code" <= 27716

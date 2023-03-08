@@ -1,0 +1,1 @@
+SELECT AVG("district"."A4" + "district"."A15") as agg_0, COUNT(*) as agg_1, AVG("district"."A5" + "district"."A9") as agg_2 FROM "account" LEFT OUTER JOIN "district" ON "account"."district_id" = "district"."district_id"  WHERE "district"."A3" NOT LIKE '%Mor%avia%'

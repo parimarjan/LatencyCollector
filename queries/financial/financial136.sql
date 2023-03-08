@@ -1,0 +1,1 @@
+SELECT MAX("card"."disp_id") as agg_0 FROM "card"  WHERE "card"."card_id" <= 301 AND "card"."issued" != '1995-05-28' AND ("card"."type" NOT LIKE '%classic%' OR ("card"."disp_id" <= 109689 AND "card"."type" LIKE '%class%ic%')) AND "card"."type" != 'classic'

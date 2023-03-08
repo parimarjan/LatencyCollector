@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."starost" + "nesreca"."x") as agg_0, COUNT(*) as agg_1 FROM "oseba" LEFT OUTER JOIN "upravna_enota" ON "oseba"."upravna_enota" = "upravna_enota"."id_upravna_enota" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"  WHERE "nesreca"."oznaka_odsek_ali_ulica" != '91024' AND "upravna_enota"."ime_upravna_enota" = 'Ljutomer'

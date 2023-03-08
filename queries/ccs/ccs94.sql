@@ -1,0 +1,1 @@
+SELECT MIN("transactions_1k"."ProductID") as agg_0, COUNT(*) as agg_1, COUNT(*) as agg_2 FROM "transactions_1k" LEFT OUTER JOIN "gasstations" ON "transactions_1k"."GasStationID" = "gasstations"."GasStationID"  WHERE "gasstations"."ChainID" >= 9 OR ("gasstations"."Segment" != 'Other' AND "gasstations"."ChainID" <= 10)

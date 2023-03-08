@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, SUM("nesreca"."x" + "oseba"."upravna_enota") as agg_1 FROM "oseba" LEFT OUTER JOIN "upravna_enota" ON "oseba"."upravna_enota" = "upravna_enota"."id_upravna_enota" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"  WHERE "upravna_enota"."povrsina" != 350

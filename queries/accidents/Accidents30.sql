@@ -1,0 +1,1 @@
+SELECT MAX("nesreca"."stacionazna_ali_hisna_st" + "upravna_enota"."id_upravna_enota") as agg_0, COUNT(*) as agg_1 FROM "nesreca" LEFT OUTER JOIN "upravna_enota" ON "nesreca"."upravna_enota" = "upravna_enota"."id_upravna_enota"  WHERE "nesreca"."stanje_povrsina_vozisce" IN ('M', 'A') AND "upravna_enota"."ime_upravna_enota" LIKE '%p%ri%'

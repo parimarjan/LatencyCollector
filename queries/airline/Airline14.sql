@@ -1,0 +1,1 @@
+SELECT AVG("L_AIRLINE_ID"."Code") as agg_0, AVG("L_AIRLINE_ID"."Code") as agg_1 FROM "L_AIRLINE_ID"  WHERE "L_AIRLINE_ID"."Description" = 'Kalitta Air LLC: KAQ' AND "L_AIRLINE_ID"."Code" >= 23611

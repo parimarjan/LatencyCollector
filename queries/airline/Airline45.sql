@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, SUM("L_AIRLINE_ID"."Code") as agg_1 FROM "L_AIRLINE_ID"  WHERE "L_AIRLINE_ID"."Description" IN ('Federal Express Corporation: FX') AND "L_AIRLINE_ID"."Code" <= 19868 AND "L_AIRLINE_ID"."Description" NOT LIKE '%Air:%'

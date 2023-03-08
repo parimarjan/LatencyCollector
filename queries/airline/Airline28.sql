@@ -1,0 +1,1 @@
+SELECT MAX("L_AIRPORT_SEQ_ID"."Code") as agg_0, AVG("L_AIRPORT_SEQ_ID"."Code") as agg_1, AVG("L_AIRPORT_SEQ_ID"."Code") as agg_2 FROM "L_AIRPORT_SEQ_ID"  WHERE "L_AIRPORT_SEQ_ID"."Code" >= 1106252 AND "L_AIRPORT_SEQ_ID"."Description" LIKE '%Fr%ance:%' AND "L_AIRPORT_SEQ_ID"."Description" LIKE '%Canada:%'

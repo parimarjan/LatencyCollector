@@ -1,0 +1,1 @@
+SELECT AVG("account"."district_id" + "district"."A12") as agg_0 FROM "trans" LEFT OUTER JOIN "account" ON "trans"."account_id" = "account"."account_id" LEFT OUTER JOIN "district" ON "account"."district_id" = "district"."district_id" LEFT OUTER JOIN "loan" ON "account"."account_id" = "loan"."account_id"  WHERE "district"."A16" BETWEEN 2540 AND 3048 AND "trans"."trans_id" >= 710360

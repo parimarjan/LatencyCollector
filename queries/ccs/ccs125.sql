@@ -1,0 +1,1 @@
+SELECT AVG("yearmonth"."Consumption" + "yearmonth"."Date") as agg_0, SUM("yearmonth"."Date" + "yearmonth"."Consumption") as agg_1, AVG("yearmonth"."Consumption") as agg_2 FROM "yearmonth"  WHERE "yearmonth"."Consumption" BETWEEN 2744.774806156492 AND 5863.412000771195 AND ("yearmonth"."Date" = 201164 OR "yearmonth"."Date" BETWEEN 201230 AND 201304)

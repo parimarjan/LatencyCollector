@@ -1,0 +1,1 @@
+SELECT SUM("L_CANCELLATION"."Code") as agg_0, COUNT(*) as agg_1 FROM "L_CANCELLATION"  WHERE ("L_CANCELLATION"."Code" <= 7 OR "L_CANCELLATION"."Code" <= 3) AND "L_CANCELLATION"."Description" LIKE '%Nati%onal%'

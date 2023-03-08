@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("L_AIRPORT_SEQ_ID"."Code") as agg_1, MIN("L_AIRPORT_SEQ_ID"."Code") as agg_2 FROM "L_AIRPORT_SEQ_ID"  WHERE "L_AIRPORT_SEQ_ID"."Description" NOT LIKE '%County%' AND "L_AIRPORT_SEQ_ID"."Code" >= 1081187 AND "L_AIRPORT_SEQ_ID"."Description" NOT LIKE '%City%'

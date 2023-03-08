@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("upravna_enota"."povrsina") as agg_1, COUNT(*) as agg_2 FROM "upravna_enota" LEFT OUTER JOIN "nesreca" ON "upravna_enota"."id_upravna_enota" = "nesreca"."upravna_enota"  WHERE "upravna_enota"."ime_upravna_enota" = 'Škofja Loka' AND "nesreca"."y_wgs84" <= 46.50587095559069

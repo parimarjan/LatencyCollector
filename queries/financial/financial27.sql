@@ -1,0 +1,1 @@
+SELECT SUM("client"."district_id" + "client"."client_id") as agg_0 FROM "client"  WHERE "client"."gender" IN ('M')

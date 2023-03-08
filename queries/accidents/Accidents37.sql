@@ -1,0 +1,1 @@
+SELECT AVG("upravna_enota"."povrsina") as agg_0 FROM "nesreca" LEFT OUTER JOIN "upravna_enota" ON "nesreca"."upravna_enota" = "upravna_enota"."id_upravna_enota" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca"  WHERE "upravna_enota"."ime_upravna_enota" LIKE '%Ljubljana%'

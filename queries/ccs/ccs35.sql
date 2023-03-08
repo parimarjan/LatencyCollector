@@ -1,0 +1,1 @@
+SELECT MAX("customers"."CustomerID") as agg_0 FROM "customers"  WHERE ("customers"."Segment" IN ('KAM') OR "customers"."Segment" IN ('KAM', 'SME')) AND "customers"."Currency" NOT LIKE '%C%ZK%' AND "customers"."Currency" LIKE '%CZ%K%' AND "customers"."Segment" NOT LIKE '%KA%M%'

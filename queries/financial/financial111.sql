@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, MIN("account"."district_id" + "district"."A16") as agg_1 FROM "account" LEFT OUTER JOIN "disp" ON "account"."account_id" = "disp"."account_id" LEFT OUTER JOIN "district" ON "account"."district_id" = "district"."district_id"  WHERE "account"."district_id" <= 691 OR ("account"."frequency" IN ('POPLATEK PO OBRATU') AND "account"."district_id" <= 238)

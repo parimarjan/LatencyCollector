@@ -1,0 +1,1 @@
+SELECT AVG("district"."A6") as agg_0 FROM "district" LEFT OUTER JOIN "account" ON "district"."district_id" = "account"."district_id" LEFT OUTER JOIN "client" ON "district"."district_id" = "client"."district_id"  WHERE "district"."A2" IN ('Blansko', 'Hl.m. Praha', 'Breclav', 'Hodonin')

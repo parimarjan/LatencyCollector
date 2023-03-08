@@ -1,0 +1,1 @@
+SELECT MAX("transactions_1k"."CustomerID" + "transactions_1k"."GasStationID") as agg_0 FROM "transactions_1k" LEFT OUTER JOIN "gasstations" ON "transactions_1k"."GasStationID" = "gasstations"."GasStationID" LEFT OUTER JOIN "products" ON "transactions_1k"."ProductID" = "products"."ProductID"  WHERE "gasstations"."GasStationID" >= 4702

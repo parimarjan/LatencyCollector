@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."upravna_enota") as agg_0 FROM "upravna_enota" LEFT OUTER JOIN "nesreca" ON "upravna_enota"."id_upravna_enota" = "nesreca"."upravna_enota" LEFT OUTER JOIN "oseba" ON "upravna_enota"."id_upravna_enota" = "oseba"."upravna_enota"  WHERE "oseba"."varnostni_pas_ali_celada" = '1.0'

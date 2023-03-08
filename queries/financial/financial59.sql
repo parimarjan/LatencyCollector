@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "card" LEFT OUTER JOIN "disp" ON "card"."disp_id" = "disp"."disp_id" LEFT OUTER JOIN "account" ON "disp"."account_id" = "account"."account_id"  WHERE "account"."frequency" NOT LIKE '%TYDNE%' AND "account"."frequency" IN ('POPLATEK PO OBRATU') AND "account"."account_id" <= 9992

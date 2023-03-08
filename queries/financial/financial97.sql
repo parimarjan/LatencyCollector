@@ -1,0 +1,1 @@
+SELECT SUM("district"."A6") as agg_0 FROM "district" LEFT OUTER JOIN "client" ON "district"."district_id" = "client"."district_id" LEFT OUTER JOIN "account" ON "district"."district_id" = "account"."district_id"  WHERE "district"."A13" <= 2.7873229870649037

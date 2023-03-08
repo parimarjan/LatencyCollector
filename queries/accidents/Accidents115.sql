@@ -1,0 +1,1 @@
+SELECT MIN("nesreca"."x_wgs84") as agg_0, MAX("nesreca"."y" + "nesreca"."y_wgs84") as agg_1 FROM "nesreca"  WHERE "nesreca"."katerija_cesta" != 'T' OR "nesreca"."stanje_promet" != 'E'

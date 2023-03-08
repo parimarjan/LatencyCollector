@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1, MIN("nesreca"."x") as agg_2 FROM "nesreca"  WHERE "nesreca"."tekst_cesta_ali_naselje" LIKE '%KORENSK%O%' AND "nesreca"."opis_prizorisce" IN ('P') AND "nesreca"."tekst_cesta_ali_naselje" IN ('KOPER', 'LJUBLJANA', 'ŠENTILJ - DEKANI', 'PTUJ')

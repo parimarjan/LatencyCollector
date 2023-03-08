@@ -1,0 +1,1 @@
+SELECT MAX("products"."ProductID") as agg_0, COUNT(*) as agg_1 FROM "products"  WHERE "products"."ProductID" BETWEEN 28 AND 176

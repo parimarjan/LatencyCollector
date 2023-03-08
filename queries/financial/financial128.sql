@@ -1,0 +1,1 @@
+SELECT MAX("trans"."balance") as agg_0, COUNT(*) as agg_1, MAX("account"."district_id") as agg_2 FROM "account" LEFT OUTER JOIN "trans" ON "account"."account_id" = "trans"."account_id"  WHERE "account"."date" IN ('1996-11-24') AND "trans"."k_symbol" != ' ' AND "account"."district_id" >= 1 AND "account"."frequency" = 'POPLATEK TYDNE'

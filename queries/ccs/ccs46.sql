@@ -1,0 +1,1 @@
+SELECT MIN("gasstations"."ChainID") as agg_0 FROM "gasstations"  WHERE "gasstations"."Segment" != 'Value for money' AND "gasstations"."ChainID" BETWEEN 2 AND 17 AND "gasstations"."GasStationID" >= 5416

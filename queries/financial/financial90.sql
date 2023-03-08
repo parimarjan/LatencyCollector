@@ -1,0 +1,1 @@
+SELECT MAX("loan"."payments") as agg_0 FROM "card" LEFT OUTER JOIN "disp" ON "card"."disp_id" = "disp"."disp_id" LEFT OUTER JOIN "account" ON "disp"."account_id" = "account"."account_id" LEFT OUTER JOIN "loan" ON "account"."account_id" = "loan"."account_id" LEFT OUTER JOIN "district" ON "account"."district_id" = "district"."district_id"  WHERE "loan"."status" IN ('D', 'A')

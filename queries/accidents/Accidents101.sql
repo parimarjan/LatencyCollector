@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."alkotest" + "upravna_enota"."id_upravna_enota") as agg_0 FROM "oseba" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca" LEFT OUTER JOIN "upravna_enota" ON "oseba"."upravna_enota" = "upravna_enota"."id_upravna_enota"  WHERE "upravna_enota"."ime_upravna_enota" NOT LIKE '%pri%' OR "upravna_enota"."ime_upravna_enota" != 'Koper'

@@ -1,0 +1,1 @@
+SELECT SUM("loan"."account_id") as agg_0, MAX("loan"."amount" + "loan"."account_id") as agg_1, SUM("loan"."amount" + "loan"."account_id") as agg_2 FROM "loan"  WHERE "loan"."status" IN ('C', 'A', 'D')

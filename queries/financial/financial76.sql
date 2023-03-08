@@ -1,0 +1,1 @@
+SELECT MIN("disp"."account_id") as agg_0, COUNT(*) as agg_1, SUM("disp"."disp_id") as agg_2 FROM "disp"  WHERE "disp"."disp_id" <= 130967

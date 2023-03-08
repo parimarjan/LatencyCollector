@@ -1,0 +1,1 @@
+SELECT SUM("oseba"."upravna_enota") as agg_0, SUM("oseba"."starost") as agg_1 FROM "oseba"  WHERE "oseba"."vozniski_staz_MM" >= 6.235148924625877

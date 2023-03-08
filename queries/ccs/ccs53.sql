@@ -1,0 +1,1 @@
+SELECT MAX("transactions_1k"."Amount" + "transactions_1k"."CardID") as agg_0 FROM "transactions_1k"  WHERE "transactions_1k"."Date" = '2012-08-26' AND ("transactions_1k"."GasStationID" >= 4737 OR ("transactions_1k"."GasStationID" BETWEEN 3284 AND 4204 AND "transactions_1k"."GasStationID" <= 1217)) AND "transactions_1k"."Price" <= 2761.7411299098267

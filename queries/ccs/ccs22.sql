@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1, MAX("customers"."CustomerID") as agg_2 FROM "customers" LEFT OUTER JOIN "transactions_1k" ON "customers"."CustomerID" = "transactions_1k"."CustomerID"  WHERE "transactions_1k"."CardID" BETWEEN 497970 AND 744105

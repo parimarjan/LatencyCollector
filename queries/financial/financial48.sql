@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0, COUNT(*) as agg_1, SUM("district"."A10" + "district"."A6") as agg_2 FROM "district" LEFT OUTER JOIN "client" ON "district"."district_id" = "client"."district_id"  WHERE "district"."A2" NOT LIKE '%jih%' AND "district"."A7" <= 13 AND "client"."gender" != 'M' AND "district"."A3" LIKE '%Prague%'

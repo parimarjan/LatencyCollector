@@ -1,0 +1,1 @@
+SELECT COUNT(*) as agg_0 FROM "gasstations"  WHERE "gasstations"."Country" NOT LIKE '%C%ZE%'

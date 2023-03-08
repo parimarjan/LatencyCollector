@@ -1,0 +1,1 @@
+SELECT MAX("district"."A16") as agg_0, AVG("district"."A8") as agg_1, SUM("district"."A6") as agg_2 FROM "district"  WHERE "district"."A2" IN ('Hl.m. Praha', 'Blansko', 'Svitavy', 'Hodonin', 'Semily', 'Brno - venkov', 'Breclav') AND "district"."A3" LIKE '%Pra%gue%' AND ("district"."A6" <= 10 OR "district"."A6" <= 18) AND "district"."A8" = 1

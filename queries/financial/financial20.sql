@@ -1,0 +1,1 @@
+SELECT AVG("loan"."amount") as agg_0 FROM "account" LEFT OUTER JOIN "loan" ON "account"."account_id" = "loan"."account_id"  WHERE "account"."frequency" IN ('POPLATEK MESICNE') AND "account"."frequency" LIKE '%TY%DNE%' AND "account"."district_id" BETWEEN 156 AND 726

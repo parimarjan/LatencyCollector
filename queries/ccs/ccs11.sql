@@ -1,0 +1,1 @@
+SELECT SUM("customers"."CustomerID") as agg_0, COUNT(*) as agg_1, SUM("yearmonth"."Consumption" + "yearmonth"."CustomerID") as agg_2 FROM "yearmonth" LEFT OUTER JOIN "customers" ON "yearmonth"."CustomerID" = "customers"."CustomerID"  WHERE "yearmonth"."Date" = 201304

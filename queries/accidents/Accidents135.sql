@@ -1,0 +1,1 @@
+SELECT AVG("oseba"."vozniski_staz_LL" + "oseba"."starost") as agg_0, MIN("oseba"."strokovni_pregled") as agg_1, SUM("oseba"."spol") as agg_2 FROM "oseba"  WHERE "oseba"."poskodba" IN ('B', 'S') AND "oseba"."varnostni_pas_ali_celada" IN ('2')

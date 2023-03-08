@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."id_nesreca") as agg_0 FROM "nesreca" LEFT OUTER JOIN "oseba" ON "nesreca"."id_nesreca" = "oseba"."id_nesreca"  WHERE "oseba"."poskodba" IN ('L', 'H')

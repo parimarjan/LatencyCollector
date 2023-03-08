@@ -1,0 +1,1 @@
+SELECT MAX("oseba"."spol" + "oseba"."alkotest") as agg_0, MAX("oseba"."drzavljanstvo" + "oseba"."upravna_enota") as agg_1 FROM "oseba"  WHERE "oseba"."starost_d" IN ('D', 'F', 'H', 'I', 'C', 'E', 'B') AND "oseba"."upravna_enota" <= 5576

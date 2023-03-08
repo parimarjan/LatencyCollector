@@ -1,0 +1,1 @@
+SELECT SUM("L_AIRPORT_ID"."Code") as agg_0, SUM("L_AIRPORT_ID"."Code") as agg_1 FROM "L_AIRPORT_ID"  WHERE "L_AIRPORT_ID"."Description" LIKE '%A%irport%'

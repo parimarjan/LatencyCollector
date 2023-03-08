@@ -1,0 +1,1 @@
+SELECT SUM("transactions_1k"."ProductID") as agg_0, SUM("transactions_1k"."ProductID" + "transactions_1k"."Price") as agg_1 FROM "transactions_1k" LEFT OUTER JOIN "customers" ON "transactions_1k"."CustomerID" = "customers"."CustomerID"  WHERE "customers"."Currency" LIKE '%EUR%' OR ("customers"."Segment" NOT LIKE '%L%AM%' AND "customers"."Currency" LIKE '%CZK%')

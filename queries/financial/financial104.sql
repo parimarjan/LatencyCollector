@@ -1,0 +1,1 @@
+SELECT MAX("disp"."disp_id") as agg_0 FROM "client" LEFT OUTER JOIN "disp" ON "client"."client_id" = "disp"."client_id" LEFT OUTER JOIN "district" ON "client"."district_id" = "district"."district_id"  WHERE "district"."A3" LIKE '%Bo%hemia%'

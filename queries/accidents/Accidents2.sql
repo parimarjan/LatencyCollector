@@ -1,0 +1,1 @@
+SELECT MAX("nesreca"."y_wgs84") as agg_0 FROM "nesreca"  WHERE "nesreca"."tekst_cesta_ali_naselje" IN ('PTUJ', 'KOPER', 'ŠENTILJ - DEKANI', 'VIČ - HAJDINA (PTUJ)', 'CELJE', 'LJUBLJANA', 'KORENSKO SEDLO - OBREŽJE')

@@ -1,0 +1,1 @@
+SELECT MIN("transactions_1k"."CustomerID" + "transactions_1k"."GasStationID") as agg_0, MAX("yearmonth"."Date") as agg_1 FROM "yearmonth" LEFT OUTER JOIN "customers" ON "yearmonth"."CustomerID" = "customers"."CustomerID" LEFT OUTER JOIN "transactions_1k" ON "customers"."CustomerID" = "transactions_1k"."CustomerID"  WHERE "transactions_1k"."Date" LIKE '%2012-08%-24%'

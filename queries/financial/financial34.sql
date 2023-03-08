@@ -1,0 +1,1 @@
+SELECT MAX("trans"."trans_id") as agg_0, MAX("trans"."trans_id" + "trans"."amount") as agg_1, MAX("trans"."account_id" + "trans"."account") as agg_2 FROM "trans"  WHERE "trans"."account_id" >= 4352 AND "trans"."trans_id" >= 1291922 AND "trans"."operation" != 'PREVOD NA UCET'

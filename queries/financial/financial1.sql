@@ -1,0 +1,1 @@
+SELECT MIN("account"."district_id" + "account"."account_id") as agg_0, SUM("account"."district_id") as agg_1 FROM "account"  WHERE "account"."frequency" IN ('POPLATEK PO OBRATU') AND "account"."frequency" NOT LIKE '%P%O%' AND "account"."date" IN ('1997-08-08') AND "account"."district_id" <= 240

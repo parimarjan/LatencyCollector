@@ -1,0 +1,1 @@
+SELECT MIN("loan"."loan_id") as agg_0, COUNT(*) as agg_1 FROM "loan"  WHERE "loan"."status" IN ('B') AND ("loan"."loan_id" BETWEEN 5919 AND 7170 OR "loan"."amount" BETWEEN 22937 AND 46157) AND "loan"."date" != '1994-05-31'

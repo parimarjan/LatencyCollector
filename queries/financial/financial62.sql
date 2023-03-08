@@ -1,0 +1,1 @@
+SELECT MAX("card"."card_id") as agg_0 FROM "card"  WHERE "card"."type" NOT LIKE '%l%d%'

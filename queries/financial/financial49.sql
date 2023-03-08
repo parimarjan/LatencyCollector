@@ -1,0 +1,1 @@
+SELECT MIN("disp"."account_id") as agg_0, MAX("disp"."account_id" + "disp"."client_id") as agg_1, SUM("disp"."disp_id") as agg_2 FROM "disp"  WHERE "disp"."account_id" <= 97436 AND "disp"."disp_id" BETWEEN 31354 AND 36105

@@ -1,0 +1,1 @@
+SELECT AVG("oseba"."drzavljanstvo") as agg_0, MIN("oseba"."alkotest" + "oseba"."vozniski_staz_MM") as agg_1, SUM("nesreca"."y" + "oseba"."spol") as agg_2 FROM "oseba" LEFT OUTER JOIN "nesreca" ON "oseba"."id_nesreca" = "nesreca"."id_nesreca"

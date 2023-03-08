@@ -1,0 +1,1 @@
+SELECT SUM("oseba"."drzavljanstvo") as agg_0 FROM "upravna_enota" LEFT OUTER JOIN "oseba" ON "upravna_enota"."id_upravna_enota" = "oseba"."upravna_enota"  WHERE "upravna_enota"."ime_upravna_enota" IN ('Ormož', 'Ravne na Koroškem', 'Postojna') AND "oseba"."vozniski_staz_d" != 'J' AND "oseba"."vrsta_udelezenca" NOT LIKE '%PT%' AND "upravna_enota"."st_prebivalcev" = 18436
