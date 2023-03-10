@@ -307,6 +307,14 @@ def main():
         db_name = "airline"
     elif "consumer" in args.query_dir:
         db_name = "consumerexpenditure"
+    elif "seznam" in args.query_dir:
+        db_name = "seznam"
+    elif "basketball" in args.query_dir:
+        db_name = "basketball_men"
+    elif "ssb" in args.query_dir:
+        db_name = "ssb"
+    elif "credit" in args.query_dir:
+        db_name = "credit"
     else:
         assert False
 
