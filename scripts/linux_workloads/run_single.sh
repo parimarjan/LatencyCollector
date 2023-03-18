@@ -20,10 +20,11 @@ while read in;
       eval $in
       continue
     else
-      cmdname=${in//" "/"|"}
+      cmdname=${in//" "/"_"}
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
     fi
     cmd="perf stat -x, -e ${E} -o $plogs $in"
-    echo $cmd
+    #echo $cmd
+    eval $cmd
 done < $FN
