@@ -5,16 +5,15 @@
 #cd build/
 #cmake ..
 #make && make install
-sudo apt-get install libhdf5-10
-sudo apt-get install libhdf5-serial-dev
-sudo apt-get install libhdf5-dev
-sudo apt-get install libhdf5-cpp-11
-sudo apt-get install libhdf5-serial-dev
-sudo apt-get install libhdf5-dev
-sudo apt-get install libhdf5-cpp-11
-export CPATH="/usr/include/hdf5/serial/"
+#sudo apt-get install libhdf5-10
+#sudo apt-get install libhdf5-serial-dev
+#sudo apt-get install libhdf5-dev
+#sudo apt-get install libhdf5-cpp-11
+#sudo apt-get install libhdf5-serial-dev
+#sudo apt-get install libhdf5-dev
+#sudo apt-get install libhdf5-cpp-11
+#export CPATH="/usr/include/hdf5/serial/"
 
-cd ~/
 git clone https://github.com/hpc/ior.git
 cd ior/
 ./bootstrap
