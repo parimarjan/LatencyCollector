@@ -16,9 +16,9 @@ for ri in "${REPS[@]}"
   bash run_single.sh ansibench.sh
   bash run_single.sh learned_sort.sh
   bash run_single.sh percolation.sh
-  ## fix bench script
   bash run_single.sh radix.sh
   bash run_single.sh redis.sh
+  bash run_single.sh rambench.sh
 done
 
 bash run_single.sh bonnie.sh
