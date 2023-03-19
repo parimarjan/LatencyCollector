@@ -1,5 +1,5 @@
 # install
-curl -s https://packagecloud.io/install/repositories/akopytov/sysbench/script.deb.sh | sudo bash
+#curl -s https://packagecloud.io/install/repositories/akopytov/sysbench/script.deb.sh | sudo bash
 sudo apt -y install sysbench
 mkdir -p sysbench
 cd sysbench

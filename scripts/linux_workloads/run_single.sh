@@ -29,11 +29,17 @@ while read in;
     elif [[ $in =~ "cd" ]]; then
       eval $in
       continue
+    elif [[ $in =~ "mkdir" ]]; then
+      eval $in
+      continue
     else
-      cmdname=${FN}${rid}"-"${in//" "/"_"}
-      cmdname=${cmdname//\//"slash"}
+      #cmdname=${FN}${rid}"-"${in//" "/"_"}
+      cmdname=${FN}${rid}"-"${in}
+      #cmdname= ($(echo -n $cmdname | shasum | cut -f1 -d" "))
+      cmdname=$(echo -n "$cmdname" | sha256sum | awk '{print $1}')
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
+      echo "$cmdname,$in,$FN" >> ${OUTDIR}allcommands.csv
     fi
     echo "cmd name: " $cmdname
     echo "outdir: " $OUTDIR
