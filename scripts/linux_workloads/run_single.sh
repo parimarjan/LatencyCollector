@@ -1,6 +1,6 @@
 
 FN=$1
-me=`basename "$0"`
+#me=`basename "$0"`
 echo $FN
 mkdir -p ~/log
 mkdir -p ~/log/results
@@ -24,7 +24,7 @@ while read in;
       eval $in
       continue
     else
-      cmdname=${me}"-"${in//" "/"_"}
+      cmdname=${FN}"-"${in//" "/"_"}
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
     fi
