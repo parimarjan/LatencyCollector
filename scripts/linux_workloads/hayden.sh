@@ -1,5 +1,5 @@
 ## copied from https://github.com/haydenjames/bench-scripts
-get -qO- bench.sh | bash
+wget -qO- bench.sh | bash
 (curl -s wget.racing/nench.sh | bash; curl -s wget.racing/nench.sh | bash) 2>&1 | tee nench.log
 bash <(wget --no-check-certificate -O - https://raw.github.com/mgutz/vpsbench/master/vpsbench)
 

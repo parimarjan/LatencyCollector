@@ -19,6 +19,9 @@ while read in;
     elif [[ $in =~ "cd" ]]; then
       eval $in
       continue
+    elif [[ $in =~ "&" ]]; then
+      eval $in
+      continue
     else
       cmdname=${in//" "/"_"}
       plogs=${OUTDIR}${cmdname}'.csv'
