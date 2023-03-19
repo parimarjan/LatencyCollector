@@ -6,6 +6,7 @@ mkdir -p ~/log
 mkdir -p ~/log/results
 mkdir -p ~/log/results/perf
 OUTDIR=~/log/results/perf/
+rid=(( ( RANDOM % 10000 )  + 1 ))
 
 E=dTLB-loads,iTLB-loads,branch-loads,instructions,cache-references,cpu-clock,task-clock,page-faults,minor-faults,major-faults,cs,cpu-migrations,alignment-faults,emulation-faults,branch-load-misses,branch-loads,bus-cycles,idle-cycles-backend,alignment-faults
 
@@ -24,7 +25,7 @@ while read in;
       eval $in
       continue
     else
-      cmdname=${FN}"-"${in//" "/"_"}
+      cmdname=${FN}${rid}"-"${in//" "/"_"}
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
     fi
