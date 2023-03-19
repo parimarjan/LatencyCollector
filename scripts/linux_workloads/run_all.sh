@@ -15,6 +15,7 @@ bash run_single.sh learned_sort.sh
 bash run_single.sh percolation.sh
 ## fix bench script
 bash run_single.sh radix.sh
+bash run_single.sh bonnie.sh
 
 ## TODO:
 #db_bench.sh
