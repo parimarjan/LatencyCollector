@@ -15,16 +15,19 @@ while read in;
     if [ -z "$in" ]; then
       continue
     fi
-    if [[ $in =~ "git" ]]; then
-      plogs="/dev/null"
-      plogs_err="/dev/null"
-    elif [[ $in =~ "cd" ]]; then
-      eval $in
+
+    if [[ $in =~ "#" ]]; then
       continue
     elif [[ $in =~ "&" ]]; then
       eval $in
       continue
-    elif [[ $in =~ "#" ]]; then
+    elif [[ $in =~ "git" ]]; then
+      plogs="/dev/null"
+      plogs_err="/dev/null"
+      eval $in
+      continue
+    elif [[ $in =~ "cd" ]]; then
+      eval $in
       continue
     else
       cmdname=${FN}${rid}"-"${in//" "/"_"}
