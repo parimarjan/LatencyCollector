@@ -6,7 +6,7 @@ mkdir -p ~/log
 mkdir -p ~/log/results
 mkdir -p ~/log/results/perf
 OUTDIR=~/log/results/perf/
-rid=(( ( RANDOM % 10000 )  + 1 ))
+rid=$RANDOM
 
 E=dTLB-loads,iTLB-loads,branch-loads,instructions,cache-references,cpu-clock,task-clock,page-faults,minor-faults,major-faults,cs,cpu-migrations,alignment-faults,emulation-faults,branch-load-misses,branch-loads,bus-cycles,idle-cycles-backend,alignment-faults
 
