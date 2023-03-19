@@ -13,6 +13,7 @@ bash run_single.sh percolation.sh
 ## fix bench script
 bash run_single.sh radix.sh
 bash run_single.sh hayden.sh
+bash run_single.sh memtier.sh
 
 ## TODO:
 #db_bench.sh

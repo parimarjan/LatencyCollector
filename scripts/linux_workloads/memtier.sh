@@ -1,27 +1,23 @@
-   50  sudo apt-get install build-essential autoconf automake libpcre3-dev libevent-dev pkg-config zlib1g-dev libssl-dev
-   51  git clone https://github.com/RedisLabs/memtier_benchmark.git
-   52  cd memtier_benchmark/
-   53  ls
-   54  clear
-   55  ls
-   56  pwd
-   57  autoreconf -ivf
-   58  ./configure
-   59  make
-   60  sudo make install
-   61  mkdir -p .env
-   62  virtualenv .env
-   63  sudo apt install python3-virtualenv
-   64  virtualenv .env
-   65  source .env/bin/activate
-   66  pip install -r tests/test_requirements.txt
-   67  ./tests/run_tests.sh
-   68  ./redis-server
-   69  redis-server
-   70  sudo apt install redis-server
-   71  ./tests/run_tests.sh
-   72  memtier_benchmark --help
-   73  memtier_benchmark
-   74  memtier_benchmark --help
-   75  memtier_benchmark -n allkeys
-   76  history
+sudo apt-get install build-essential autoconf automake libpcre3-dev libevent-dev pkg-config zlib1g-dev libssl-dev
+git clone https://github.com/RedisLabs/memtier_benchmark.git
+cd memtier_benchmark/
+autoreconf -ivf
+./configure
+make
+sudo make install
+mkdir -p .env
+virtualenv .env
+sudo apt install python3-virtualenv
+virtualenv .env
+source .env/bin/activate
+pip install -r tests/test_requirements.txt
+./tests/run_tests.sh
+sudo apt install redis-server
+redis-server &
+./tests/run_tests.sh
+memtier_benchmark -R -n 1000 --data-size-range=10-1000 -t 1 -x 2
+memtier_benchmark -R -n 10000 --data-size-range=10-1000 -t 1 -x 2
+memtier_benchmark -R -n 1000000 --data-size-range=10-1000 -t 1 -x 2
+memtier_benchmark -R -n 10000000 --data-size-range=10-1000 -t 1 -x 2
+
+#memtier_benchmark -n allkeys
