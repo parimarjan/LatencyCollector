@@ -10,9 +10,10 @@ cd mk
 make run
 cd ..
 
-cd tripforce
-make run
-cd ..
+## too slow, and only cpu workload
+#cd tripforce
+#make run
+#cd ..
 
 cd whetstone
 make run
