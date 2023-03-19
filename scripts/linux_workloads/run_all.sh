@@ -2,7 +2,6 @@ REPS=(1 1 1)
 
 for ri in "${REPS[@]}"
   do
-  bash run_single.sh redis.sh
   bash run_single.sh iozone.sh
   bash run_single.sh interbench.sh
   bash run_single.sh memtier.sh
@@ -19,6 +18,7 @@ for ri in "${REPS[@]}"
   bash run_single.sh percolation.sh
   ## fix bench script
   bash run_single.sh radix.sh
+  bash run_single.sh redis.sh
 done
 
 bash run_single.sh bonnie.sh
