@@ -24,12 +24,17 @@ while read in;
     elif [[ $in =~ "&" ]]; then
       eval $in
       continue
+    elif [[ $in =~ "#" ]]; then
+      continue
     else
       cmdname=${FN}${rid}"-"${in//" "/"_"}
+      cmdname=${cmdname//\//"slash"}
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
     fi
+    echo "cmd name: " $cmdname
+    echo "outdir: " $OUTDIR
     cmd="perf stat -x, -e ${E} -o $plogs $in"
-    #echo $cmd
+    echo "Going to evaluate: " $cmd
     eval $cmd
 done < $FN

@@ -3,7 +3,6 @@ cd redis/
 make
 make test
 cd src/
-./redis-server &
-./redis-benchmark
-# TODO: add more benchmark versions
+#./redis-server --port 7778 &
+./redis-benchmark 
 
