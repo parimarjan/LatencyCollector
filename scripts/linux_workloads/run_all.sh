@@ -2,6 +2,7 @@ bash run_single.sh redis.sh
 bash run_single.sh iozone.sh
 bash run_single.sh interbench.sh
 bash run_single.sh memtier.sh
+bash run_single.sh sysbench.sh
 bash run_single.sh hayden.sh
 bash run_single.sh lxml.sh
 bash run_single.sh cpp_bench.sh
