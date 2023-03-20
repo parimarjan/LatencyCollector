@@ -14,10 +14,14 @@ cd ..
 cd scripts
 ./prepare.sh
 
-#git clone https://github.com/learnedsystems/SOSD.git
-#cd SOSD
-#./scripts/download.sh
+# data will be in ../data
+cd ../build
 
+## run more bench versions
+./bench ../data/osm_cellids_600M_uint64 ../SOSD/osm_cellids_600M_uint64_equality_lookups_1M
+#./bench ../data/osm_cellids_600M_uint64 ../SOSD/osm_cellids_600M_uint64_equality_lookups_10M
+./bench ../data/osm_cellids_200M_uint64 ../SOSD/osm_cellids_200M_uint64_equality_lookups_1M
 
-## TODO: run benchmark
+cd ../..
+rm -rf RadixSpline
 

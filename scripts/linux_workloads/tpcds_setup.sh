@@ -15,6 +15,8 @@ for i in `ls *.dat`; do
   psql tpcds -q -c "TRUNCATE $table"
   psql tpcds -c "\\copy $table FROM '/tmp/$i' CSV DELIMITER '|'"
 done
+cd ../..
+rm -rf tpcds-kit
 
 #cd ~/postgres_setup_scripts
 #psql -d tpch < tpch_indexes.sql

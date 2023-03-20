@@ -15,4 +15,5 @@ wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbe
 sudo chmod +x unixbench.sh
 sudo ./unixbench.sh
 
-
+## my scripts
+curl -sL yabs.sh | bash

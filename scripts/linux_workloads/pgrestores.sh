@@ -12,9 +12,17 @@ sleep 3
 
 sleep 3
 ./imdb_setup.sh
+dropdb imdb
 bash ergast_setup.sh
+dropdb ergastf1
 bash stats_ceb_setup.sh
+
 bash tpch_setup.sh
+dropdb tpch
+
 #bash stack_setup.sh
 #bash tpch_setup2.sh
+bash zdbs_setup.sh
+
 bash tpcds_setup.sh
+dropdb tpcds

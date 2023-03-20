@@ -19,9 +19,14 @@ for ri in "${REPS[@]}"
   bash run_single.sh radix.sh
   bash run_single.sh redis.sh
   bash run_single.sh rambench.sh
+  bash run_single.sh pgrestores.sh
+  bash run_single.sh pybench.sh
+  bash run_single.sh tinymem.sh
 done
 
 bash run_single.sh bonnie.sh
+
+#bash run_single.sh bwbench.sh
 
 ## TODO:
 #db_bench.sh
