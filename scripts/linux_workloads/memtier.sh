@@ -13,7 +13,7 @@ pip install -r tests/test_requirements.txt
 ./tests/run_tests.sh
 memtier_benchmark -R -n 1000 --data-size-range=10-1000 -t 1 -x 2
 memtier_benchmark -R -n 10000 --data-size-range=10-1000 -t 1 -x 2
-memtier_benchmark -R -n 1000000 --data-size-range=10-1000 -t 1 -x 2
-memtier_benchmark -R -n 10000000 --data-size-range=10-1000 -t 1 -x 2
+memtier_benchmark -R -n 100000 --data-size-range=10-1000 -t 1 -x 2
 
+#memtier_benchmark -R -n 10000000 --data-size-range=10-1000 -t 1 -x 2
 #memtier_benchmark -n allkeys
