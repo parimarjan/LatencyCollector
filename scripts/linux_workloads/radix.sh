@@ -23,5 +23,5 @@ cd ../build
 ./bench ../data/osm_cellids_200M_uint64 ../SOSD/osm_cellids_200M_uint64_equality_lookups_1M
 
 cd ../..
-rm -rf RadixSpline
+#rm -rf RadixSpline
 

@@ -8,7 +8,7 @@ mkdir -p ~/log/results/perf
 OUTDIR=~/log/results/perf/
 rid=$RANDOM
 
-E=dTLB-loads,iTLB-loads,branch-loads,instructions,cache-references,cpu-clock,task-clock,page-faults,minor-faults,major-faults,cs,cpu-migrations,alignment-faults,emulation-faults,branch-load-misses,branch-loads,bus-cycles,idle-cycles-backend,alignment-faults
+E=dTLB-loads,iTLB-loads,instructions,cache-misses,cache-references,cpu-clock,task-clock,page-faults,minor-faults,major-faults,cs,cpu-migrations,alignment-faults,branch-load-misses,branch-loads,bus-cycles,idle-cycles-backend,L1-dcache-load-misses,L1-dcache-store-misses,L1-icache-load-misses,LLC-load-misses
 
 while read in;
   do

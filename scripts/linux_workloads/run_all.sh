@@ -2,9 +2,9 @@ REPS=(1 1 1)
 
 for ri in "${REPS[@]}"
   do
-  #bash run_single.sh iozone.sh
-  #bash run_single.sh interbench.sh
-  #bash run_single.sh memtier.sh
+  bash run_single.sh iozone.sh
+  bash run_single.sh interbench.sh
+  bash run_single.sh memtier.sh
   bash run_single.sh sysbench.sh
   bash run_single.sh hayden.sh
   bash run_single.sh lxml.sh
@@ -16,15 +16,15 @@ for ri in "${REPS[@]}"
   bash run_single.sh ansibench.sh
   bash run_single.sh learned_sort.sh
   bash run_single.sh percolation.sh
-  bash run_single.sh radix.sh
+  #bash run_single.sh radix.sh
   bash run_single.sh redis.sh
   bash run_single.sh rambench.sh
   bash run_single.sh pgrestores.sh
   bash run_single.sh pybench.sh
   bash run_single.sh tinymem.sh
+  bash run_single.sh bonnie.sh
 done
 
-bash run_single.sh bonnie.sh
 
 #bash run_single.sh bwbench.sh
 
