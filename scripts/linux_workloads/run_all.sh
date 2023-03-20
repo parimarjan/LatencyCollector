@@ -2,6 +2,7 @@ REPS=(1 1 1)
 
 for ri in "${REPS[@]}"
   do
+  bash run_single.sh fio.sh
   bash run_single.sh iozone.sh
   bash run_single.sh interbench.sh
   bash run_single.sh memtier.sh
