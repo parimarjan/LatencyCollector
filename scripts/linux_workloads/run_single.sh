@@ -39,7 +39,8 @@ while read in;
       cmdname=$(echo -n "$cmdname" | sha256sum | awk '{print $1}')
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
-      echo "$cmdname,$in,$FN" >> ${OUTDIR}allcommands.csv
+      ts=`date +%s`
+      echo "$cmdname,$in,$FN,$ts" >> ${OUTDIR}allcommands.csv
     fi
     echo "cmd name: " $cmdname
     echo "outdir: " $OUTDIR
