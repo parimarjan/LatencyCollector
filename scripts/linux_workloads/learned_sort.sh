@@ -5,4 +5,7 @@ cd LearnedSort/
 ./synth_bench.sh
 ./download_real_datasets.sh
 ./real_bench.sh
+cd ..
+rm -rf LearnedSort
+
 
