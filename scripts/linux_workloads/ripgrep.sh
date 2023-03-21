@@ -14,3 +14,5 @@ cd ripgrep/benchsuite
 # 30 minutes to complete on default settings and 120 minutes to complete with
 # --warmup-iter 3 --bench-iter 10.
 ./benchsuite --dir ./data --allow-missing
+cd ../..
+rm -rf ripgrep
