@@ -10,7 +10,7 @@ rid=$RANDOM
 
 #E=dTLB-loads,iTLB-loads,instructions,cache-misses,cache-references,task-clock,page-faults,minor-faults,major-faults,cs,cpu-migrations,alignment-faults,branch-load-misses,branch-loads,bus-cycles,idle-cycles-backend,L1-dcache-load-misses,L1-dcache-store-misses,L1-icache-load-misses,LLC-load-misses
 
-E=cycles,instructions,cache-misses,page-faults,branch-misses,context-switches,L1-dcache-load-misses,LLC-load-misses
+E=cycles,instructions,cache-misses,page-faults,branch-misses,context-switches,L1-dcache-load-misses
 
 #block:block_rq_issue
 
@@ -22,9 +22,9 @@ while read in;
 
     if [[ $in =~ "#" ]]; then
       continue
-    elif [[ $in =~ "&" ]]; then
-      eval $in
-      continue
+    #elif [[ $in =~ "&" ]]; then
+      #eval $in
+      #continue
     elif [[ $in =~ "git" ]]; then
       plogs="/dev/null"
       plogs_err="/dev/null"
@@ -36,10 +36,14 @@ while read in;
     elif [[ $in =~ "mkdir" ]]; then
       eval $in
       continue
+    elif [[ $in =~ "rm" ]]; then
+      eval $in
+      continue
+    elif [[ $in =~ "pip" ]]; then
+      eval $in
+      continue
     else
-      #cmdname=${FN}${rid}"-"${in//" "/"_"}
       cmdname=${FN}${rid}"-"${in}
-      #cmdname= ($(echo -n $cmdname | shasum | cut -f1 -d" "))
       cmdname=$(echo -n "$cmdname" | sha256sum | awk '{print $1}')
       plogs=${OUTDIR}${cmdname}'.csv'
       plogs_err=${plots}.stderr
