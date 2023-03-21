@@ -50,7 +50,7 @@ while read in;
     fi
     echo "cmd name: " $cmdname
     echo "outdir: " $OUTDIR
-    cmd="perf stat -x, -e ${E} -o $plogs $in"
+    cmd="timeout 900s perf stat -x, -e ${E} -o $plogs $in"
     echo "Going to evaluate: " $cmd
 
     ts=`date +%s`
