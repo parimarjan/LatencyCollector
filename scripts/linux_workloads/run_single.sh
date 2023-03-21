@@ -19,12 +19,13 @@ while read in;
     if [ -z "$in" ]; then
       continue
     fi
+    echo "******************"
+    echo "new line: " $in
+    echo "******************"
 
     if [[ $in =~ "#" ]]; then
       continue
-    #elif [[ $in =~ "&" ]]; then
-      #eval $in
-      #continue
+
     elif [[ $in =~ "git" ]]; then
       plogs="/dev/null"
       plogs_err="/dev/null"
