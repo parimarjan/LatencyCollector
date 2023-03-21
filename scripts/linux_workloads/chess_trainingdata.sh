@@ -15,7 +15,7 @@ cd pgn-extract/src
 make
 cd ../..
 
-cat lichess_db_standard_rated_2018-02.pgn | ./pgn-extract/src/pgn-extract -7 -C -N --dropply 16 > test.pgn
+cat lichess_db_standard_rated_2018-02.pgn | ./pgn-extract/src/pgn-extract -7 -C -N --dropply 40 &> /dev/null
 
 ./build/trainingdata-tool lichess_db_standard_rated_2018-02.pgn
 cd ..

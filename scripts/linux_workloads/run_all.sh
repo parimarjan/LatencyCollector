@@ -11,8 +11,7 @@ for ri in "${REPS[@]}"
   bash run_single.sh chess_trainingdata.sh
   bash run_single.sh cgrep.sh
   #bash run_single.sh scoutfish.sh
-
-  bash run_single.sh sysbench.sh
+  #bash run_single.sh sysbench.sh
   bash run_single.sh hayden.sh
   bash run_single.sh lxml.sh
   bash run_single.sh cpp_bench.sh
