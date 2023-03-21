@@ -7,21 +7,16 @@ git submodule update --recursive --init
 cmake -H. -Bbuild
 cmake --build build
 
-wget https://database.lichess.org/standard/lichess_db_standard_rated_2018-02.pgn.zst
-unzstd lichess_db_standard_rated_2018-02.pgn.zst
+#wget https://database.lichess.org/standard/lichess_db_standard_rated_2018-02.pgn.zst
+#unzstd lichess_db_standard_rated_2018-02.pgn.zst
 
 git clone https://github.com/MichaelB7/pgn-extract.git
 cd pgn-extract/src
 make
-mv pgn-extract ../..
 cd ../..
 
-pgn-extract -7 -C -N --dropply 16 > test.pgn
+cat lichess_db_standard_rated_2018-02.pgn | ./pgn-extract/src/pgn-extract -7 -C -N --dropply 16 > test.pgn
 
 ./build/trainingdata-tool lichess_db_standard_rated_2018-02.pgn
-cd ..
-rm -rf trainingdata-tool
-
-
 cd ..
 rm -rf trainingdata-tool
