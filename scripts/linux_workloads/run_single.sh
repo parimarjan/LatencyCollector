@@ -31,6 +31,11 @@ while read in;
       plogs_err="/dev/null"
       eval $in
       continue
+    elif [[ $in =~ "bashrc" ]]; then
+      plogs="/dev/null"
+      plogs_err="/dev/null"
+      eval $in
+      continue
     elif [[ $in =~ "cd" ]]; then
       eval $in
       continue
