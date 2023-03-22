@@ -1,7 +1,7 @@
 #./pg_setup.sh
 #echo "postgres setup done"
 #sleep 1
-#source ~/.bashrc_exports
+source ~/.bashrc_exports
 
 sleep 3
 ./imdb_setup.sh
