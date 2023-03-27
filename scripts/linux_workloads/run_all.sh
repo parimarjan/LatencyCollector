@@ -2,12 +2,13 @@ REPS=(1 1 1)
 
 for ri in "${REPS[@]}"
   do
+  bash run_single.sh newfio.sh
   #bash run_single.sh fio.sh
   #bash run_single.sh iozone.sh
   #bash run_single.sh interbench.sh
-  bash run_single.sh pgrestores.sh
-  bash run_single.sh ffmpeg.sh
-  bash run_single.sh memtier.sh
+  #bash run_single.sh pgrestores.sh
+  #bash run_single.sh ffmpeg.sh
+  #bash run_single.sh memtier.sh
   #bash run_single.sh cgrep.sh
   #bash run_single.sh tinymem.sh
   #bash run_single.sh chess_trainingdata.sh

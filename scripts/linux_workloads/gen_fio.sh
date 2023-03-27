@@ -1,7 +1,47 @@
-ENGINES=(libpmem dev-dax pmemblk rbd rados rdma libaio io_uring sg mtd gfapi_async gfapi
-splice e4defrag falloc posixaio exec filedelete filestat filecreate ftruncate
-net netsplice null sync psync vsync pvsync pvsync2 mmap cpuio)
-SIZES=(100mb 4gb 8gb)
+#!/bin/bash
+
+ENGINES=(libpmem libaio io_uring falloc posixaio sync psync vsync pvsync pvsync2 mmap)
+SIZES=(512mb 1024mb 2048mb 4096mb 8192mb)
 RWS=(read write trim randread randwrite randtrim rw readwrite randrw trimwrite)
 
-#sudo fio --filename=./test --rw=read --direct=1 --ioengine=libaio --numjobs=1 --group_reporting --name=read --size=100mb
+for size in "${SIZES[@]}"
+do
+  for rw in "${RWS[@]}"
+  do
+    engine=${ENGINES[$RANDOM % ${#ENGINES[@]}]}
+    cmd="sudo fio --filename=./test --rw=$rw --ioengine=$engine --numjobs=1 --group_reporting --name=$rw --size=$size"
+    #eval "$cmd"
+    echo "$cmd"
+    echo "rm ./test"
+
+    engine=${ENGINES[$RANDOM % ${#ENGINES[@]}]}
+    cmd="sudo fio --filename=./test --rw=$rw --ioengine=$engine --numjobs=1 --group_reporting --name=$rw --size=$size"
+    #eval "$cmd"
+    echo "$cmd"
+    echo "rm ./test"
+
+    engine=${ENGINES[$RANDOM % ${#ENGINES[@]}]}
+    cmd="sudo fio --filename=./test --rw=$rw --ioengine=$engine --numjobs=1 --group_reporting --name=$rw --size=$size"
+    #eval "$cmd"
+    echo "$cmd"
+    echo "rm ./test"
+
+    engine=${ENGINES[$RANDOM % ${#ENGINES[@]}]}
+    cmd="sudo fio --filename=./test --rw=$rw --ioengine=$engine --numjobs=1 --group_reporting --name=$rw --size=$size"
+    #eval "$cmd"
+    echo "$cmd"
+    echo "rm ./test"
+
+    engine="mmap"
+    cmd="sudo fio --filename=./test --rw=$rw --ioengine=$engine --numjobs=1 --group_reporting --name=$rw --size=$size"
+    #eval "$cmd"
+    echo "$cmd"
+    echo "rm ./test"
+
+    engine="libaio"
+    cmd="sudo fio --filename=./test --rw=$rw --ioengine=$engine --numjobs=1 --group_reporting --name=$rw --size=$size"
+    #eval "$cmd"
+    echo "$cmd"
+    echo "rm ./test"
+  done
+done
