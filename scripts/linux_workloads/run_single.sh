@@ -59,10 +59,12 @@ while read in;
     cmd="timeout 900s perf stat -x, -e ${E} -o $plogs $in"
     echo "Going to evaluate: " $cmd
 
-    ts=`date +%s`
+    #ts=`date +%s`
+    ts=$(date +%s%N)
     eval $cmd
     status=$?
-    endts=`date +%s`
-    exectime="$((endts-ts))"
+    #endts=`date +%s`
+    endts=$(date +%s%N)
+    exectime="$(((endts-ts) / 1000000000))"
     echo "$cmdname,$in,$FN,$ts,$exectime,$status" >> ${OUTDIR}allcommands.csv
 done < $FN
