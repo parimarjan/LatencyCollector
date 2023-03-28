@@ -1,7 +1,6 @@
 source ~/.bashrc
-
 REPS=(1 1 1)
-#bash imdb_setup.sh
+bash imdb_setup.sh
 for ri in "${REPS[@]}"
   do
   bash run_single.sh job_sqls.sh
