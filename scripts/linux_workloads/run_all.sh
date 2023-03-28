@@ -1,8 +1,10 @@
 REPS=(1 1 1)
-
+bash imdb_setup.sh
 for ri in "${REPS[@]}"
   do
-  bash run_single.sh newfio.sh
+  bash run_single.sh job_sqls.sh
+  bash run_single.sh ceb_sqls.sh
+  #bash run_single.sh newfio.sh
   #bash run_single.sh fio.sh
   #bash run_single.sh iozone.sh
   #bash run_single.sh interbench.sh
