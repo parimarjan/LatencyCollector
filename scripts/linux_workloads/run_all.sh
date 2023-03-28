@@ -1,3 +1,5 @@
+source ~/.bashrc
+
 REPS=(1 1 1)
 bash imdb_setup.sh
 for ri in "${REPS[@]}"
