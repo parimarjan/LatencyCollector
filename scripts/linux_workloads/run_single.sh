@@ -65,6 +65,7 @@ while read in;
     status=$?
     #endts=`date +%s`
     endts=$(date +%s%N)
-    exectime="$(((endts-ts) / 1000000000))"
+    #exectime="$(((endts-ts) / 1000000000))"
+    exectime=$(echo "scale=3; ($endts - $ts)/1000000000" | bc)
     echo "$cmdname,$in,$FN,$ts,$exectime,$status" >> ${OUTDIR}allcommands.csv
 done < $FN
