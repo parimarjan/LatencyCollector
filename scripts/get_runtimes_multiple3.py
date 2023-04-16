@@ -174,14 +174,20 @@ def execute_sql(sql, cost_model="cm1",
     return explain_output, end-start
 
 INTERBENCH_EXEC="/home/ubuntu/interbench/interbench"
-CMD_TMP="""sudo {IB} -w None -W {WK} -l 2599935 -t 300"""
+CMD_TMP="""sudo {IB} -w {BWK} -W {WK} -l 2599935 -t 300"""
 
 def run_stress(pnum, args):
     '''
     log format:
         timestamp,end_ts,cmd,kind;
     '''
-    loads = ["Gaming", "Video", "Burn", "Write", "Read", "Compile", "Audio"]
+
+    loads = ["Gaming-Video", "Video-Audio", "Burn-Gaming", 
+            "Write-Video", 
+            "Read-Gaming", "Compile-Gaming", "Audio-Compile",
+            "Gaming", "Video", "Burn", "Write", 
+            "Read", "Compile", "Audio"]
+
     out_fn = os.path.join(args.result_dir, "Background{}.csv".format(pnum))
 
     if os.path.exists(out_fn):
@@ -193,9 +199,18 @@ def run_stress(pnum, args):
     while True:
         for load in loads:
             curvals = defaultdict(list)
-
-            cmd = CMD_TMP.format(IB=INTERBENCH_EXEC,
-                            WK=load)
+            
+            if "-" in load:
+                wks = load.split("-")
+                curload = wks[0]
+                bkload = wks[1]
+                cmd = CMD_TMP.format(IB=INTERBENCH_EXEC,
+                                BWK=bkload,
+                                WK=curload)
+            else:
+                cmd = CMD_TMP.format(IB=INTERBENCH_EXEC,
+                                BWK="None",
+                                WK=load)
 
             start = time.time()
             os.system(cmd)
