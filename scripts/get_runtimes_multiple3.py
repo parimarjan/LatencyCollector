@@ -223,8 +223,8 @@ def run_stress(pnum, args):
             curvals["cmd"].append(cmd)
             curvals["kind"].append(load)
 
-            df = pd.concat([bgdf, pd.DataFrame(curvals)], ignore_index=True)
-            df.to_csv(out_fn, index=False)
+            bgdf = pd.concat([bgdf, pd.DataFrame(curvals)], ignore_index=True)
+            bgdf.to_csv(out_fn, index=False)
 
 
 def run_single(pnum, args):
