@@ -182,11 +182,26 @@ def run_stress(pnum, args):
         timestamp,end_ts,cmd,kind;
     '''
 
-    loads = ["Gaming-Video", "Video-Audio", "Burn-Gaming", 
-            "Write-Video", 
-            "Read-Gaming", "Compile-Gaming", "Audio-Compile",
-            "Gaming", "Video", "Burn", "Write", 
-            "Read", "Compile", "Audio"]
+    # loads = ["Gaming-Video", "Video-Audio", "Burn-Gaming",
+            # "Write-Video",
+            # "Read-Gaming", "Compile-Gaming", "Audio-Compile",
+            # "Gaming", "Video", "Burn", "Write",
+            # "Read", "Compile", "Audio"]
+
+    loads = ["Gaming-Video",
+            # "Video-Audio",
+            # "Burn-Gaming",
+            # "Write-Video",
+            # "Read-Gaming", "Compile-Gaming",
+            "Audio-Compile",
+            "Gaming", "Video", "Audio",
+            # "Burn", "Write",
+            # "Read", "Compile",
+            ]
+
+    # loads = ["Video-Write", "Gaming-Burn", "Video-Burn", "Video-Compile"
+            # "Gaming-Write",
+            # ]
 
     out_fn = os.path.join(args.result_dir, "Background{}.csv".format(pnum))
 
@@ -199,7 +214,7 @@ def run_stress(pnum, args):
     while True:
         for load in loads:
             curvals = defaultdict(list)
-            
+
             if "-" in load:
                 wks = load.split("-")
                 curload = wks[0]
