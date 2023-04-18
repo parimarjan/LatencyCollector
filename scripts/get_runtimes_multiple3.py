@@ -68,7 +68,8 @@ def read_flags():
 
     return parser.parse_args()
 
-def execute_sql(sql, cost_model="cm1",
+def execute_sql(sql, db_name,
+        cost_model="cm1",
         explain=False,
         materialize=False,
         timeout=900000,
@@ -98,7 +99,7 @@ def execute_sql(sql, cost_model="cm1",
         time.sleep(0.1)
         for ri in range(30):
             try:
-                con = pg.connect(port=args.port,dbname=args.db_name,
+                con = pg.connect(port=args.port,dbname=db_name,
                         user=args.user,password=args.pwd,host="localhost")
                 print("succeeded in try: ", ri)
                 break
@@ -108,7 +109,7 @@ def execute_sql(sql, cost_model="cm1",
                 continue
 
     else:
-        con = pg.connect(port=args.port,dbname=args.db_name,
+        con = pg.connect(port=args.port,dbname=db_name,
                 user=args.user,password=args.pwd,host="localhost")
 
     # TODO: clear cache
@@ -289,6 +290,47 @@ def run_single(pnum, args):
 
     sql_fns = new_sql_fns
 
+    if "job" in args.query_dir or "ceb" in args.query_dir:
+        db_name = "imdb"
+    elif "ergast" in args.query_dir:
+        db_name = "ergastf1"
+    elif "stats" in args.query_dir:
+        db_name = "stats"
+    elif "stack" in args.query_dir:
+        db_name = "stack"
+    elif "tpch" in args.query_dir:
+        db_name = "tpch"
+    elif "ccs" in args.query_dir:
+        db_name = "ccs"
+    elif "financial" in args.query_dir:
+        db_name = "financial"
+    elif "accidents" in args.query_dir:
+        db_name = "accidents"
+    elif "airline" in args.query_dir:
+        db_name = "airline"
+    elif "consumer" in args.query_dir:
+        db_name = "consumerexpenditure"
+    elif "seznam" in args.query_dir:
+        db_name = "seznam"
+    elif "basketball" in args.query_dir:
+        db_name = "basketball_men"
+    elif "ssb" in args.query_dir:
+        db_name = "ssb"
+    elif "credit" in args.query_dir:
+        db_name = "credit"
+    elif "visual" in args.query_dir:
+        db_name = "visualgenome"
+    elif "seznam" in args.query_dir:
+        db_name = "seznam"
+    elif "credit" in args.query_dir:
+        db_name = "credit"
+    elif "basketball" in args.query_dir:
+        db_name = "basketball"
+    elif "basketball" in args.query_dir:
+        db_name = "ssb"
+    else:
+        assert False
+
     print("Going to execute {} queries, {} reps each".format(
         len(sqls), args.reps))
 
@@ -311,6 +353,7 @@ def run_single(pnum, args):
 
             # check for reps
             exp_analyze, rt = execute_sql(sql,
+                    db_name,
                     cost_model=cost_model,
                     explain=args.explain,
                     timeout=args.timeout,
