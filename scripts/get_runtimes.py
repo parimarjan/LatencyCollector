@@ -1,4 +1,4 @@
-import pickle
+gmport pickle
 import numpy as np
 import argparse
 import glob
@@ -307,7 +307,6 @@ def main():
         db_name = "airline"
     elif "consumer" in args.query_dir:
         db_name = "consumerexpenditure"
-<<<<<<< Updated upstream
     elif "seznam" in args.query_dir:
         db_name = "seznam"
     elif "basketball" in args.query_dir:
@@ -316,7 +315,6 @@ def main():
         db_name = "ssb"
     elif "credit" in args.query_dir:
         db_name = "credit"
-=======
     elif "visual" in args.query_dir:
         db_name = "visualgenome"
     elif "seznam" in args.query_dir:
@@ -327,7 +325,6 @@ def main():
         db_name = "basketball"
     elif "basketball" in args.query_dir:
         db_name = "ssb"
->>>>>>> Stashed changes
     else:
         assert False
 
