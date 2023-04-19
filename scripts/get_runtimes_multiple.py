@@ -24,7 +24,7 @@ def read_flags():
     parser.add_argument("--samples_type", type=str, required=False,
             default=None)
     parser.add_argument("--num_processes", type=int, required=False,
-            default=6)
+            default=10)
     parser.add_argument("--parallel_workers", type=int, required=False,
             default=0)
     parser.add_argument("--no_index", type=int, required=False,
