@@ -1,4 +1,4 @@
-gmport pickle
+import pickle
 import numpy as np
 import argparse
 import glob
