@@ -200,13 +200,13 @@ def run_stress(pnum, args):
         bgdf = pd.DataFrame(columns=columns)
 
     while True:
-        loads = random.shuffle(loads)
+        random.shuffle(loads)
         print("Going to execute: ", loads)
 
         for load in loads:
             curvals = defaultdict(list)
 
-            cmd = CMD_TEMPLATE.format(load)
+            cmd = CMD_TEMPLATE.format(FN=load)
 
             start = time.time()
             os.system(cmd)
