@@ -19,14 +19,14 @@ from multiprocessing import Process
 
 TIMEOUT_CONSTANT = 909
 
-CMD_TEMPLATE="bash /home/ubuntu/LatencyCollector/scripts/linux_workloads/{FN}"
+CMD_TEMPLATE="timeout 900s bash /home/ubuntu/LatencyCollector/scripts/linux_workloads/{FN}"
 
 def read_flags():
     parser = argparse.ArgumentParser()
     parser.add_argument("--samples_type", type=str, required=False,
             default=None)
-    parser.add_argument("--num_processes", type=int, required=False,
-            default=6)
+    parser.add_argument("--num_background", type=int, required=False,
+            default=1)
     parser.add_argument("--parallel_workers", type=int, required=False,
             default=0)
     parser.add_argument("--no_index", type=int, required=False,
@@ -185,7 +185,8 @@ def run_stress(pnum, args):
         timestamp,end_ts,cmd,kind;
     '''
     loads = ["newfio.sh", "fio.sh", "iozone.sh", "interbench.sh", "pgrestores.sh",
-    "ffmpeg.sh", "memtier.sh", "cgrep.sh", "tinymem.sh", "chess_trainingdata.sh",
+    "ffmpeg.sh", "memtier.sh", "cgrep.sh", "tinymem.sh",
+    #"chess_trainingdata.sh",
     "ripgrep.sh", "scoutfish.sh", "sysbench.sh", "hayden.sh", "lxml.sh",
     "cpp_bench.sh", "pbmc.sh", "datasci_bench.sh", "sentences.sh", "matrix.sh",
     "ansibench.sh", "learned_sort.sh", "percolation.sh", "radix.sh", "redis.sh",
@@ -202,10 +203,8 @@ def run_stress(pnum, args):
     while True:
         random.shuffle(loads)
         print("Going to execute: ", loads)
-
         for load in loads:
             curvals = defaultdict(list)
-
             cmd = CMD_TEMPLATE.format(FN=load)
 
             start = time.time()
@@ -398,11 +397,15 @@ def main():
     p = Process(target=run_single, args=(0, args))
     p.start()
 
-    t = Process(target=run_stress, args=(0, args))
-    t.start()
+    backgrounds = []
+    for i in range(args.num_background):
+        t = Process(target=run_stress, args=(i, args))
+        t.start()
 
     p.join()
-    t.terminate()
+
+    for t in backgrounds:
+        t.terminate()
 
 if __name__ == "__main__":
     args = read_flags()
