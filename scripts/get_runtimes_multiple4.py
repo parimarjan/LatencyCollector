@@ -189,7 +189,10 @@ def run_stress(pnum, args):
     #"chess_trainingdata.sh",
     "ripgrep.sh", "scoutfish.sh", "sysbench.sh", "hayden.sh", "lxml.sh",
     "cpp_bench.sh", "pbmc.sh", "datasci_bench.sh", "sentences.sh", "matrix.sh",
-    "ansibench.sh", "learned_sort.sh", "percolation.sh", "radix.sh", "redis.sh",
+    "ansibench.sh",
+    "learned_sort.sh", "percolation.sh",
+    # "radix.sh",
+    "redis.sh",
     "rambench.sh", "pybench.sh", "bonnie.sh"]
 
     out_fn = os.path.join(args.result_dir, "Background{}.csv".format(pnum))
