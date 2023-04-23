@@ -184,7 +184,7 @@ def run_stress(pnum, args):
     log format:
         timestamp,end_ts,cmd,kind;
     '''
-    loads = ["newfio.sh", "fio.sh", "iozone.sh", "interbench.sh", "pgrestores.sh",
+    loads = ["newfio.sh", "fio.sh", "iozone.sh", "interbench.sh",
     "ffmpeg.sh", "memtier.sh", "cgrep.sh", "tinymem.sh",
     #"chess_trainingdata.sh",
     "ripgrep.sh", "scoutfish.sh", "sysbench.sh", "hayden.sh", "lxml.sh",
