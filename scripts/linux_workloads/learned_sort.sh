@@ -7,5 +7,3 @@ cd LearnedSort/
 ./real_bench.sh
 cd ..
 rm -rf LearnedSort
-
-

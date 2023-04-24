@@ -19,7 +19,7 @@ from multiprocessing import Process
 
 TIMEOUT_CONSTANT = 909
 
-CMD_TEMPLATE="timeout 900s bash /home/ubuntu/LatencyCollector/scripts/linux_workloads/{FN}"
+CMD_TEMPLATE="bash /home/ubuntu/LatencyCollector/scripts/linux_workloads/{FN}"
 
 def read_flags():
     parser = argparse.ArgumentParser()
@@ -185,15 +185,20 @@ def run_stress(pnum, args):
         timestamp,end_ts,cmd,kind;
     '''
     loads = ["newfio.sh", "fio.sh", "iozone.sh", "interbench.sh",
-    "ffmpeg.sh", "memtier.sh", "cgrep.sh", "tinymem.sh",
+    "ffmpeg.sh",
+    "memtier.sh", "cgrep.sh", "tinymem.sh",
     #"chess_trainingdata.sh",
-    "ripgrep.sh", "scoutfish.sh", "sysbench.sh", "hayden.sh", "lxml.sh",
+    "ripgrep.sh",
+    #"scoutfish.sh",
+    "sysbench.sh", "hayden.sh", "lxml.sh",
     "cpp_bench.sh", "pbmc.sh", "datasci_bench.sh", "sentences.sh", "matrix.sh",
     "ansibench.sh",
     "learned_sort.sh", "percolation.sh",
     # "radix.sh",
     "redis.sh",
-    "rambench.sh", "pybench.sh", "bonnie.sh"]
+    "rambench.sh", "pybench.sh",
+    "bonnie.sh"
+    ]
 
     out_fn = os.path.join(args.result_dir, "Background{}.csv".format(pnum))
 
