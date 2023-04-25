@@ -409,6 +409,7 @@ def main():
     backgrounds = []
     for i in range(args.num_background):
         t = Process(target=run_stress, args=(i, args))
+        backgrounds.append(t)
         t.start()
 
     p.join()
