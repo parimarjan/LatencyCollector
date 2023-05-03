@@ -1,0 +1,2 @@
+
+SELECT SUM("charge"."statement_no") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no"  WHERE ("category"."category_desc" IN ('Electronics', 'Travel') OR "category"."category_no" BETWEEN 5 AND 6) AND "charge"."member_no" >= 9623 AND "charge"."charge_no" >= 705585;

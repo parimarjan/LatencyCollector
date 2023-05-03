@@ -1,0 +1,2 @@
+
+SELECT AVG("payment"."payment_amt") as agg_0 FROM "charge" LEFT OUTER JOIN "category" ON "charge"."category_no" = "category"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "member"."curr_balance" >= 0.0 AND "category"."category_code" IS NOT NULL AND "charge"."category_no" = 5 AND "statement"."statement_dt" = '%1999-08-13 00:00:00%';

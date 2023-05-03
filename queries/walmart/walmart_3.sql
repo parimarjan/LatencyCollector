@@ -1,0 +1,2 @@
+
+SELECT SUM("key"."station_nbr") as agg_0 FROM "train" LEFT OUTER JOIN "key" ON "train"."store_nbr" = "key"."store_nbr"  WHERE "key"."station_nbr" = 2 AND ("train"."date" != '%2014-06-14%' OR ("train"."date" = '%2013-10-31%' AND "train"."date" != '%2014-07-18%'));

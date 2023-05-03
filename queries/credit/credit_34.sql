@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "member" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "charge"."charge_no" >= 1339291 AND ("region"."street" = '%777 Seventh St%' OR "region"."city" != '%Budapest%') AND "member"."firstname" != '%WWSIIUTIYVHVYQ%';

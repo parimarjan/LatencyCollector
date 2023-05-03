@@ -1,0 +1,2 @@
+
+SELECT SUM("corporation"."region_no") as agg_0 FROM "corporation" LEFT OUTER JOIN "region" ON "corporation"."region_no" = "region"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no"  WHERE "region"."region_name" LIKE '%America%n%' AND "provider"."street" != '% %' AND "corporation"."corp_no" >= 438;

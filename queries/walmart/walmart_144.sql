@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "train"."date" IN ('2012-07-27', '2013-02-15', '2012-08-29', '2012-09-06', '2012-12-26', '2013-02-26', '2012-07-16', '2012-06-04', '2012-10-05') AND ("train"."item_nbr" >= 102 OR ("train"."item_nbr" >= 8 AND "train"."item_nbr" BETWEEN 34 AND 60));

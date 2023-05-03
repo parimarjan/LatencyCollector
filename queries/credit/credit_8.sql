@@ -1,0 +1,2 @@
+
+SELECT SUM("provider"."provider_no") as agg_0 FROM "region" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "corporation"."state_prov" IS NULL AND ("region"."street" LIKE '%St.%' OR "region"."region_name" LIKE '%Europea%') AND "provider"."provider_no" BETWEEN 282 AND 324 AND "member"."region_no" IS NOT NULL;

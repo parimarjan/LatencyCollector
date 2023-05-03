@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "directors" LEFT OUTER JOIN "movies2directors" ON "directors"."directorid" = "movies2directors"."directorid" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid"  WHERE "movies"."country" NOT LIKE '%U%K%' AND "movies"."runningtime" != 3 AND "movies"."isEnglish" IN ('T') AND ("directors"."directorid" <= 10424 OR ("directors"."directorid" >= 130506 AND "directors"."directorid" <= 71210)) AND "directors"."d_quality" <= 3;

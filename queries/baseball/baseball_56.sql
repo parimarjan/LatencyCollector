@@ -1,0 +1,2 @@
+
+SELECT MIN("teamshalf"."Rank") as agg_0 FROM "managershalf" LEFT OUTER JOIN "managers" ON "managershalf"."managerID" = "managers"."managerID" LEFT OUTER JOIN "teams" ON "managers"."teamID" = "teams"."teamID" LEFT OUTER JOIN "teamshalf" ON "teams"."teamID" = "teamshalf"."teamID" LEFT OUTER JOIN "seriespost" ON "teams"."teamID" = "seriespost"."teamIDwinner"  WHERE "seriespost"."wins" <= 4 AND "seriespost"."teamIDloser" LIKE '%CIN%' AND ("managers"."G" <= 46 OR ("managers"."teamID" IN ('CHA', 'SLN', 'PHI', 'NYA', 'CIN', 'PIT', 'CHN') AND "managers"."G" <= 162));

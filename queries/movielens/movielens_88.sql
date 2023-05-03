@@ -1,0 +1,2 @@
+
+SELECT AVG("u2base"."userid") as agg_0 FROM "users" LEFT OUTER JOIN "u2base" ON "users"."userid" = "u2base"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid"  WHERE "movies"."movieid" >= 2422385 AND "movies2actors"."actorid" <= 516442 AND "movies2actors"."cast_num" >= 3 AND ("movies"."year" BETWEEN 4 AND 5 OR ("movies"."year" <= 4 AND "movies"."year" <= 4)) AND "actors"."actorid" IS NOT NULL;

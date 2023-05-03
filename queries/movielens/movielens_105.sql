@@ -1,0 +1,2 @@
+
+SELECT AVG("movies2directors"."movieid") as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "movies"."country" LIKE '%other%' AND "movies2directors"."genre" LIKE '%Dr%ama%' AND "movies"."isEnglish" IN ('T') AND "movies"."runningtime" BETWEEN 2 AND 3 AND ("u2base"."movieid" <= 1728044 OR "u2base"."userid" <= 1581) AND "movies"."movieid" >= 2039617;

@@ -1,0 +1,2 @@
+
+SELECT SUM("movies2directors"."directorid") as agg_0 FROM "users" LEFT OUTER JOIN "u2base" ON "users"."userid" = "u2base"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "users"."age" = 35 AND "u2base"."movieid" BETWEEN 1730993 AND 1959620 AND "actors"."a_quality" BETWEEN 3 AND 4;

@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."member_no") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no"  WHERE "member"."expr_dt" IN ('2000-10-12 10:42:54', '2000-10-12 10:42:08');

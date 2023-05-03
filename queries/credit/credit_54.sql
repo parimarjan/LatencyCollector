@@ -1,0 +1,2 @@
+
+SELECT SUM("corporation"."corp_code") as agg_0 FROM "member" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no"  WHERE "member"."member_no" <= 7951 AND "corporation"."mail_code" BETWEEN nan AND nan;

@@ -1,0 +1,2 @@
+
+SELECT SUM("train"."store_nbr") as agg_0 FROM "key" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "train"."store_nbr" != 5 AND "train"."date" IN ('2012-10-05', '2012-07-16', '2012-08-29', '2012-07-27') AND "station"."station_nbr" BETWEEN 2 AND 18 AND "train"."units" >= 0;

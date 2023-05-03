@@ -1,0 +1,2 @@
+
+SELECT MIN("payment"."member_no") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "category" ON "charge"."category_no" = "category"."category_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE "category"."category_desc" != '%Entertainment%' AND "region"."region_no" IS NOT NULL;

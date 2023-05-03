@@ -1,0 +1,2 @@
+
+SELECT SUM("teams"."HR") as agg_0 FROM "teamsfranchises" LEFT OUTER JOIN "els_teamnames" ON "teamsfranchises"."franchID" = "els_teamnames"."franchid" LEFT OUTER JOIN "teams" ON "els_teamnames"."teamid" = "teams"."teamID" LEFT OUTER JOIN "allstarfull" ON "teams"."teamID" = "allstarfull"."teamID"  WHERE "els_teamnames"."lgid" != '%AL%' AND "teams"."LgWin" = '%N%' AND "els_teamnames"."park" NOT LIKE '%League%' AND "allstarfull"."teamID" IS NOT NULL;

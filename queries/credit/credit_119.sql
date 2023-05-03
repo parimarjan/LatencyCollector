@@ -1,0 +1,2 @@
+
+SELECT AVG("corporation"."country") as agg_0 FROM "corporation" LEFT OUTER JOIN "region" ON "corporation"."region_no" = "region"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no"  WHERE "region"."region_name" = '%Scandanavian%' AND ("corporation"."corp_no" <= 242 OR "corporation"."corp_no" >= 115) AND "provider"."region_no" IS NOT NULL;

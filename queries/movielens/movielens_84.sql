@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "u2base" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid"  WHERE "users"."u_gender" = '%M%' AND "movies"."country" = '%France%' AND "movies"."isEnglish" = '%T%' AND "actors"."a_gender" = '%F%' AND "u2base"."rating" <= 4 AND "actors"."a_quality" >= 0;

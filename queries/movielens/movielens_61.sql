@@ -1,0 +1,2 @@
+
+SELECT SUM("u2base"."rating") as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid"  WHERE "u2base"."rating" != 2 AND "movies"."country" != '%UK%' AND "users"."u_gender" IN ('F') AND ("u2base"."userid" >= 3647 OR "u2base"."movieid" >= 2332445 OR "u2base"."userid" BETWEEN 446 AND 798) AND "movies2actors"."movieid" IS NOT NULL;

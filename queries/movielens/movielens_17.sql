@@ -1,0 +1,2 @@
+
+SELECT AVG("movies"."runningtime") as agg_0 FROM "directors" LEFT OUTER JOIN "movies2directors" ON "directors"."directorid" = "movies2directors"."directorid" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid"  WHERE "movies2directors"."genre" IN ('Adventure', 'Animation', 'Comedy', 'Action', 'Drama', 'Documentary', 'Horror', 'Crime') AND "movies"."country" NOT LIKE '%other%' AND "directors"."directorid" <= 266837 AND "movies2directors"."movieid" <= 2543049 AND "movies2directors"."genre" LIKE '%Comed%y%' AND "movies"."country" IN ('USA');

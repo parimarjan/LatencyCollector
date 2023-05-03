@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."mail_code") as agg_0 FROM "charge" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no"  WHERE "region"."region_name" NOT LIKE '%Eur%opea%' OR "region"."region_code" IS NOT NULL OR "region"."region_name" NOT LIKE '%American%' AND "provider"."region_no" IS NOT NULL AND "corporation"."region_no" IS NOT NULL;

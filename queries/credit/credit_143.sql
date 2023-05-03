@@ -1,0 +1,2 @@
+
+SELECT MIN("payment"."payment_amt") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE "region"."street" NOT LIKE '%S%t%' AND "charge"."statement_no" BETWEEN 7398 AND 9128 AND "charge"."charge_amt" <= 1911.2557302972562;

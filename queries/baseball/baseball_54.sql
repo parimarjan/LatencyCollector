@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "appearances" LEFT OUTER JOIN "players" ON "appearances"."playerID" = "players"."playerID" LEFT OUTER JOIN "fieldingpost" ON "players"."playerID" = "fieldingpost"."playerID" LEFT OUTER JOIN "awardsshareplayers" ON "players"."playerID" = "awardsshareplayers"."playerID" LEFT OUTER JOIN "pitching" ON "players"."playerID" = "pitching"."playerID"  WHERE "appearances"."yearID" >= 1998 AND "appearances"."teamID" LIKE '%SE%A%' AND "awardsshareplayers"."votesFirst" >= 0.0 AND "fieldingpost"."playerID" IS NOT NULL AND "pitching"."playerID" IS NOT NULL;

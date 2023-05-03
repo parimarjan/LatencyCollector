@@ -1,0 +1,2 @@
+
+SELECT SUM("teams"."ER") as agg_0 FROM "salaries" LEFT OUTER JOIN "teams" ON "salaries"."teamID" = "teams"."teamID" LEFT OUTER JOIN "seriespost" ON "teams"."teamID" = "seriespost"."teamIDwinner"  WHERE "seriespost"."teamIDloser" NOT LIKE '%PH%A%' AND ("teams"."franchID" != '%MAR%' OR ("teams"."lgID" LIKE '%A%L%' AND "teams"."franchID" IN ('PIT', 'SFG', 'PHI', 'LAD', 'STL'))) AND "teams"."DivWin" != '%Y%' AND "seriespost"."teamIDloser" LIKE '%CIN%' AND "teams"."IPouts" <= 4080 AND "salaries"."lgID" LIKE '%N%L%';

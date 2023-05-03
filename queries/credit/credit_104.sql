@@ -1,0 +1,2 @@
+
+SELECT SUM("region"."phone_no") as agg_0 FROM "region" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "member"."member_no" <= 4017 AND "region"."street" LIKE '%St%' AND "member"."street" != '% %' AND "member"."lastname" NOT LIKE '%TOLSK%Y%';

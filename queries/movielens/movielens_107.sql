@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "users" LEFT OUTER JOIN "u2base" ON "users"."userid" = "u2base"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid"  WHERE "movies"."country" != '%France%' AND "users"."u_gender" IN ('F') AND ("u2base"."userid" BETWEEN 1049 AND 1496 OR ("u2base"."rating" <= 4 AND "u2base"."userid" BETWEEN 741 AND 3394)) AND "u2base"."movieid" >= 1681398;

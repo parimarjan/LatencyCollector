@@ -1,0 +1,2 @@
+
+SELECT AVG("directors"."directorid") as agg_0 FROM "movies2directors" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid"  WHERE "movies2directors"."genre" NOT LIKE '%Comedy%' AND "movies2directors"."genre" != '%Horror%' AND "users"."age" BETWEEN 25 AND 27;

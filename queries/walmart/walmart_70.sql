@@ -1,0 +1,2 @@
+
+SELECT MIN("train"."store_nbr") as agg_0 FROM "key" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "key"."store_nbr" = 24 AND "station"."station_nbr" BETWEEN 3 AND 14;

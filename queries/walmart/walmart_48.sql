@@ -1,0 +1,2 @@
+
+SELECT MAX("train"."units") as agg_0 FROM "train" LEFT OUTER JOIN "key" ON "train"."store_nbr" = "key"."store_nbr"  WHERE "train"."units" <= 0 AND ("train"."store_nbr" BETWEEN 25 AND 29 OR ("train"."date" != '%2013-03-18%' AND "train"."store_nbr" = 31)) AND "key"."station_nbr" BETWEEN 7 AND 9;

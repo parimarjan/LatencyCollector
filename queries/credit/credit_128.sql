@@ -1,0 +1,2 @@
+
+SELECT MAX("corporation"."country") as agg_0 FROM "region" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "member"."issue_dt" = '%1999-10-13 10:42:45%' AND "corporation"."expr_dt" LIKE '%1%0:41:26%' AND "statement"."member_no" IS NOT NULL;

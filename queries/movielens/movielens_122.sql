@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "actors" LEFT OUTER JOIN "movies2actors" ON "actors"."actorid" = "movies2actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid"  WHERE "directors"."directorid" BETWEEN 120881 AND 212587 AND "movies"."isEnglish" IN ('T') AND "actors"."a_gender" = '%F%' AND "directors"."d_quality" != 4;

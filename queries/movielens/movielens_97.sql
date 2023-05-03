@@ -1,0 +1,2 @@
+
+SELECT MIN("movies"."runningtime") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "movies"."country" = '%France%' AND "movies"."country" LIKE '%other%' AND "u2base"."movieid" IS NOT NULL;

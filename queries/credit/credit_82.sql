@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."photograph") as agg_0 FROM "corporation" LEFT OUTER JOIN "region" ON "corporation"."region_no" = "region"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "region"."street" LIKE '%St%.%' AND "member"."middleinitial" BETWEEN nan AND nan;

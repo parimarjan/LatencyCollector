@@ -1,0 +1,2 @@
+
+SELECT AVG("key"."store_nbr") as agg_0 FROM "key" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "train"."units" <= 0 AND "key"."store_nbr" <= 34 AND "train"."item_nbr" <= 56;

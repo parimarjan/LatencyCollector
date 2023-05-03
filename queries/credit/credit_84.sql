@@ -1,0 +1,2 @@
+
+SELECT MAX("charge"."category_no") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "charge"."charge_code" BETWEEN nan AND nan AND "member"."issue_dt" != '%1999-10-13 10:41:32%' AND "payment"."payment_dt" != '%1999-10-03 00:00:00%';

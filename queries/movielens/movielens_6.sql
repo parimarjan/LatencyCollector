@@ -1,0 +1,2 @@
+
+SELECT MIN("actors"."a_quality") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "movies2actors"."cast_num" <= 2 AND "actors"."actorid" <= 1270632 AND "movies2directors"."movieid" IS NOT NULL;

@@ -1,0 +1,2 @@
+
+SELECT MIN("statement"."statement_no") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no"  WHERE ("member"."firstname" != '%RVFBYTHYN%' OR "member"."firstname" IN ('HIPSFEQDYINWI', 'QUHEIVWLQWGPAH', 'UQQQQVKDFT', 'GOPIAYMK', 'IDS', 'MVE', 'GJWDKIJGUOXWOB', 'OCHCWOFWFYJGSO') OR "member"."firstname" != '%QQDCFYR%') AND ("statement"."due_dt" != '%1999-09-02 00:00:00%' OR ("statement"."member_no" <= 2110 AND "statement"."due_dt" NOT LIKE '%1999-10-03%'));

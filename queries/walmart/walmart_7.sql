@@ -1,0 +1,2 @@
+
+SELECT MAX("station"."station_nbr") as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr"  WHERE "station"."station_nbr" = 6 AND "key"."station_nbr" <= 12 AND "key"."store_nbr" BETWEEN 16 AND 19;

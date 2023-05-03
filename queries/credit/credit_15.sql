@@ -1,0 +1,2 @@
+
+SELECT MIN("provider"."country") as agg_0 FROM "region" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no"  WHERE "provider"."provider_name" LIKE '%M%a%' AND ("region"."street" LIKE '%St%.%' OR ("region"."street" IN ('777 Seventh St', '999 Ninth St.', '555 Fifth St St', '333 Third St.', '888 Eighth St.', '222 Second St.') AND "region"."street" LIKE '%S%t%'));

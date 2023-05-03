@@ -1,0 +1,2 @@
+
+SELECT AVG("players"."height") as agg_0 FROM "schoolsplayers" LEFT OUTER JOIN "players" ON "schoolsplayers"."playerID" = "players"."playerID" LEFT OUTER JOIN "appearances" ON "players"."playerID" = "appearances"."playerID"  WHERE "players"."birthYear" <= 1873.5994050769987 AND "players"."deathState" LIKE '%MO%' AND "schoolsplayers"."yearMax" <= 2006 AND "schoolsplayers"."yearMin" <= 1976 AND "appearances"."G_batting" <= 13.971280886740992 AND "appearances"."lgID" = '%NL%' AND "schoolsplayers"."schoolID" = '%ithacany%';

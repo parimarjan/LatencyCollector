@@ -1,0 +1,2 @@
+
+SELECT MIN("movies"."year") as agg_0 FROM "directors" LEFT OUTER JOIN "movies2directors" ON "directors"."directorid" = "movies2directors"."directorid" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid"  WHERE "movies"."movieid" BETWEEN 1978556 AND 2344663 AND "movies"."country" = '%USA%' AND "movies2directors"."genre" NOT LIKE '%Comed%y%' AND "movies2actors"."movieid" IS NOT NULL;

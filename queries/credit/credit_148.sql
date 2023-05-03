@@ -1,0 +1,2 @@
+
+SELECT MAX("payment"."payment_no") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "payment"."payment_dt" IN ('1999-09-02 00:00:00') AND "statement"."due_dt" != '%1999-10-03 00:00:00%' AND "payment"."member_no" <= 7929 AND "charge"."member_no" IS NOT NULL;

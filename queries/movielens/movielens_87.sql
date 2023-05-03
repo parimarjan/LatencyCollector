@@ -1,0 +1,2 @@
+
+SELECT AVG("users"."age") as agg_0 FROM "movies" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid"  WHERE "movies"."isEnglish" = '%T%' AND "u2base"."movieid" <= 2213676 AND "movies"."runningtime" != 3 AND "users"."userid" <= 1517;

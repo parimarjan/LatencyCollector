@@ -1,0 +1,2 @@
+
+SELECT SUM("directors"."avg_revenue") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid"  WHERE "movies"."country" IN ('UK') AND "movies"."year" = 4 AND "actors"."actorid" IS NOT NULL;

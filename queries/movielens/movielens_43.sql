@@ -1,0 +1,2 @@
+
+SELECT MAX("movies"."runningtime") as agg_0 FROM "movies" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "movies2actors"."cast_num" = 2 AND "movies2directors"."movieid" >= 2421774 AND "movies"."isEnglish" != '%F%' AND "movies2directors"."genre" NOT LIKE '%Drama%' AND "u2base"."movieid" IS NOT NULL;

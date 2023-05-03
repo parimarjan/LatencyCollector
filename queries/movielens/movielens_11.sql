@@ -1,0 +1,2 @@
+
+SELECT SUM("actors"."a_quality") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE ("actors"."a_gender" != '%M%' OR "actors"."a_gender" IN ('M') OR "actors"."a_gender" = '%M%') AND "movies"."country" IN ('UK', 'other', 'France') AND "movies"."year" <= 4 AND "movies2actors"."cast_num" = 3 AND "u2base"."movieid" IS NOT NULL;

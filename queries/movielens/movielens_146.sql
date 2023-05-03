@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "movies" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid"  WHERE "users"."userid" <= 3746 AND "movies2directors"."movieid" BETWEEN 2170203 AND 2429736 AND "u2base"."userid" <= 4546 AND "actors"."actorid" IS NOT NULL;

@@ -1,0 +1,2 @@
+
+SELECT SUM("region"."mail_code") as agg_0 FROM "region" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "payment"."member_no" BETWEEN 2299 AND 4069 AND "member"."expr_dt" LIKE '%2000-1%0-12%' AND "region"."state_prov" = '%ON%' AND "corporation"."region_no" IS NOT NULL AND "provider"."region_no" IS NOT NULL;

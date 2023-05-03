@@ -1,0 +1,2 @@
+
+SELECT MIN("train"."store_nbr") as agg_0 FROM "train" LEFT OUTER JOIN "key" ON "train"."store_nbr" = "key"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE "key"."store_nbr" = 10 AND "key"."station_nbr" >= 14 AND "station"."station_nbr" IS NOT NULL;

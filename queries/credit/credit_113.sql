@@ -1,0 +1,2 @@
+
+SELECT SUM("member"."curr_balance") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "member"."lastname" LIKE '%DOR%R%' AND "member"."expr_dt" LIKE '%20%00-10-12%' AND "charge"."statement_no" <= 29669 AND "statement"."member_no" IS NOT NULL;

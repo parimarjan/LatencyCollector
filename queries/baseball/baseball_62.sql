@@ -1,0 +1,2 @@
+
+SELECT AVG("teams"."CS") as agg_0 FROM "teamsfranchises" LEFT OUTER JOIN "els_teamnames" ON "teamsfranchises"."franchID" = "els_teamnames"."franchid" LEFT OUTER JOIN "teams" ON "els_teamnames"."teamid" = "teams"."teamID"  WHERE "els_teamnames"."name" != '%Brooklyn Dodgers%' AND "teamsfranchises"."franchName" NOT LIKE '%Hoosiers%' AND "teams"."WSWin" IN ('Y') AND "teamsfranchises"."franchID" IN ('CNR', 'CHW', 'CPI', 'CIN', 'CEN');

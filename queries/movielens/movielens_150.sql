@@ -1,0 +1,2 @@
+
+SELECT MAX("u2base"."rating") as agg_0 FROM "movies" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "movies2actors"."cast_num" != 3 AND "movies"."movieid" >= 1878579 AND "movies2actors"."movieid" BETWEEN 2069531 AND 2550895 AND "u2base"."rating" <= 3;

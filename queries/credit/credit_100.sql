@@ -1,0 +1,2 @@
+
+SELECT MAX("member"."mail_code") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "member"."expr_dt" NOT LIKE '%2000-10-12%' AND "member"."prev_balance" >= 0.0 AND "charge"."member_no" IS NOT NULL;

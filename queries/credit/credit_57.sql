@@ -1,0 +1,2 @@
+
+SELECT MIN("member"."corp_no") as agg_0 FROM "region" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "member"."issue_dt" NOT LIKE '%1999-10-13%' AND "corporation"."region_no" IS NOT NULL;

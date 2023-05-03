@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "movies2actors" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "movies2actors"."cast_num" != 3 AND "movies2actors"."movieid" <= 2008460 AND "movies2directors"."genre" NOT LIKE '%Horro%r%';

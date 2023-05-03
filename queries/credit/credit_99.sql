@@ -1,0 +1,2 @@
+
+SELECT MIN("payment"."payment_code") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "payment"."payment_no" <= 1858 AND ("payment"."payment_dt" IN ('1999-10-03 00:00:00') OR "payment"."member_no" >= 8465);

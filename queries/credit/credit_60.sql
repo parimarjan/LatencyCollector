@@ -1,0 +1,2 @@
+
+SELECT MIN("member"."middleinitial") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no"  WHERE ("member"."lastname" LIKE '%HA%HN%' OR "member"."lastname" LIKE '%BA%RR%') AND "charge"."member_no" <= 6886;

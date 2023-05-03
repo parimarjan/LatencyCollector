@@ -1,0 +1,2 @@
+
+SELECT SUM("movies2directors"."directorid") as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid"  WHERE "movies2directors"."movieid" <= 2024857 AND "u2base"."movieid" BETWEEN 1919715 AND 2022924 AND "movies"."runningtime" <= 0 AND "directors"."d_quality" BETWEEN 3 AND 4 AND "movies"."country" IN ('other', 'USA', 'France');

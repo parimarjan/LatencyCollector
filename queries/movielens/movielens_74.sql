@@ -1,0 +1,2 @@
+
+SELECT AVG("movies2actors"."movieid") as agg_0 FROM "movies2directors" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid"  WHERE "movies"."country" = '%UK%' AND "directors"."avg_revenue" >= 0 AND "movies"."movieid" BETWEEN 1765292 AND 2267444 AND "movies2actors"."actorid" BETWEEN 1381687 AND 1912857 AND "movies2actors"."movieid" BETWEEN 2055111 AND 2072684;

@@ -1,0 +1,2 @@
+
+SELECT AVG("awardsplayers"."yearID") as agg_0 FROM "battingpost" LEFT OUTER JOIN "players" ON "battingpost"."playerID" = "players"."playerID" LEFT OUTER JOIN "awardsplayers" ON "players"."playerID" = "awardsplayers"."playerID" LEFT OUTER JOIN "pitchingpost" ON "players"."playerID" = "pitchingpost"."playerID"  WHERE "awardsplayers"."notes" IN ('P2', 'C', 'SS', '3B') AND "players"."birthCity" NOT LIKE '%St.%' AND "battingpost"."teamID" NOT LIKE '%BOS%' AND "pitchingpost"."playerID" IS NOT NULL;

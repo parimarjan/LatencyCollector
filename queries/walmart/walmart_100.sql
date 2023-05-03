@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "key" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "train"."date" != '%2014-05-06%' AND ("key"."store_nbr" = 4 OR "key"."store_nbr" BETWEEN 11 AND 38) AND "station"."station_nbr" IS NOT NULL;

@@ -1,0 +1,2 @@
+
+SELECT SUM("managers"."W") as agg_0 FROM "salaries" LEFT OUTER JOIN "teams" ON "salaries"."teamID" = "teams"."teamID" LEFT OUTER JOIN "managers" ON "teams"."teamID" = "managers"."teamID"  WHERE ("teams"."teamIDlahman45" NOT LIKE '%B%OS%' OR ("teams"."yearID" >= 2000 AND "teams"."teamIDlahman45" = '%IN2%')) AND "teams"."WCWin" = '%N%' AND "managers"."plyrMgr" IN ('N');

@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."state_prov") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE "payment"."payment_dt" LIKE '%00:00:%00%' AND "member"."expr_dt" IN ('2000-10-12 10:43:22', '2000-10-12 10:42:46', '2000-10-12 10:43:36', '2000-10-12 10:42:54', '2000-10-12 10:43:14', '2000-10-12 10:42:08', '2000-10-12 10:42:35', '2000-10-12 10:41:39', '2000-10-12 10:42:40') AND "member"."city" = '% %';

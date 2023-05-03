@@ -1,0 +1,2 @@
+
+SELECT MAX("provider"."provider_code") as agg_0 FROM "region" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no"  WHERE "region"."country" = '%Ja%' AND "region"."street" NOT LIKE '%St.%';

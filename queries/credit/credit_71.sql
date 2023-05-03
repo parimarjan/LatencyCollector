@@ -1,0 +1,2 @@
+
+SELECT MAX("charge"."charge_no") as agg_0 FROM "member" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "payment"."payment_code" BETWEEN nan AND nan AND "payment"."payment_dt" NOT LIKE '%00:00:00%' AND ("payment"."payment_no" >= 14954 OR "payment"."member_no" BETWEEN 7446 AND 8698 OR "payment"."payment_no" <= 2906);

@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."phone_no") as agg_0 FROM "region" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "statement"."statement_code" BETWEEN nan AND nan AND "statement"."statement_dt" != '%1999-09-13 00:00:00%' AND "region"."street" IN ('222 Second St.', '777 Seventh St', '666 Sixth', '555 Fifth St St') AND "payment"."member_no" IS NOT NULL;

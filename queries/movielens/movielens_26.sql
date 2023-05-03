@@ -1,0 +1,2 @@
+
+SELECT AVG("movies2directors"."directorid") as agg_0 FROM "movies2directors" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "u2base"."movieid" >= 2252890 AND "movies2directors"."genre" LIKE '%Horror%' AND "movies2directors"."genre" LIKE '%Ot%her%' AND "movies"."country" = '%USA%';

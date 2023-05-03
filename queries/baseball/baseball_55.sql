@@ -1,0 +1,2 @@
+
+SELECT MIN("teams"."BB") as agg_0 FROM "teamsfranchises" LEFT OUTER JOIN "els_teamnames" ON "teamsfranchises"."franchID" = "els_teamnames"."franchid" LEFT OUTER JOIN "teams" ON "els_teamnames"."teamid" = "teams"."teamID" LEFT OUTER JOIN "teamshalf" ON "teams"."teamID" = "teamshalf"."teamID" LEFT OUTER JOIN "salaries" ON "teams"."teamID" = "salaries"."teamID"  WHERE "els_teamnames"."lgid" LIKE '%A%A%' AND "teamshalf"."teamID" NOT LIKE '%KC%A%' AND "els_teamnames"."teamid" IN ('BSN', 'BRO') AND "salaries"."teamID" IS NOT NULL;

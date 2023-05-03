@@ -1,0 +1,2 @@
+
+SELECT MAX("member"."member_code") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE ("member"."curr_balance" <= 0.0 OR "member"."curr_balance" BETWEEN 0.0 AND 1.0) AND ("payment"."payment_dt" != '%1999-09-02 00:00:00%' OR ("payment"."statement_no" = 0 AND "payment"."payment_dt" NOT LIKE '%1999-10-03%'));

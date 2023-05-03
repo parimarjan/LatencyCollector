@@ -1,0 +1,2 @@
+
+SELECT MIN("actors"."actorid") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "movies"."runningtime" BETWEEN 1 AND 2 AND "movies2actors"."actorid" BETWEEN 435143 AND 2436329 AND ("movies"."country" IN ('USA', 'UK') OR "movies"."country" != '%France%' OR "movies"."country" LIKE '%USA%') AND "movies"."country" LIKE '%other%' AND "u2base"."movieid" IS NOT NULL;

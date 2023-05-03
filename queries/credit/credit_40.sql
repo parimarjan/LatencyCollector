@@ -1,0 +1,2 @@
+
+SELECT MIN("member"."phone_no") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no"  WHERE "statement"."statement_dt" != '%1999-09-13 00:00:00%' AND "member"."photograph" IS NOT NULL;

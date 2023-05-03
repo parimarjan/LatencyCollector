@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "teamshalf" LEFT OUTER JOIN "teams" ON "teamshalf"."teamID" = "teams"."teamID" LEFT OUTER JOIN "seriespost" ON "teams"."teamID" = "seriespost"."teamIDwinner"  WHERE "seriespost"."teamIDloser" LIKE '%CHN%' AND "seriespost"."lgIDloser" IN ('AL') AND "teamshalf"."Rank" BETWEEN 5 AND 6 AND ("teams"."SF" <= 44.00138228231283 OR "teams"."SF" <= 43.126922778887774 OR "teams"."SF" <= 69.06598947503262) AND "seriespost"."lgIDwinner" NOT LIKE '%A%L%' AND "seriespost"."round" LIKE '%ALDS1%' AND "seriespost"."ties" >= 0;

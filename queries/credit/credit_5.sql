@@ -1,0 +1,2 @@
+
+SELECT AVG("corporation"."region_no") as agg_0 FROM "corporation" LEFT OUTER JOIN "region" ON "corporation"."region_no" = "region"."region_no"  WHERE "corporation"."city" = '% %' AND "corporation"."corp_name" = '%Corp. Boston TransitInc.%' AND "region"."region_no" IS NOT NULL;

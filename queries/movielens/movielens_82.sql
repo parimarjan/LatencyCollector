@@ -1,0 +1,2 @@
+
+SELECT MAX("users"."age") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid"  WHERE ("users"."occupation" <= 1 OR "users"."age" = 27) AND "movies2actors"."movieid" >= 1872107 AND "users"."u_gender" IN ('F') AND "actors"."actorid" IS NOT NULL;

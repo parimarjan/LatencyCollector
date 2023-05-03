@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "provider" LEFT OUTER JOIN "region" ON "provider"."region_no" = "region"."region_no" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no"  WHERE "provider"."city" = '% %' AND "corporation"."region_no" IS NOT NULL;

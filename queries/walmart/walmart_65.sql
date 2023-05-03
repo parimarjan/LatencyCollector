@@ -1,0 +1,2 @@
+
+SELECT AVG("key"."store_nbr") as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "station"."station_nbr" BETWEEN 1 AND 5 AND ("key"."store_nbr" = 20 OR "key"."station_nbr" >= 10 OR "key"."store_nbr" BETWEEN 13 AND 19) AND "train"."date" IN ('2012-07-27', '2012-10-05', '2012-07-16');

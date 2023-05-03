@@ -1,0 +1,2 @@
+
+SELECT SUM("key"."station_nbr") as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE ("train"."item_nbr" BETWEEN 17 AND 83 OR ("train"."item_nbr" >= 75 AND "train"."item_nbr" <= 8)) AND "key"."store_nbr" BETWEEN 19 AND 31 AND "station"."station_nbr" <= 16;

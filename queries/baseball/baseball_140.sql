@@ -1,0 +1,2 @@
+
+SELECT SUM("pitchingpost"."HR") as agg_0 FROM "pitchingpost" LEFT OUTER JOIN "players" ON "pitchingpost"."playerID" = "players"."playerID" LEFT OUTER JOIN "pitching" ON "players"."playerID" = "pitching"."playerID" LEFT OUTER JOIN "fieldingof" ON "players"."playerID" = "fieldingof"."playerID" LEFT OUTER JOIN "appearances" ON "players"."playerID" = "appearances"."playerID"  WHERE "pitching"."SF" BETWEEN nan AND nan AND "pitching"."GS" >= 0 AND "pitchingpost"."SHO" <= 0 AND "fieldingof"."playerID" IS NOT NULL AND "appearances"."playerID" IS NOT NULL;

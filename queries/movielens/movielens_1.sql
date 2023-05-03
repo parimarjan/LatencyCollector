@@ -1,0 +1,2 @@
+
+SELECT MIN("movies"."year") as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid"  WHERE "movies2actors"."cast_num" >= 2 AND ("movies"."year" = 4 OR "movies"."runningtime" != 2) AND "u2base"."rating" = 3 AND "movies"."country" LIKE '%US%A%' AND "users"."userid" IS NOT NULL;

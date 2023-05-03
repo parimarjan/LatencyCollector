@@ -1,0 +1,2 @@
+
+SELECT AVG("players"."birthDay") as agg_0 FROM "pitching" LEFT OUTER JOIN "players" ON "pitching"."playerID" = "players"."playerID" LEFT OUTER JOIN "battingpost" ON "players"."playerID" = "battingpost"."playerID"  WHERE "pitching"."lgID" IN ('AA', 'PL', 'NL', 'UA') AND "pitching"."teamID" NOT LIKE '%PHA%' AND ("players"."birthCity" LIKE '%Los%' OR "players"."birthCity" LIKE '%City%') AND "pitching"."BK" >= 0.0 AND "pitching"."lgID" LIKE '%N%L%' AND "battingpost"."playerID" IS NOT NULL;

@@ -1,0 +1,2 @@
+
+SELECT SUM("movies2actors"."movieid") as agg_0 FROM "movies2directors" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid"  WHERE "actors"."actorid" <= 95881 AND "directors"."directorid" >= 145079;

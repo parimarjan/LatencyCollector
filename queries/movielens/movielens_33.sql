@@ -1,0 +1,2 @@
+
+SELECT MIN("movies2actors"."movieid") as agg_0 FROM "actors" LEFT OUTER JOIN "movies2actors" ON "actors"."actorid" = "movies2actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid"  WHERE "movies"."country" NOT LIKE '%US%A%' AND "movies"."country" LIKE '%oth%er%';

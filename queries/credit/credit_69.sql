@@ -1,0 +1,2 @@
+
+SELECT SUM("member"."curr_balance") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "provider"."state_prov" IS NOT NULL AND "member"."member_no" >= 1748 AND "member"."photograph" BETWEEN nan AND nan AND "statement"."member_no" IS NOT NULL;

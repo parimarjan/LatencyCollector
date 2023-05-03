@@ -1,0 +1,2 @@
+
+SELECT AVG("station"."station_nbr") as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr"  WHERE "key"."store_nbr" <= 23 AND "key"."station_nbr" BETWEEN 13 AND 16 AND "station"."station_nbr" = 18;

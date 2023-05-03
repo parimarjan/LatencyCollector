@@ -1,0 +1,2 @@
+
+SELECT AVG("movies2actors"."actorid") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid"  WHERE "movies"."isEnglish" != '%F%' AND "movies2actors"."movieid" <= 1706717 AND "actors"."a_quality" >= 3 AND ("movies"."isEnglish" IN ('F') OR "movies"."runningtime" != 3) AND "movies"."country" = '%UK%';

@@ -1,0 +1,2 @@
+
+SELECT MAX("movies2actors"."cast_num") as agg_0 FROM "actors" LEFT OUTER JOIN "movies2actors" ON "actors"."actorid" = "movies2actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "u2base"."movieid" BETWEEN 1749814 AND 1776340 AND "movies"."movieid" BETWEEN 2125102 AND 2502284 AND "movies2directors"."genre" = '%Drama%';

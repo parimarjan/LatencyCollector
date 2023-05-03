@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."region_no") as agg_0 FROM "charge" LEFT OUTER JOIN "category" ON "charge"."category_no" = "category"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE ("statement"."statement_amt" BETWEEN 0.0 AND 164.37999049415828 OR "statement"."statement_amt" BETWEEN 3328.1143182226615 AND 5408.526956462006) AND "member"."issue_dt" LIKE '%1999-10-%13%' AND "category"."category_no" IS NOT NULL;

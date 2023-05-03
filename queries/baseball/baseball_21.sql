@@ -1,0 +1,2 @@
+
+SELECT SUM("teams"."yearID") as agg_0 FROM "teams" LEFT OUTER JOIN "seriespost" ON "teams"."teamID" = "seriespost"."teamIDwinner" LEFT OUTER JOIN "batting" ON "teams"."teamID" = "batting"."teamID" LEFT OUTER JOIN "players" ON "batting"."playerID" = "players"."playerID"  WHERE "players"."finalGame" = '%7/29/1988%' AND ("batting"."SO" >= 26.693438648889074 OR "batting"."SB" >= 0.4563199657328325 OR "batting"."SO" IS NOT NULL) AND "players"."deathCity" = '%W.Alexandria%' AND "seriespost"."yearID" BETWEEN 1978 AND 1986;

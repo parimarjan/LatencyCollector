@@ -1,0 +1,2 @@
+
+SELECT MIN("member"."state_prov") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no"  WHERE "member"."member_no" >= 2262 AND "member"."region_no" = 6 AND "charge"."member_no" IS NOT NULL AND "corporation"."region_no" IS NOT NULL;

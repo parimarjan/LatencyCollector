@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "movies"."movieid" <= 2167100 AND "movies"."year" >= 4 AND "movies2directors"."genre" != '%Other%' AND "movies2directors"."genre" IN ('Other', 'Comedy') AND ("movies2directors"."movieid" BETWEEN 1792213 AND 2166242 OR "movies2directors"."movieid" >= 2333957);

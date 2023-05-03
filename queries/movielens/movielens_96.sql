@@ -1,0 +1,2 @@
+
+SELECT AVG("movies"."runningtime") as agg_0 FROM "users" LEFT OUTER JOIN "u2base" ON "users"."userid" = "u2base"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "u2base"."movieid" BETWEEN 1869664 AND 2188412 AND "users"."u_gender" IN ('M') AND "movies2directors"."movieid" IS NOT NULL;

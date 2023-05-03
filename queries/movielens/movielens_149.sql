@@ -1,0 +1,2 @@
+
+SELECT SUM("directors"."d_quality") as agg_0 FROM "movies2directors" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid"  WHERE ("directors"."avg_revenue" = 3 OR "directors"."avg_revenue" BETWEEN 3 AND 4) AND "u2base"."movieid" >= 2257097 AND "movies"."runningtime" >= 2;

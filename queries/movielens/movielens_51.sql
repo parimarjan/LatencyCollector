@@ -1,0 +1,2 @@
+
+SELECT MIN("movies"."year") as agg_0 FROM "actors" LEFT OUTER JOIN "movies2actors" ON "actors"."actorid" = "movies2actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid"  WHERE "movies2actors"."movieid" BETWEEN 2013070 AND 2219575 AND "movies"."country" LIKE '%UK%' AND "actors"."actorid" <= 585370;

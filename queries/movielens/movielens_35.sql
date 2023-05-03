@@ -1,0 +1,2 @@
+
+SELECT MAX("actors"."a_quality") as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid"  WHERE "movies2actors"."cast_num" = 0 AND "movies"."isEnglish" = '%T%' AND "actors"."a_gender" IN ('F') AND "users"."occupation" >= 2;

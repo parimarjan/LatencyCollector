@@ -1,0 +1,2 @@
+
+SELECT SUM("corporation"."corp_code") as agg_0 FROM "region" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no"  WHERE "region"."region_name" LIKE '%American%' AND "provider"."city" != '% %' AND "corporation"."corp_name" LIKE '%Sa%il%';

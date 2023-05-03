@@ -1,0 +1,2 @@
+
+SELECT SUM("fielding"."PB") as agg_0 FROM "pitching" LEFT OUTER JOIN "players" ON "pitching"."playerID" = "players"."playerID" LEFT OUTER JOIN "fielding" ON "players"."playerID" = "fielding"."playerID" LEFT OUTER JOIN "battingpost" ON "players"."playerID" = "battingpost"."playerID" LEFT OUTER JOIN "fieldingof" ON "players"."playerID" = "fieldingof"."playerID"  WHERE "fieldingof"."yearID" != 1923 AND "pitching"."lgID" = '%UA%' AND "players"."birthDay" BETWEEN 11.23543171815698 AND 25.76227261286767 AND "battingpost"."playerID" IS NOT NULL;

@@ -1,0 +1,2 @@
+
+SELECT MIN("member"."mail_code") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE "member"."expr_dt" != '%2000-10-12 10:43:12%' AND "payment"."statement_no" BETWEEN 0 AND 1 AND ("member"."lastname" IN ('INFANTE', 'KAHRMANN', 'CHEN', 'BARR') OR "member"."curr_balance" >= 0.0 OR "member"."lastname" LIKE '%H%AHN%') AND "payment"."payment_dt" IN ('1999-09-02 00:00:00');

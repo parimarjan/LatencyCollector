@@ -1,0 +1,2 @@
+
+SELECT MAX("movies2actors"."actorid") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid"  WHERE "actors"."actorid" BETWEEN 1911051 AND 2318012 AND "actors"."a_gender" != '%M%' AND "movies"."country" NOT LIKE '%UK%' AND "movies"."year" != 4;

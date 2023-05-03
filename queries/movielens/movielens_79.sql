@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "movies" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "movies2actors"."movieid" >= 2448965 AND ("u2base"."userid" BETWEEN 1148 AND 5983 OR "u2base"."rating" BETWEEN 3 AND 5) AND "movies"."year" != 4 AND "movies2actors"."cast_num" != 3 AND "movies"."isEnglish" IN ('F');

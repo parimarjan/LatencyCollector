@@ -1,0 +1,2 @@
+
+SELECT SUM("category"."category_no") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no"  WHERE "charge"."member_no" >= 9538 AND "category"."category_no" <= 1 AND "category"."category_code" BETWEEN nan AND nan;

@@ -1,0 +1,2 @@
+
+SELECT MAX("member"."country") as agg_0 FROM "member" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "statement"."statement_dt" IN ('1999-08-13 00:00:00') AND "charge"."statement_no" <= 3021;

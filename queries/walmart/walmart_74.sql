@@ -1,0 +1,2 @@
+
+SELECT MIN("station"."station_nbr") as agg_0 FROM "train" LEFT OUTER JOIN "key" ON "train"."store_nbr" = "key"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE "train"."units" BETWEEN 0 AND 4245 AND "station"."station_nbr" BETWEEN 12 AND 19 AND "train"."date" IN ('2012-10-05', '2013-02-15', '2012-07-16', '2012-08-29') AND "key"."station_nbr" = 14;

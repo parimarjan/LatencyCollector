@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "directors" LEFT OUTER JOIN "movies2directors" ON "directors"."directorid" = "movies2directors"."directorid" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid"  WHERE "movies"."country" NOT LIKE '%USA%' AND "movies2actors"."movieid" BETWEEN 2055203 AND 2498105 AND "directors"."directorid" >= 305286 AND "actors"."actorid" IS NOT NULL;

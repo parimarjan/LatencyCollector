@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "key" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "train"."store_nbr" BETWEEN 36 AND 43 AND "train"."item_nbr" BETWEEN 52 AND 89 AND ("key"."store_nbr" >= 25 OR "key"."store_nbr" = 7);

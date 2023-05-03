@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "key" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE "key"."store_nbr" BETWEEN 25 AND 43 AND "key"."station_nbr" <= 17 AND "station"."station_nbr" IS NOT NULL;

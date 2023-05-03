@@ -1,0 +1,2 @@
+
+SELECT MIN("member"."curr_balance") as agg_0 FROM "member" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE ("region"."street" NOT LIKE '%St.%' OR ("region"."region_name" != '%Mid East / Sout%' AND "region"."street" LIKE '%S%t%')) AND "statement"."statement_no" BETWEEN 4486 AND 16156 AND "statement"."statement_dt" LIKE '%1999-09-13%' AND "member"."curr_balance" >= 0.0;

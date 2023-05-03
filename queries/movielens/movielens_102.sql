@@ -1,0 +1,2 @@
+
+SELECT MAX("directors"."directorid") as agg_0 FROM "movies2directors" LEFT OUTER JOIN "movies" ON "movies2directors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "directors" ON "movies2directors"."directorid" = "directors"."directorid"  WHERE "movies2directors"."genre" LIKE '%Horro%r%' AND "movies"."isEnglish" IN ('F') AND ("movies"."country" = '%France%' OR "movies"."country" IN ('other')) AND "movies2directors"."genre" IN ('Documentary', 'Horror', 'Comedy', 'Other', 'Crime', 'Animation', 'Adventure');

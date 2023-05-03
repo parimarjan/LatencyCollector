@@ -1,0 +1,2 @@
+
+SELECT SUM("payment"."payment_amt") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE "payment"."payment_dt" NOT LIKE '%1999-10-03%' AND "charge"."member_no" IS NOT NULL AND "region"."region_no" IS NOT NULL;

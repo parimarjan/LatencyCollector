@@ -1,0 +1,2 @@
+
+SELECT MAX("users"."age") as agg_0 FROM "u2base" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2actors" ON "movies"."movieid" = "movies2actors"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "u2base"."movieid" >= 2308110 AND "movies2directors"."genre" IN ('Drama') AND "movies"."country" LIKE '%oth%er%' AND "movies2actors"."movieid" IS NOT NULL;

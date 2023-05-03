@@ -1,0 +1,2 @@
+
+SELECT AVG("train"."units") as agg_0 FROM "key" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE "train"."date" IN ('2012-12-26', '2012-08-29', '2013-02-15', '2012-10-05', '2012-07-16', '2013-02-21', '2012-07-27') AND "station"."station_nbr" >= 4;

@@ -1,0 +1,2 @@
+
+SELECT SUM("movies"."year") as agg_0 FROM "u2base" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid"  WHERE "movies"."movieid" BETWEEN 1810906 AND 2259007 AND "u2base"."userid" <= 4058 AND "users"."age" != 36;

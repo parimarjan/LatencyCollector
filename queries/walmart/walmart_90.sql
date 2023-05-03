@@ -1,0 +1,2 @@
+
+SELECT MAX("train"."store_nbr") as agg_0 FROM "key" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE ("train"."units" <= 0 OR "train"."store_nbr" <= 30 OR "train"."units" <= 0) AND "station"."station_nbr" >= 2 AND "key"."store_nbr" >= 12 AND "train"."date" IN ('2012-12-26', '2013-02-26', '2013-02-21', '2012-08-29', '2012-06-04');

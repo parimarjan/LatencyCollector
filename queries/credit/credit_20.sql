@@ -1,0 +1,2 @@
+
+SELECT MAX("corporation"."region_no") as agg_0 FROM "corporation" LEFT OUTER JOIN "region" ON "corporation"."region_no" = "region"."region_no"  WHERE "region"."street" LIKE '%St%.%' AND "corporation"."city" = '% %' AND "region"."region_name" NOT LIKE '%Ameri%can%';

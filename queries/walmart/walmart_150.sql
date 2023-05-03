@@ -1,0 +1,2 @@
+
+SELECT MAX("key"."store_nbr") as agg_0 FROM "key" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE ("key"."store_nbr" = 26 OR "key"."station_nbr" = 14 OR "key"."store_nbr" BETWEEN 42 AND 43) AND "station"."station_nbr" BETWEEN 11 AND 12 AND "train"."store_nbr" IS NOT NULL;

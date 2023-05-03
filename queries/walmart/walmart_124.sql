@@ -1,0 +1,2 @@
+
+SELECT MAX("train"."units") as agg_0 FROM "key" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE "train"."store_nbr" >= 44 AND "station"."station_nbr" BETWEEN 8 AND 9 AND "key"."station_nbr" <= 11;

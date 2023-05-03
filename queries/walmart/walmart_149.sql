@@ -1,0 +1,2 @@
+
+SELECT MIN("train"."store_nbr") as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "train"."date" != '%2013-07-14%' AND "key"."station_nbr" BETWEEN 13 AND 16 AND "train"."store_nbr" BETWEEN 10 AND 34 AND "station"."station_nbr" <= 18;

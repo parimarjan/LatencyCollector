@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "station" LEFT OUTER JOIN "key" ON "station"."station_nbr" = "key"."station_nbr" LEFT OUTER JOIN "train" ON "key"."store_nbr" = "train"."store_nbr"  WHERE "key"."store_nbr" BETWEEN 20 AND 21 AND "train"."units" BETWEEN 0 AND 1 AND "station"."station_nbr" != 19;

@@ -1,0 +1,2 @@
+
+SELECT MIN("statement"."statement_amt") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "payment"."payment_dt" = '%1999-10-03 00:00:00%' AND "member"."issue_dt" LIKE '%1999-1%0-13%' AND "member"."curr_balance" >= 0.0;

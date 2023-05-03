@@ -1,0 +1,2 @@
+
+SELECT AVG("teams"."Rank") as agg_0 FROM "salaries" LEFT OUTER JOIN "teams" ON "salaries"."teamID" = "teams"."teamID" LEFT OUTER JOIN "allstarfull" ON "teams"."teamID" = "allstarfull"."teamID"  WHERE ("allstarfull"."teamID" LIKE '%ATL%' OR "allstarfull"."teamID" NOT LIKE '%C%HA%') AND "salaries"."lgID" IN ('AL') AND "salaries"."teamID" NOT LIKE '%ARI%';

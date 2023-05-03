@@ -1,0 +1,2 @@
+
+SELECT SUM("member"."region_no") as agg_0 FROM "charge" LEFT OUTER JOIN "category" ON "charge"."category_no" = "category"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no"  WHERE "category"."category_desc" != '%Groceries%' AND ("charge"."provider_no" BETWEEN 478 AND 498 OR ("charge"."provider_no" <= 310 AND "charge"."provider_no" <= 461)) AND "charge"."charge_code" BETWEEN nan AND nan;

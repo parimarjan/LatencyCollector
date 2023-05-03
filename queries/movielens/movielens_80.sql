@@ -1,0 +1,2 @@
+
+SELECT AVG("u2base"."rating") as agg_0 FROM "u2base" LEFT OUTER JOIN "users" ON "u2base"."userid" = "users"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid" LEFT OUTER JOIN "movies2directors" ON "movies"."movieid" = "movies2directors"."movieid"  WHERE "users"."occupation" BETWEEN 1 AND 5 AND "movies2directors"."directorid" <= 112448 AND "movies"."isEnglish" = '%T%' AND "movies2directors"."genre" = '%Other%';

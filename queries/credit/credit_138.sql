@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "statement"."statement_amt" <= 0.0 AND "member"."issue_dt" != '%1999-10-13 10:42:22%';

@@ -1,0 +1,2 @@
+
+SELECT AVG("payment"."payment_amt") as agg_0 FROM "member" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "statement"."due_dt" IN ('1999-09-02 00:00:00') AND "charge"."member_no" IS NOT NULL;

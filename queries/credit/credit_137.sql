@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "payment"."payment_amt" <= 4554.7588492899695 AND "payment"."payment_dt" = '%1999-09-02 00:00:00%' AND "member"."expr_dt" LIKE '%2000-1%0-12%' AND "charge"."member_no" IS NOT NULL;

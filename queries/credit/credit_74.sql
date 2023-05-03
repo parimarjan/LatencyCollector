@@ -1,0 +1,2 @@
+
+SELECT MIN("statement"."statement_amt") as agg_0 FROM "region" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no"  WHERE "region"."street" LIKE '%St.%';

@@ -1,0 +1,2 @@
+
+SELECT MAX("teams"."FP") as agg_0 FROM "els_teamnames" LEFT OUTER JOIN "teamsfranchises" ON "els_teamnames"."franchid" = "teamsfranchises"."franchID" LEFT OUTER JOIN "teams" ON "els_teamnames"."teamid" = "teams"."teamID" LEFT OUTER JOIN "seriespost" ON "teams"."teamID" = "seriespost"."teamIDwinner"  WHERE "seriespost"."lgIDwinner" != '%AL%' AND ("seriespost"."lgIDwinner" IN ('NL') OR "seriespost"."lgIDwinner" IN ('AL')) AND "teamsfranchises"."franchID" IS NOT NULL;

@@ -1,0 +1,2 @@
+
+SELECT MAX("statement"."statement_no") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no"  WHERE ("corporation"."expr_dt" LIKE '%10:41:2%6%' OR "corporation"."region_no" != 6 OR "corporation"."expr_dt" LIKE '%2004-10-12%') AND "region"."street" NOT LIKE '%St%';

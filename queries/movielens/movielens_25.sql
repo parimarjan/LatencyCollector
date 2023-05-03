@@ -1,0 +1,2 @@
+
+SELECT MIN("movies"."year") as agg_0 FROM "users" LEFT OUTER JOIN "u2base" ON "users"."userid" = "u2base"."userid" LEFT OUTER JOIN "movies" ON "u2base"."movieid" = "movies"."movieid"  WHERE "users"."age" BETWEEN 25 AND 48 AND "movies"."movieid" <= 2009057 AND "u2base"."userid" BETWEEN 1647 AND 1652 AND "movies"."runningtime" != 1 AND "movies"."year" BETWEEN 3 AND 4 AND "movies"."isEnglish" != '%T%';

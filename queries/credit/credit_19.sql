@@ -1,0 +1,2 @@
+
+SELECT AVG("member"."photograph") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE "payment"."payment_dt" LIKE '%00:00:00%' AND "payment"."payment_dt" IN ('1999-09-02 00:00:00') AND ("payment"."statement_no" >= 0 OR "payment"."statement_no" >= 0);

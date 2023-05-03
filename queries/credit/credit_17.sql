@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "member" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no"  WHERE "statement"."due_dt" LIKE '%1999-1%0-03%' AND "provider"."region_no" IS NOT NULL;

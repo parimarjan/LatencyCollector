@@ -1,0 +1,2 @@
+
+SELECT MAX("member"."state_prov") as agg_0 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no"  WHERE "statement"."statement_dt" NOT LIKE '%1999-0%8-13%' AND "statement"."member_no" BETWEEN 4728 AND 5278 AND "member"."expr_dt" NOT LIKE '%2000-1%0-12%';

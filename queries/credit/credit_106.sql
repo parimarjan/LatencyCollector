@@ -1,0 +1,2 @@
+
+SELECT SUM("member"."photograph") as agg_0 FROM "provider" LEFT OUTER JOIN "region" ON "provider"."region_no" = "region"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "region"."street" IN ('777 Seventh St', '444 Fourth St.', '111 First St.', '555 Fifth St St', '333 Third St.', '222 Second St.') AND "provider"."country" BETWEEN nan AND nan;

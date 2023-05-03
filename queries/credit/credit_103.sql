@@ -1,0 +1,2 @@
+
+SELECT SUM("region"."region_no") as agg_0 FROM "category" LEFT OUTER JOIN "charge" ON "category"."category_no" = "charge"."category_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE "statement"."statement_dt" LIKE '%1999-09-13%' AND "region"."street" NOT LIKE '%St%' AND "member"."country" BETWEEN nan AND nan;

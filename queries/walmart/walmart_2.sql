@@ -1,0 +1,2 @@
+
+SELECT AVG("station"."station_nbr") as agg_0 FROM "train" LEFT OUTER JOIN "key" ON "train"."store_nbr" = "key"."store_nbr" LEFT OUTER JOIN "station" ON "key"."station_nbr" = "station"."station_nbr"  WHERE ("station"."station_nbr" BETWEEN 7 AND 13 OR ("station"."station_nbr" BETWEEN 6 AND 17 AND "station"."station_nbr" <= 11)) AND "train"."item_nbr" <= 101 AND ("key"."station_nbr" != 11 OR "key"."store_nbr" != 24) AND "train"."store_nbr" BETWEEN 37 AND 38;

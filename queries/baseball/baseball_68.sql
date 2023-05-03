@@ -1,0 +1,2 @@
+
+SELECT AVG("fieldingpost"."PB") as agg_0 FROM "pitching" LEFT OUTER JOIN "players" ON "pitching"."playerID" = "players"."playerID" LEFT OUTER JOIN "fieldingpost" ON "players"."playerID" = "fieldingpost"."playerID"  WHERE "fieldingpost"."SB" >= 0.9176653812008868 AND "pitching"."teamID" != '%SL1%' AND "pitching"."teamID" IN ('PIT', 'NYA', 'CIN', 'BOS', 'CLE', 'DET') AND "pitching"."lgID" LIKE '%A%L%';

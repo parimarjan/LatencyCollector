@@ -1,0 +1,2 @@
+
+SELECT MIN("u2base"."rating") as agg_0 FROM "movies2actors" LEFT OUTER JOIN "actors" ON "movies2actors"."actorid" = "actors"."actorid" LEFT OUTER JOIN "movies" ON "movies2actors"."movieid" = "movies"."movieid" LEFT OUTER JOIN "u2base" ON "movies"."movieid" = "u2base"."movieid"  WHERE "movies"."country" LIKE '%F%rance%' AND "u2base"."movieid" >= 2346125 AND "movies"."country" LIKE '%oth%er%' AND "actors"."actorid" IS NOT NULL;

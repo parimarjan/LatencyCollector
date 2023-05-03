@@ -1,0 +1,2 @@
+
+SELECT SUM("corporation"."region_no") as agg_0 FROM "region" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "member"."photograph" BETWEEN nan AND nan;

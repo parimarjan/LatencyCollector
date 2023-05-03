@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "provider" LEFT OUTER JOIN "region" ON "provider"."region_no" = "region"."region_no"  WHERE "region"."street" NOT LIKE '%S%t.%' AND "region"."region_name" NOT LIKE '%Euro%pea%';

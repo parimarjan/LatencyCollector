@@ -1,0 +1,2 @@
+
+SELECT COUNT(*) as agg_0 FROM "fieldingof" LEFT OUTER JOIN "players" ON "fieldingof"."playerID" = "players"."playerID" LEFT OUTER JOIN "pitching" ON "players"."playerID" = "pitching"."playerID" LEFT OUTER JOIN "fieldingpost" ON "players"."playerID" = "fieldingpost"."playerID" LEFT OUTER JOIN "fielding" ON "players"."playerID" = "fielding"."playerID"  WHERE "fieldingpost"."lgID" LIKE '%NL%' AND "fieldingpost"."POS" LIKE '%S%S%' AND "pitching"."lgID" LIKE '%A%L%' AND "players"."managerID" IN ('hoffmgl01m', 'trottsa01m') AND "fielding"."playerID" IS NOT NULL;
