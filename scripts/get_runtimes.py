@@ -327,6 +327,8 @@ def main():
         db_name = "ssb"
     elif "walmart" in args.query_dir:
         db_name = "walmart"
+    elif "movielens" in args.query_dir:
+        db_name = "movielens"
     else:
         assert False
 
