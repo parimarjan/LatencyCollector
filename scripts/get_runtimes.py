@@ -306,25 +306,27 @@ def main():
     elif "airline" in args.query_dir:
         db_name = "airline"
     elif "consumer" in args.query_dir:
-        db_name = "consumerexpenditure"
+        db_name = "consumer"
     elif "seznam" in args.query_dir:
         db_name = "seznam"
     elif "basketball" in args.query_dir:
-        db_name = "basketball_men"
+        db_name = "basketball"
     elif "ssb" in args.query_dir:
         db_name = "ssb"
     elif "credit" in args.query_dir:
         db_name = "credit"
-    elif "visual" in args.query_dir:
-        db_name = "visualgenome"
+    elif "genome" in args.query_dir:
+        db_name = "genome"
     elif "seznam" in args.query_dir:
         db_name = "seznam"
     elif "credit" in args.query_dir:
         db_name = "credit"
-    elif "basketball" in args.query_dir:
-        db_name = "basketball"
-    elif "basketball" in args.query_dir:
+    elif "baseball" in args.query_dir:
+        db_name = "baseball"
+    elif "ssb" in args.query_dir:
         db_name = "ssb"
+    elif "walmart" in args.query_dir:
+        db_name = "walmart"
     else:
         assert False
 
