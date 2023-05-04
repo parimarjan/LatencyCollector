@@ -1,1 +1,0 @@
-SELECT MIN("payment"."statement_no" + "member"."corp_no") as agg_0 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE "payment"."payment_dt" != '1999-09-02 00:00:00' AND "member"."lastname" IN ('LING', 'OLPHANT')

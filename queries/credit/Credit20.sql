@@ -1,1 +1,0 @@
-SELECT MIN("provider"."mail_code" + "charge"."charge_amt") as agg_0 FROM "member" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "provider" ON "charge"."provider_no" = "provider"."provider_no"  WHERE "charge"."charge_code" IS NULL AND "charge"."statement_no" >= 9194

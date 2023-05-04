@@ -1,1 +1,0 @@
-SELECT MIN("provider"."state_prov") as agg_0, AVG("provider"."provider_no") as agg_1, MAX("provider"."country" + "provider"."provider_no") as agg_2 FROM "provider"  WHERE "provider"."city" = ' ' AND "provider"."provider_name" LIKE '%Giant%' AND "provider"."country" BETWEEN nan AND nan AND "provider"."issue_dt" = '1999-10-13 10:41:24'

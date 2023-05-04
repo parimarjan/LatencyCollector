@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0 FROM "charge" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no"  WHERE "charge"."provider_no" BETWEEN 983 AND 1975 OR "charge"."catery_no" >= 22

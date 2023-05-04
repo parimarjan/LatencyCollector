@@ -1,1 +1,0 @@
-SELECT AVG("statement"."statement_code") as agg_0, COUNT(*) as agg_1, MAX("statement"."statement_code") as agg_2 FROM "statement"  WHERE "statement"."due_dt" LIKE '%1999-10-03%' AND "statement"."member_no" >= 21011

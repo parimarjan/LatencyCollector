@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0 FROM "member" LEFT OUTER JOIN "region" ON "member"."region_no" = "region"."region_no"  WHERE "region"."phone_no" IS NOT NULL AND "region"."state_prov" != 'ON' AND "region"."region_no" BETWEEN 3 AND 24 AND "member"."curr_balance" <= 0.0 AND "member"."region_no" >= 6

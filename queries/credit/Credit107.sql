@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, SUM("statement"."statement_code") as agg_1, MIN("member"."prev_balance" + "statement"."statement_code") as agg_2 FROM "statement" LEFT OUTER JOIN "member" ON "statement"."member_no" = "member"."member_no"  WHERE "statement"."statement_dt" IN ('1999-08-13 00:00:00') AND "member"."lastname" NOT LIKE '%FLORINI%'

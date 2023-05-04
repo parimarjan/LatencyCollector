@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, SUM("payment"."member_no" + "member"."member_no") as agg_1 FROM "member" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "member"."issue_dt" = '1999-10-13 10:42:44' AND "charge"."provider_no" >= 970 AND "payment"."member_no" BETWEEN 12990 AND 22943

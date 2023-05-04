@@ -1,1 +1,0 @@
-SELECT MIN("payment"."payment_amt" + "payment"."statement_no") as agg_0 FROM "payment"  WHERE "payment"."payment_no" BETWEEN 8755 AND 10044 AND "payment"."member_no" <= 27825

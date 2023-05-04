@@ -1,1 +1,0 @@
-SELECT MAX("region"."region_code" + "region"."region_no") as agg_0, COUNT(*) as agg_1, AVG("region"."mail_code" + "region"."region_no") as agg_2 FROM "region"  WHERE "region"."region_name" IN ('Mid East / Sout', 'Scandanavian')

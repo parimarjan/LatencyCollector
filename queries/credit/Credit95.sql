@@ -1,1 +1,0 @@
-SELECT SUM("member"."photograph" + "member"."member_no") as agg_0, MIN("member"."photograph") as agg_1, MIN("payment"."payment_code" + "member"."curr_balance") as agg_2 FROM "payment" LEFT OUTER JOIN "member" ON "payment"."member_no" = "member"."member_no"  WHERE "payment"."payment_dt" LIKE '%1999-%09-02%'

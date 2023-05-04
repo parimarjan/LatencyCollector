@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, MIN("payment"."member_no") as agg_1 FROM "payment"  WHERE "payment"."payment_dt" != '1999-09-02 00:00:00'

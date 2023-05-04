@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, MAX("provider"."provider_no") as agg_1 FROM "provider" LEFT OUTER JOIN "charge" ON "provider"."provider_no" = "charge"."provider_no" LEFT OUTER JOIN "catery" ON "charge"."catery_no" = "catery"."catery_no"  WHERE "charge"."charge_amt" >= 2305.037527554232 OR "charge"."charge_amt" <= 2924.5379519451785

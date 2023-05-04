@@ -1,1 +1,0 @@
-SELECT MAX("member"."state_prov" + "member"."region_no") as agg_0 FROM "member" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "charge"."provider_no" >= 467 AND "member"."member_no" >= 15081 AND "member"."firstname" = 'GJTIJUCMPIWCR'

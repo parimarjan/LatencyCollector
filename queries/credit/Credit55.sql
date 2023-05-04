@@ -1,1 +1,0 @@
-SELECT MAX("charge"."member_no") as agg_0 FROM "member" LEFT OUTER JOIN "statement" ON "member"."member_no" = "statement"."member_no" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no" LEFT OUTER JOIN "charge" ON "member"."member_no" = "charge"."member_no"  WHERE "statement"."due_dt" NOT LIKE '%1999-09-02%'

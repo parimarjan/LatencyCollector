@@ -1,1 +1,0 @@
-SELECT MAX("member"."member_no") as agg_0 FROM "member" LEFT OUTER JOIN "payment" ON "member"."member_no" = "payment"."member_no"  WHERE "member"."lastname" IN ('BARR') AND "payment"."payment_amt" <= 8647.285476537565 AND "payment"."payment_dt" IN ('1999-10-03 00:00:00')

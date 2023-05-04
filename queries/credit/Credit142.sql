@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, SUM("region"."region_code" + "provider"."phone_no") as agg_1 FROM "provider" LEFT OUTER JOIN "region" ON "provider"."region_no" = "region"."region_no" LEFT OUTER JOIN "corporation" ON "region"."region_no" = "corporation"."region_no"  WHERE "region"."country" IN ('Ja')

@@ -1,1 +1,0 @@
-SELECT MIN("provider"."country" + "charge"."provider_no") as agg_0 FROM "charge" LEFT OUTER JOIN "catery" ON "charge"."catery_no" = "catery"."catery_no" LEFT OUTER JOIN "provider" ON "charge"."provider_no" = "provider"."provider_no"  WHERE "provider"."street" != ' ' AND "provider"."country" BETWEEN nan AND nan

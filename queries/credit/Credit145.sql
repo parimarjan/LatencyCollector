@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, COUNT(*) as agg_1 FROM "payment"  WHERE "payment"."payment_dt" NOT LIKE '%00:0%0:00%' AND "payment"."statement_no" = 0 AND "payment"."member_no" BETWEEN 4254 AND 32051 AND "payment"."payment_no" BETWEEN 1309 AND 8519 AND "payment"."payment_amt" <= 6398.251589321296

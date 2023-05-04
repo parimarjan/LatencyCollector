@@ -1,1 +1,0 @@
-SELECT SUM("member"."prev_balance") as agg_0, MAX("member"."middleinitial" + "member"."state_prov") as agg_1, AVG("member"."middleinitial") as agg_2 FROM "member"  WHERE "member"."phone_no" BETWEEN nan AND nan

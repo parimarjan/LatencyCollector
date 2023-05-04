@@ -1,1 +1,0 @@
-SELECT SUM("provider"."region_no") as agg_0, MIN("provider"."phone_no") as agg_1 FROM "catery" LEFT OUTER JOIN "charge" ON "catery"."catery_no" = "charge"."catery_no" LEFT OUTER JOIN "provider" ON "charge"."provider_no" = "provider"."provider_no" LEFT OUTER JOIN "member" ON "charge"."member_no" = "member"."member_no"  WHERE "provider"."region_no" = 7

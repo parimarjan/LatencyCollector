@@ -1,1 +1,0 @@
-SELECT MAX("statement"."statement_code" + "statement"."statement_amt") as agg_0, COUNT(*) as agg_1 FROM "statement"  WHERE "statement"."statement_dt" = '1999-09-13 00:00:00' AND "statement"."statement_no" >= 12718 AND "statement"."statement_dt" LIKE '%1999-09-13%' AND "statement"."due_dt" LIKE '%1999-10-03%' AND "statement"."member_no" BETWEEN 10004 AND 31083

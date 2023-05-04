@@ -1,1 +1,0 @@
-SELECT MIN("charge"."charge_amt" + "provider"."phone_no") as agg_0, COUNT(*) as agg_1, SUM("charge"."charge_amt") as agg_2 FROM "region" LEFT OUTER JOIN "provider" ON "region"."region_no" = "provider"."region_no" LEFT OUTER JOIN "charge" ON "provider"."provider_no" = "charge"."provider_no"  WHERE "provider"."issue_dt" IN ('1999-10-13 10:41:20')

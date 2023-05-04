@@ -1,1 +1,0 @@
-SELECT MAX("provider"."provider_no" + "provider"."provider_code") as agg_0, MIN("provider"."provider_code" + "provider"."country") as agg_1 FROM "provider"  WHERE "provider"."issue_dt" IN ('1999-10-13 10:41:22', '1999-10-13 10:41:21', '1999-10-13 10:41:23', '1999-10-13 10:41:20')

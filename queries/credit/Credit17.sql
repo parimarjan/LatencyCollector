@@ -1,1 +1,0 @@
-SELECT AVG("charge"."charge_code") as agg_0, COUNT(*) as agg_1 FROM "charge"  WHERE ("charge"."statement_no" >= 6904 OR ("charge"."charge_amt" BETWEEN 1481.217887792726 AND 1719.869234071576 AND "charge"."statement_no" <= 6292)) AND "charge"."charge_no" <= 827981 AND "charge"."provider_no" <= 1968 AND "charge"."catery_no" = 25

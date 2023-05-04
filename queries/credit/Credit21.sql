@@ -1,1 +1,0 @@
-SELECT COUNT(*) as agg_0, AVG("member"."prev_balance") as agg_1 FROM "corporation" LEFT OUTER JOIN "region" ON "corporation"."region_no" = "region"."region_no" LEFT OUTER JOIN "member" ON "region"."region_no" = "member"."region_no"  WHERE "member"."corp_no" <= 471.577844565797 AND "corporation"."corp_name" LIKE '%OperaAg.%'
