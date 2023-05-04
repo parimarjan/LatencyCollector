@@ -226,25 +226,25 @@ def run_single(pnum, args):
     elif "airline" in args.query_dir:
         db_name = "airline"
     elif "consumer" in args.query_dir:
-        db_name = "consumerexpenditure"
+        db_name = "consumer"
     elif "seznam" in args.query_dir:
         db_name = "seznam"
     elif "basketball" in args.query_dir:
-        db_name = "basketball_men"
+        db_name = "basketball"
     elif "ssb" in args.query_dir:
         db_name = "ssb"
     elif "credit" in args.query_dir:
         db_name = "credit"
-    elif "visual" in args.query_dir:
-        db_name = "visualgenome"
-    elif "seznam" in args.query_dir:
-        db_name = "seznam"
+    elif "genome" in args.query_dir:
+        db_name = "genome"
     elif "credit" in args.query_dir:
         db_name = "credit"
-    elif "basketball" in args.query_dir:
-        db_name = "basketball"
-    elif "basketball" in args.query_dir:
-        db_name = "ssb"
+    elif "walmart" in args.query_dir:
+        db_name = "walmart"
+    elif "baseball" in args.query_dir:
+        db_name = "baseball"
+    elif "movielens" in args.query_dir:
+        db_name = "movielens"
     else:
         assert False
 
