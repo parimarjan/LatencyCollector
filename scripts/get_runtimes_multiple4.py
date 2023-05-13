@@ -25,6 +25,8 @@ def read_flags():
     parser = argparse.ArgumentParser()
     parser.add_argument("--samples_type", type=str, required=False,
             default=None)
+    parser.add_argument("--bg_seed", type=int, required=False,
+            default=1)
     parser.add_argument("--num_background", type=int, required=False,
             default=1)
     parser.add_argument("--parallel_workers", type=int, required=False,
@@ -208,6 +210,9 @@ def run_stress(pnum, args):
     else:
         columns = ["timestamp", "end_timestamp", "cmd", "kind"]
         bgdf = pd.DataFrame(columns=columns)
+
+    if args.bg_seed:
+        random.seed(pnum)
 
     while True:
         random.shuffle(loads)
