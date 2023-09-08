@@ -126,6 +126,7 @@ def execute_sql_duckdb(sql,
     #print(sql)
     # TODO: clear cache
     con = duckdb.connect("~/postgres_setup_scripts/imdb.duckdb")
+    con.execute("PRAGMA enable_profiling=json;")
     explain_output = con.execute(sql).fetchall()
     #explain_output = con.execute("SHOW tables;").fetchall()
 
