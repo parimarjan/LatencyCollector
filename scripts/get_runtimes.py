@@ -9,6 +9,7 @@ import subprocess as sp
 import os
 import pandas as pd
 from collections import defaultdict
+import duckdb
 import sys
 sys.path.append(".")
 # from query_representation.utils import *
@@ -53,6 +54,8 @@ def read_flags():
     parser.add_argument("--col_store", type=int, required=False,
             default=0)
 
+    parser.add_argument("--dbms", type=str, required=False,
+            default="duckdb")
     parser.add_argument("--result_dir", type=str, required=False,
             default="./rt_results")
     parser.add_argument("--query_dir", type=str, required=False,
@@ -88,6 +91,52 @@ def read_flags():
             default=5432)
 
     return parser.parse_args()
+
+def execute_sql_duckdb(sql,
+        db_name,
+        cost_model="cm1",
+        explain=False,
+        materialize=False,
+        timeout=900000,
+        drop_cache=False,
+        num_workers = 1,
+        ):
+    '''
+    '''
+    start = time.time()
+    print("duckdb query exec!")
+    if "explain" in sql:
+        if explain:
+            sql = sql.replace("explain (format json)", "explain analyze")
+        else:
+            sql = sql.replace("explain (format json)", "")
+    else:
+        sql = "explain analyze " + sql
+
+    if drop_cache:
+        drop_cache_cmd = "bash drop_cache.sh {}".format(pgdir)
+        p = sp.Popen(drop_cache_cmd, shell=True)
+        p.wait()
+        time.sleep(0.1)
+    else:
+        #con = pg.connect(port=args.port,dbname=db_name,
+        #        user=args.user,password=args.pwd,host="localhost")
+        pass
+
+    #print(sql)
+    # TODO: clear cache
+    con = duckdb.connect("~/postgres_setup_scripts/imdb.duckdb")
+    explain_output = con.execute(sql).fetchall()
+    #explain_output = con.execute("SHOW tables;").fetchall()
+
+    end = time.time()
+
+    # print("took {} seconds".format(end-start))
+    # sys.stdout.flush()
+    # cursor.close()
+    con.close()
+
+    return explain_output, end-start
 
 def execute_sql(sql,
         db_name,
@@ -339,13 +388,24 @@ def main():
             start_time = time.time()
 
             # check for reps
-            exp_analyze, rt = execute_sql(sql,
-                    db_name = db_name,
-                    cost_model=cost_model,
-                    explain=args.explain,
-                    timeout=args.timeout,
-                    materialize = args.materialize,
-                    drop_cache=args.drop_cache)
+            if args.dbms == "postgres":
+                exp_analyze, rt = execute_sql(sql,
+                        db_name = db_name,
+                        cost_model=cost_model,
+                        explain=args.explain,
+                        timeout=args.timeout,
+                        materialize = args.materialize,
+                        drop_cache=args.drop_cache)
+            elif args.dbms == "duckdb":
+                exp_analyze, rt = execute_sql_duckdb(sql,
+                        db_name = db_name,
+                        cost_model=cost_model,
+                        explain=args.explain,
+                        timeout=args.timeout,
+                        materialize = args.materialize,
+                        drop_cache=args.drop_cache)
+            else:
+                assert False
 
             if rt >= 0.0:
                 total_rt += rt
