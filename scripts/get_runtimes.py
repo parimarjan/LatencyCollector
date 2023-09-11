@@ -129,7 +129,30 @@ def execute_sql_duckdb(sql,
     con.execute("PRAGMA enable_profiling=json;")
     con.execute("SET threads TO 1;")
     con.execute("SET memory_limit='2GB';")
-    explain_output = con.execute(sql).fetchall()
+
+    try:
+        explain_output = con.execute(sql).fetchall()
+    except KeyboardInterrupt:
+        print("killed because of ctrl+c")
+        sys.exit(-1)
+    except Exception as e:
+        print(e)
+        if not "timeout" in str(e):
+            print("failed to execute for reason other than timeout")
+            print(e)
+            # print(sql)
+            # cursor.close()
+            con.close()
+            time.sleep(6)
+            return None, -1.0
+        else:
+            print("failed because of timeout!")
+            end = time.time()
+
+            cursor.close()
+            con.close()
+            return None, (timeout/1000) + 9.0
+
     #explain_output = con.execute("SHOW tables;").fetchall()
 
     end = time.time()
