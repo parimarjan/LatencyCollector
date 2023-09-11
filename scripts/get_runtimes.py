@@ -125,7 +125,7 @@ def execute_sql_duckdb(sql,
 
     #print(sql)
     # TODO: clear cache
-    con = duckdb.connect("~/postgres_setup_scripts/imdb.duckdb")
+    con = duckdb.connect("~/postgres_setup_scripts/{}".format(db_name))
     con.execute("PRAGMA enable_profiling=json;")
     con.execute("SET threads TO 1;")
     con.execute("SET memory_limit='2GB';")
@@ -406,6 +406,9 @@ def main():
         db_name = "movielens"
     else:
         assert False
+
+    if args.dbms == "duckdb":
+        db_name = db_name + ".duckdb"
 
     for rep in range(args.reps):
         for i,sql in enumerate(sqls):
