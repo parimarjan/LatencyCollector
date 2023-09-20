@@ -59,7 +59,7 @@ def read_flags():
             default=0)
 
     parser.add_argument("--dbms", type=str, required=False,
-            default="imdb")
+            default="postgres")
     parser.add_argument("--result_dir", type=str, required=False,
             default="./rt_results")
     parser.add_argument("--query_dir", type=str, required=False,
