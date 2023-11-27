@@ -195,7 +195,8 @@ def execute_sql_mysql(sql, db_name, user,
     exp_sql = f"EXPLAIN FORMAT=JSON {sql}"
 
     # Connect to the MySQL Database
-    con = mysql.connector.connect(user=user, password=password, host=host,
+    con = mysql.connector.connect(user=user, password="", host=host,
+            unix_socket='/var/run/mysqld/mysqld.sock',
             port=port, database=db_name)
     cursor = con.cursor()
 
