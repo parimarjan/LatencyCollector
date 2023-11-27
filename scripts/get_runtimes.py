@@ -10,6 +10,12 @@ import os
 import pandas as pd
 from collections import defaultdict
 try:
+    # import mysql
+    import mysql.connector
+except:
+    pass
+
+try:
     import duckdb
 except:
     pass
@@ -167,6 +173,64 @@ def execute_sql_duckdb(sql,
     con.close()
 
     return explain_output, end-start
+
+def execute_sql_mysql(sql, db_name, user,
+        password, host='localhost',
+        port=3306, timeout=900000):
+    '''
+    Function to execute a SQL query on a MySQL database.
+
+    Parameters:
+    - sql (str): SQL query to execute.
+    - db_name (str): Name of the database.
+    - user (str): Username for MySQL.
+    - password (str): Password for MySQL.
+    - host (str): Host where MySQL is running. Default is 'localhost'.
+    - port (int): Port number for MySQL. Default is 3306.
+    - timeout (int): Query timeout in milliseconds. Default is 900000.
+    '''
+    start = time.time()
+    print("MySQL query exec!")
+    # exp_sql = "EXPLAIN (FORMAT=JSON) " + sql
+    exp_sql = f"EXPLAIN FORMAT=JSON {sql}"
+
+    # Connect to the MySQL Database
+    con = mysql.connector.connect(user=user, password=password, host=host,
+            port=port, database=db_name)
+    cursor = con.cursor()
+
+    # Set the timeout
+    con.cmd_query(f"SET SESSION MAX_EXECUTION_TIME={timeout}")
+
+    try:
+        cursor.execute(exp_sql)
+        explain_output = cursor.fetchall()
+        cursor.execute(sql)
+        output = cursor.fetchall()
+        # print(explain_output)
+        # pdb.set_trace()
+    except mysql.connector.Error as e:
+        print("MySQL Error: ", e)
+        end = time.time()
+        cursor.close()
+        con.close()
+        # pdb.set_trace()
+        return None, -1
+    except KeyboardInterrupt:
+        print("Killed because of ctrl+c")
+        sys.exit(-1)
+    except Exception as e:
+        print("Error executing query: ", e)
+        end = time.time()
+        cursor.close()
+        con.close()
+        return None, -1
+
+    end = time.time()
+    cursor.close()
+    con.close()
+
+    return explain_output, end - start
 
 def execute_sql(sql,
         db_name,
@@ -437,6 +501,12 @@ def main():
                         timeout=args.timeout,
                         materialize = args.materialize,
                         drop_cache=args.drop_cache)
+            elif args.dbms == "mysql":
+                exp_analyze, rt = execute_sql_mysql(sql,
+                        db_name,
+                        "ubuntu",
+                        "password", host="localhost",
+                        port = 3306, timeout = 9000000)
             else:
                 assert False
 
@@ -447,6 +517,8 @@ def main():
 
             rts = np.array(cur_runtimes["runtime"])
             rts = rts[rts >= 0.0]
+            if len(rts) == 0:
+                continue
             num_fails = len(cur_runtimes["runtime"]) - len(rts)
 
             print("{}, {}, Rep: {}, Cur: {}, CurRT: {}, TotalRT: {}, #Queries:{}, AvgRt: {}, #Fails: {}"\
