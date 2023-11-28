@@ -193,7 +193,7 @@ def execute_sql_mysql(sql, db_name, user,
     print("MySQL query exec!")
 
     if "ILIKE" not in sql:
-        return
+        return None, -1
 
     if "ILIKE" in sql:
         sql = sql.replace("ILIKE", "LIKE")
