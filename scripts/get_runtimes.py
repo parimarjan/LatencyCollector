@@ -193,7 +193,7 @@ def execute_sql_mysql(sql, db_name, user,
     print("MySQL query exec!")
 
     if "ILIKE" not in sql:
-        return None, -1
+        return "", -1
 
     if "ILIKE" in sql:
         sql = sql.replace("ILIKE", "LIKE")
@@ -221,8 +221,7 @@ def execute_sql_mysql(sql, db_name, user,
         end = time.time()
         cursor.close()
         con.close()
-        # pdb.set_trace()
-        return None, -1
+        return "", -1
     except KeyboardInterrupt:
         print("Killed because of ctrl+c")
         sys.exit(-1)
@@ -231,7 +230,7 @@ def execute_sql_mysql(sql, db_name, user,
         end = time.time()
         cursor.close()
         con.close()
-        return None, -1
+        return "", -1
 
     end = time.time()
     cursor.close()
