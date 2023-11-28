@@ -191,7 +191,13 @@ def execute_sql_mysql(sql, db_name, user,
     '''
     start = time.time()
     print("MySQL query exec!")
-    # exp_sql = "EXPLAIN (FORMAT=JSON) " + sql
+
+    if "ILIKE" not in sql:
+        return
+
+    if "ILIKE" in sql:
+        sql = sql.replace("ILIKE", "LIKE")
+
     exp_sql = f"EXPLAIN FORMAT=JSON {sql}"
 
     # Connect to the MySQL Database
