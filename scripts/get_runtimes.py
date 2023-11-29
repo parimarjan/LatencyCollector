@@ -512,7 +512,7 @@ def main():
                         db_name,
                         "ubuntu",
                         "password", host="localhost",
-                        port = 3306, timeout = 9000000)
+                        port = 3306, timeout = 900000)
             else:
                 assert False
 
