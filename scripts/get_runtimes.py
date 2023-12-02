@@ -221,6 +221,7 @@ def execute_sql_mysql(sql, db_name, user,
         end = time.time()
         cursor.close()
         con.close()
+        ## should be a timeout, but whatever.
         return "", -1
     except KeyboardInterrupt:
         print("Killed because of ctrl+c")
