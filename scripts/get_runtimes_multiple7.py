@@ -319,10 +319,12 @@ def run_single(pnum, args):
     print("Total runtime was: ", total_rt)
 
 QDIRS=["./queries/accidents",
+        "./queries/tpch",
+        # "./queries/baseball",
         "./queries/credit",
         "./queries/airline",
-        "./queries/basketball",
         "./queries/ccs",
+        "./queries/basketball",
         "./queries/financial",
         "./queries/seznam"]
 
