@@ -148,7 +148,7 @@ def execute_sql(sql, db_name,
         print("killed because of ctrl+c")
         sys.exit(-1)
     except Exception as e:
-        print(e)
+        # print(e)
         # cursor.execute("ROLLBACK")
         # con.commit()
         if not "timeout" in str(e):
@@ -193,7 +193,7 @@ def run_single(pnum, args):
 
     # go in order and execute runtimes...
     if os.path.exists(rt_fn):
-        runtimes = pd.read_csv(rt_fn)
+        runtimes = pd.read_csv(rt_fn, on_bad_lines="skip")
     else:
         runtimes = None
 
@@ -303,15 +303,16 @@ def run_single(pnum, args):
             rts = rts[rts >= 0.0]
             num_fails = len(cur_runtimes["runtime"]) - len(rts)
 
-            print("{}, {}, Rep: {}, Cur: {}, CurRT: {}, TotalRT: {}, #Queries:{}, AvgRt: {}, #Fails: {}"\
-                .format(
-                start_time,
-                args.result_dir,
-                rep,
-                sql_fns[i], rts[-1],
-                round(total_rt,2), len(rts),
-                round(sum(rts) / len(rts), 2), num_fails))
-            sys.stdout.flush()
+            if len(rts) > 0:
+                print("{}, {}, Rep: {}, Cur: {}, CurRT: {}, TotalRT: {}, #Queries:{}, AvgRt: {}, #Fails: {}"\
+                    .format(
+                    start_time,
+                    args.result_dir,
+                    rep,
+                    sql_fns[i], rts[-1],
+                    round(total_rt,2), len(rts),
+                    round(sum(rts) / len(rts), 2), num_fails))
+                sys.stdout.flush()
 
             df = pd.concat([runtimes, pd.DataFrame(cur_runtimes)], ignore_index=True)
             df.to_csv(rt_fn, index=False)
