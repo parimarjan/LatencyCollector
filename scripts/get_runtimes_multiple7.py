@@ -330,18 +330,19 @@ QDIRS=["./queries/accidents",
 
 def main():
     processes = []
-    args = []
+    arg_lists = []
 
     for i in range(args.num_processes):
         if i == 0:
-            args.append(args)
+            arg_lists.append(args)
             continue
         else:
             argsi = copy.deepcopy(copy)
             argsi.query_dir = QDIRS[i-1]
+            arg_lists.append(argsi)
 
     for i in range(args.num_processes):
-        p = Process(target=run_single, args=(i, args[i]))
+        p = Process(target=run_single, args=(i, arg_lists[i]))
 
         p.start()
         processes.append(p)
