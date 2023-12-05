@@ -337,7 +337,7 @@ def main():
             arg_lists.append(args)
             continue
         else:
-            argsi = copy.deepcopy(copy)
+            argsi = copy.deepcopy(args)
             argsi.query_dir = QDIRS[i-1]
             arg_lists.append(argsi)
 
