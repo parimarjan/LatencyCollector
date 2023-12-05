@@ -193,7 +193,9 @@ def run_single(pnum, args):
 
     # go in order and execute runtimes...
     if os.path.exists(rt_fn):
+        print("!!!!!!!!!!!!! Found old rt fn !!!!!!!!!!!!")
         runtimes = pd.read_csv(rt_fn, on_bad_lines="skip")
+        print("Len: ", len(runtimes))
     else:
         runtimes = None
 
@@ -314,7 +316,9 @@ def run_single(pnum, args):
                     round(sum(rts) / len(rts), 2), num_fails))
                 sys.stdout.flush()
 
+            print("Current runtimes len: ", len(runtimes))
             df = pd.concat([runtimes, pd.DataFrame(cur_runtimes)], ignore_index=True)
+            print("Going to save concat runtimes len: ", len(df))
             df.to_csv(rt_fn, index=False)
 
     print("Total runtime was: ", total_rt)
