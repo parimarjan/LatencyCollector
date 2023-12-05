@@ -320,8 +320,8 @@ def run_single(pnum, args):
 
 QDIRS=["./queries/accidents",
         "./queries/tpch",
-        # "./queries/baseball",
         "./queries/credit",
+        "./queries/imdb",
         "./queries/airline",
         "./queries/ccs",
         "./queries/basketball",

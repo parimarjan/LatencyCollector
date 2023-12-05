@@ -324,7 +324,6 @@ def main():
     args3 = copy.deepcopy(args)
     args2.query_dir = "./queries/tpch"
     args3.query_dir = "./queries/ergast-small"
-    # args3.query_dir = "./queries/ceb-small"
 
     for i in range(args.num_processes):
         if i % 3 == 0:
