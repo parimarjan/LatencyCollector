@@ -38,6 +38,9 @@ def read_flags():
     parser.add_argument("--query_dir", type=str, required=False,
             default="./queries/job")
 
+    parser.add_argument("--dbms", type=str, required=False,
+            default="postgres")
+
     parser.add_argument("--cost_model", type=str, required=False,
             default="C")
     parser.add_argument("--materialize", type=int, required=False,
@@ -68,6 +71,143 @@ def read_flags():
             default=5432)
 
     return parser.parse_args()
+
+def execute_sql_mysql(sql, db_name, user,
+        password, host='localhost',
+        port=3306, timeout=900000):
+    '''
+    Function to execute a SQL query on a MySQL database.
+
+    Parameters:
+    - sql (str): SQL query to execute.
+    - db_name (str): Name of the database.
+    - user (str): Username for MySQL.
+    - password (str): Password for MySQL.
+    - host (str): Host where MySQL is running. Default is 'localhost'.
+    - port (int): Port number for MySQL. Default is 3306.
+    - timeout (int): Query timeout in milliseconds. Default is 900000.
+    '''
+    start = time.time()
+    print("MySQL query exec!")
+
+    if "ILIKE" not in sql:
+        return "", -1
+
+    if "ILIKE" in sql:
+        sql = sql.replace("ILIKE", "LIKE")
+
+    exp_sql = f"EXPLAIN FORMAT=JSON {sql}"
+
+    # Connect to the MySQL Database
+    con = mysql.connector.connect(user=user, password="", host=host,
+            unix_socket='/var/run/mysqld/mysqld.sock',
+            port=port, database=db_name)
+    cursor = con.cursor()
+
+    # Set the timeout
+    con.cmd_query(f"SET SESSION MAX_EXECUTION_TIME={timeout}")
+
+    try:
+        cursor.execute(exp_sql)
+        explain_output = cursor.fetchall()
+        cursor.execute(sql)
+        output = cursor.fetchall()
+        # print(explain_output)
+        # pdb.set_trace()
+    except mysql.connector.Error as e:
+        print("MySQL Error: ", e)
+        end = time.time()
+        cursor.close()
+        con.close()
+        ## should be a timeout, but whatever.
+        return "", -1
+    except KeyboardInterrupt:
+        print("Killed because of ctrl+c")
+        sys.exit(-1)
+    except Exception as e:
+        print("Error executing query: ", e)
+        end = time.time()
+        cursor.close()
+        con.close()
+        return "", -1
+
+    end = time.time()
+    cursor.close()
+    con.close()
+
+    return explain_output, end - start
+
+def execute_sql_duckdb(sql,
+        db_name,
+        cost_model="cm1",
+        explain=False,
+        materialize=False,
+        timeout=900000,
+        drop_cache=False,
+        num_workers = 1,
+        ):
+    '''
+    '''
+    start = time.time()
+    print("duckdb query exec!")
+    if "explain" in sql:
+        if explain:
+            sql = sql.replace("explain (format json)", "explain analyze")
+        else:
+            sql = sql.replace("explain (format json)", "")
+    else:
+        sql = "explain analyze " + sql
+
+    if drop_cache:
+        drop_cache_cmd = "bash drop_cache.sh {}".format(pgdir)
+        p = sp.Popen(drop_cache_cmd, shell=True)
+        p.wait()
+        time.sleep(0.1)
+    else:
+        #con = pg.connect(port=args.port,dbname=db_name,
+        #        user=args.user,password=args.pwd,host="localhost")
+        pass
+
+    #print(sql)
+    # TODO: clear cache
+    con = duckdb.connect("~/postgres_setup_scripts/{}".format(db_name))
+    con.execute("PRAGMA enable_profiling=json;")
+    con.execute("SET threads TO 1;")
+    con.execute("SET memory_limit='2GB';")
+
+    try:
+        explain_output = con.execute(sql).fetchall()
+    except KeyboardInterrupt:
+        print("killed because of ctrl+c")
+        sys.exit(-1)
+    except Exception as e:
+        print(e)
+        if not "timeout" in str(e):
+            print("failed to execute for reason other than timeout")
+            print(e)
+            # print(sql)
+            # cursor.close()
+            con.close()
+            time.sleep(6)
+            return None, -1.0
+        else:
+            print("failed because of timeout!")
+            end = time.time()
+
+            cursor.close()
+            con.close()
+            return None, (timeout/1000) + 9.0
+
+    #explain_output = con.execute("SHOW tables;").fetchall()
+
+    end = time.time()
+
+    # print("took {} seconds".format(end-start))
+    # sys.stdout.flush()
+    # cursor.close()
+    con.close()
+
+    return explain_output, end-start
 
 def execute_sql(sql, db_name,
         cost_model="cm1",
@@ -193,9 +333,7 @@ def run_single(pnum, args):
 
     # go in order and execute runtimes...
     if os.path.exists(rt_fn):
-        print("!!!!!!!!!!!!! Found old rt fn !!!!!!!!!!!!")
         runtimes = pd.read_csv(rt_fn, on_bad_lines="skip")
-        print("Len: ", len(runtimes))
     else:
         runtimes = None
 
@@ -251,6 +389,9 @@ def run_single(pnum, args):
     else:
         assert False
 
+    if args.dbms == "duckdb":
+        db_name = db_name + ".duckdb"
+
     sqls = []
     new_sql_fns = []
 
@@ -279,22 +420,33 @@ def run_single(pnum, args):
             exp_time = start_time - exp_start_time
             block = int(exp_time / 900)
 
-            # if pnum > 2 and pnum <= 5:
-                # if block % 2 == 0:
-                    # time.sleep(800)
-
-            # elif pnum >= 6:
-                # if block % 4 != 2:
-                    # time.sleep(600)
+            # check for reps
 
             # check for reps
-            exp_analyze, rt = execute_sql(sql,
-                    db_name,
-                    cost_model=cost_model,
-                    explain=args.explain,
-                    timeout=args.timeout,
-                    materialize = args.materialize,
-                    drop_cache=args.drop_cache)
+            if args.dbms == "postgres":
+                exp_analyze, rt = execute_sql(sql,
+                        db_name,
+                        cost_model=cost_model,
+                        explain=args.explain,
+                        timeout=args.timeout,
+                        materialize = args.materialize,
+                        drop_cache=args.drop_cache)
+            elif args.dbms == "duckdb":
+                exp_analyze, rt = execute_sql_duckdb(sql,
+                        db_name = db_name,
+                        cost_model=cost_model,
+                        explain=args.explain,
+                        timeout=args.timeout,
+                        materialize = args.materialize,
+                        drop_cache=args.drop_cache)
+            elif args.dbms == "mysql":
+                exp_analyze, rt = execute_sql_mysql(sql,
+                        db_name,
+                        "ubuntu",
+                        "password", host="localhost",
+                        port = 3306, timeout = 900000)
+            else:
+                assert False
 
             if rt >= 0.0:
                 total_rt += rt
@@ -323,15 +475,15 @@ def run_single(pnum, args):
 
     print("Total runtime was: ", total_rt)
 
-QDIRS=["./queries/accidents",
-        "./queries/tpch",
-        "./queries/credit",
-        "./queries/imdb",
-        "./queries/airline",
+QDIRS=["./queries/ceb-small",
+        "./queries/ssb",
+        "./queries/accidents",
         "./queries/ccs",
+        "./queries/credit",
         "./queries/basketball",
         "./queries/financial",
-        "./queries/seznam"]
+        "./queries/seznam"
+        ]
 
 def main():
     processes = []
