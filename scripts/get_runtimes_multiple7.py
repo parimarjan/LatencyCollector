@@ -50,7 +50,7 @@ def read_flags():
             default="./queries/job")
 
     parser.add_argument("--dbms", type=str, required=False,
-            default="postgres")
+            default="duckdb")
 
     parser.add_argument("--cost_model", type=str, required=False,
             default="C")
@@ -82,6 +82,31 @@ def read_flags():
             default=5432)
 
     return parser.parse_args()
+
+def run_tpch_duckdb():
+    print("run tpch duckdb!")
+    con = duckdb.connect()
+    con.execute("PRAGMA enable_profiling=json;")
+    con.execute("SET threads TO 1;")
+    con.execute("SET memory_limit='2GB';")
+    try:
+        con.execute("INSTALL tpch;")
+    except Exception as e:
+        pass
+    con.execute("LOAD tpch;")
+    for i in range(10):
+        con.execute("CALL dbgen(sf = 10, children=10, step={});".format(i))
+        print("Child {} data created".format(i))
+    
+    rts = []
+    for rep in range(args.reps):
+        for qi in range(22):
+            start = time.time()
+            con.execute("PRAGMA tpch({});".format(qi+1))
+            exec_time = time.time()-start
+            rts.append(exec_time)
+            print("TPCH {} took: {}, Avg: {}".format(qi, round(exec_time, 2),
+                                                        round(np.mean(rts),2)))
 
 def execute_sql_mysql(sql, db_name, user,
         password, host='localhost',
@@ -405,8 +430,9 @@ def run_single(pnum, args):
         if "ceb-small2" in args.query_dir:
             db_name = "imdb2.duckdb"
 
-        #if "tpch" in db_name:
-        #    load_tpch_duckdb();
+        if "tpch" in db_name:
+            run_tpch_duckdb();
+            return
 
     sqls = []
     new_sql_fns = []
