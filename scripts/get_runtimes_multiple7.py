@@ -402,6 +402,11 @@ def run_single(pnum, args):
 
     if args.dbms == "duckdb":
         db_name = db_name + ".duckdb"
+        if "ceb-small2" in args.query_dir:
+            db_name = "imdb2.duckdb"
+
+        #if "tpch" in db_name:
+        #    load_tpch_duckdb();
 
     sqls = []
     new_sql_fns = []
