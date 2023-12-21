@@ -525,8 +525,18 @@ def run_single(pnum, args):
 
     print("Total runtime was: ", total_rt)
 
+## order 2
+# QDIRS=["./queries/ssb",
+        # "./queries/accidents",
+        # "./queries/ccs",
+        # "./queries/credit",
+        # "./queries/basketball",
+        # "./queries/financial",
+        # "./queries/seznam"
+        # ]
+
+## order 1
 QDIRS=["./queries/tpch",
-        "./queries/ceb-small2",
         "./queries/ssb",
         "./queries/accidents",
         "./queries/ccs",
