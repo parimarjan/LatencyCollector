@@ -536,11 +536,10 @@ def run_single(pnum, args):
         # ]
 
 ## order 1
-QDIRS=["./queries/ceb-small2",
-        "./queries/ssb",
+QDIRS=["./queries/ssb",
         "./queries/accidents",
-        "./queries/tpch",
         "./queries/ccs",
+        "./queries/ceb-small2",
         "./queries/credit",
         "./queries/basketball",
         "./queries/financial",
