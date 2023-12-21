@@ -59,7 +59,7 @@ def read_flags():
     parser.add_argument("--explain", type=int, required=False,
             default=1)
     parser.add_argument("--reps", type=int, required=False,
-            default=1)
+            default=3)
     parser.add_argument("--num_queries", type=int, required=False,
             default=-1)
     parser.add_argument("--timeout", type=int, required=False,
@@ -102,7 +102,10 @@ def run_tpch_duckdb():
     for rep in range(args.reps):
         for qi in range(22):
             start = time.time()
-            con.execute("PRAGMA tpch({});".format(qi+1))
+            try:
+                con.execute("PRAGMA tpch({});".format(qi+1))
+            except Exception as e:
+                continue
             exec_time = time.time()-start
             rts.append(exec_time)
             print("TPCH {} took: {}, Avg: {}".format(qi, round(exec_time, 2),
@@ -433,6 +436,8 @@ def run_single(pnum, args):
         if "tpch" in db_name:
             run_tpch_duckdb();
             return
+        
+        print("Duckdb name: ", db_name)
 
     sqls = []
     new_sql_fns = []
@@ -474,13 +479,16 @@ def run_single(pnum, args):
                         materialize = args.materialize,
                         drop_cache=args.drop_cache)
             elif args.dbms == "duckdb":
-                exp_analyze, rt = execute_sql_duckdb(sql,
-                        db_name = db_name,
-                        cost_model=cost_model,
-                        explain=args.explain,
-                        timeout=args.timeout,
-                        materialize = args.materialize,
-                        drop_cache=args.drop_cache)
+                try:
+                    exp_analyze, rt = execute_sql_duckdb(sql,
+                            db_name = db_name,
+                            cost_model=cost_model,
+                            explain=args.explain,
+                            timeout=args.timeout,
+                            materialize = args.materialize,
+                            drop_cache=args.drop_cache)
+                except Exception as e:
+                    continue
             elif args.dbms == "mysql":
                 exp_analyze, rt = execute_sql_mysql(sql,
                         db_name,
@@ -517,7 +525,9 @@ def run_single(pnum, args):
 
     print("Total runtime was: ", total_rt)
 
-QDIRS=["./queries/ssb",
+QDIRS=["./queries/tpch",
+        "./queries/ceb-small2",
+        "./queries/ssb",
         "./queries/accidents",
         "./queries/ccs",
         "./queries/credit",
