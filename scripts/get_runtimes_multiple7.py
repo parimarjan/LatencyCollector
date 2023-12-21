@@ -18,6 +18,17 @@ from cost_model import *
 from utils import *
 from multiprocessing import Process
 
+try:
+    # import mysql
+    import mysql.connector
+except:
+    pass
+
+try:
+    import duckdb
+except:
+    pass
+
 TIMEOUT_CONSTANT = 909
 
 def read_flags():
@@ -25,7 +36,7 @@ def read_flags():
     parser.add_argument("--samples_type", type=str, required=False,
             default=None)
     parser.add_argument("--num_processes", type=int, required=False,
-            default=10)
+            default=4)
     parser.add_argument("--parallel_workers", type=int, required=False,
             default=0)
     parser.add_argument("--no_index", type=int, required=False,
@@ -475,8 +486,7 @@ def run_single(pnum, args):
 
     print("Total runtime was: ", total_rt)
 
-QDIRS=["./queries/ceb-small",
-        "./queries/ssb",
+QDIRS=["./queries/ssb",
         "./queries/accidents",
         "./queries/ccs",
         "./queries/credit",
