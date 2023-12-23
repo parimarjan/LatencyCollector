@@ -129,11 +129,9 @@ def execute_sql_mysql(sql, db_name, user,
     start = time.time()
     print("MySQL query exec!")
 
-    if "ILIKE" not in sql:
-        return "", -1
-
     if "ILIKE" in sql:
         sql = sql.replace("ILIKE", "LIKE")
+    sql = sql.replace('"', '')
 
     exp_sql = f"EXPLAIN FORMAT=JSON {sql}"
 
@@ -536,7 +534,7 @@ def run_single(pnum, args):
         # ]
 
 ## order 1
-QDIRS=["./queries/ssb",
+QDIRS=[ "./queries/ssb",
         "./queries/accidents",
         "./queries/ccs",
         "./queries/ceb-small2",
