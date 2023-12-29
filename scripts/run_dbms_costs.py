@@ -65,7 +65,7 @@ def read_flags():
             default=0)
 
     parser.add_argument("--cost_kind", type=str, required=False,
-            default="dbms-truecards")
+            default="dbms-default-cost")
 
     parser.add_argument("--dbms", type=str, required=False,
             default="postgres")
@@ -163,6 +163,8 @@ def main():
 
     if args.cost_kind == "dbms-cost":
         rt_fn = os.path.join(args.result_dir, "Costs.csv")
+    elif args.cost_kind == "dbms-default-cost":
+        rt_fn = os.path.join(args.result_dir, "DefaultCosts.csv")
     else:
         rt_fn = os.path.join(args.result_dir, "TrueCosts.csv")
 

@@ -329,6 +329,10 @@ if __name__ == "__main__":
 
     out_wk_dir = os.path.join(OUT_DIR, WKDIR)
     make_dir(out_wk_dir)
+
+    out_cost_dir_default = os.path.join(out_wk_dir, "dbms-default-cost")
+    make_dir(out_cost_dir_default)
+
     out_cost_dir = os.path.join(out_wk_dir, "dbms-cost")
     make_dir(out_cost_dir)
 
@@ -354,6 +358,10 @@ if __name__ == "__main__":
         if row["qname"] in query_sqls:
             sql = query_sqls[row["qname"]]
 
+            out_name = os.path.join(out_cost_dir_default, row["qname"])
+            with open(out_name, "w") as f:
+                f.write("EXPLAIN (format json) " + sql)
+
             # Using regular expression to replace the string between FROM and
             # WHERE
             sql_fixed = re.sub(r"FROM.*?WHERE", f"FROM {est_join_order_sql} WHERE",
@@ -362,9 +370,7 @@ if __name__ == "__main__":
             cost_sql = get_pghint_modified_sql(sql_fixed,
                     {},
                     est_join_ops, leading_hint, scan_ops)
-            # print(cost_sql)
-            # out_name = OUT_SQL_FMT.format(name = row["qname"].replace(".sql",""),
-                                # kind = "dbms-cost")
+
             out_name = os.path.join(out_cost_dir, row["qname"])
 
             with open(out_name, "w") as f:
