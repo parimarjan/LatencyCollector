@@ -249,6 +249,7 @@ def main():
     if args.dbms == "duckdb":
         db_name = db_name + ".duckdb"
 
+    costs_list = []
     for i,sql in enumerate(sqls):
         # check for reps
         if args.dbms == "postgres":
@@ -259,6 +260,10 @@ def main():
                     timeout=args.timeout,
                     materialize = args.materialize,
                     drop_cache=args.drop_cache)
+            costs_list.append(cost)
+
+            print("Current Cost: ", cost, " Avg Cost: ",
+                    sum(costs_list)/len(costs_list))
 
         add_cost_row(sql_fns[i], cost, exp_cost)
 
