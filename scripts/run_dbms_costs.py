@@ -65,7 +65,7 @@ def read_flags():
             default=0)
 
     parser.add_argument("--cost_kind", type=str, required=False,
-            default="dbms-cost")
+            default="dbms-truecards")
 
     parser.add_argument("--dbms", type=str, required=False,
             default="postgres")
@@ -116,24 +116,22 @@ def get_cost_postgresql(sql,
         ):
     '''
     '''
-
     con = pg.connect(port=args.port,dbname=db_name,
             user=args.user,password=args.pwd,host="localhost")
     cursor = con.cursor()
     cursor.execute("LOAD 'pg_hint_plan';")
 
-    if args.no_index:
-        cursor.execute("SET enable_indexscan = {}".format("off"))
-        cursor.execute("SET enable_seqscan = {}".format("on"))
-        cursor.execute("SET enable_indexonlyscan = {}".format("off"))
-        cursor.execute("SET enable_bitmapscan = {}".format("off"))
-        cursor.execute("SET enable_tidscan = {}".format("off"))
+    # if args.no_index:
+        # cursor.execute("SET enable_indexscan = {}".format("off"))
+        # cursor.execute("SET enable_seqscan = {}".format("on"))
+        # cursor.execute("SET enable_indexonlyscan = {}".format("off"))
+        # cursor.execute("SET enable_bitmapscan = {}".format("off"))
+        # cursor.execute("SET enable_tidscan = {}".format("off"))
 
     if materialize:
         cursor.execute("SET enable_material = on")
 
     start = time.time()
-
 
     try:
         cursor.execute(sql)
@@ -162,7 +160,11 @@ def main():
     cost_model = args.cost_model
 
     make_dir(args.result_dir)
-    rt_fn = os.path.join(args.result_dir, "Costs.csv")
+
+    if args.cost_kind == "dbms-cost":
+        rt_fn = os.path.join(args.result_dir, "Costs.csv")
+    else:
+        rt_fn = os.path.join(args.result_dir, "TrueCosts.csv")
 
     # go in order and execute runtimes...
     if os.path.exists(rt_fn):
@@ -270,6 +272,8 @@ def main():
         df = pd.concat([costs, pd.DataFrame(cur_costs)], ignore_index=True)
         df.to_csv(rt_fn, index=False)
 
+    print(min(costs_list))
+    pdb.set_trace()
     print("Total runtime was: ", total_rt)
 
 if __name__ == "__main__":

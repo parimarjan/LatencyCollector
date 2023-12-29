@@ -80,6 +80,16 @@ def _gen_pg_hint_cards(cards):
         card_str += card_line
     return card_str
 
+def extract_cards(plan, jg=None):
+    aliases = extract_values(plan, "Alias")
+    if "Actual Rows" in plan:
+        rows = plan["Actual Rows"]
+    else:
+        print("no actual rows!")
+        rows = 1.0
+
+    return " ".join(aliases), rows
+
 def extract_aliases2(plan, jg=None):
     aliases = extract_values(plan, "Alias")
     rels = extract_values(plan, "Relation Name")
@@ -87,6 +97,66 @@ def extract_aliases2(plan, jg=None):
     froms = [rels[i] + " as " + aliases[i] for i in range(len(aliases))]
 
     return froms
+
+def get_cards(explain):
+    '''
+    '''
+    cards = {}
+
+    def __extract_jo(plan):
+        if plan["Node Type"] in join_types:
+            left, lrows = extract_cards(plan["Plans"][0])
+            right, rrows = extract_cards(plan["Plans"][1])
+            # print(left, lrows)
+            # print(right, rrows)
+
+            cards[left] = lrows
+            cards[right] = rrows
+
+            # left = list(extract_aliases2(plan["Plans"][0], jg=join_graph))
+            # right = list(extract_aliases2(plan["Plans"][1], jg=join_graph))
+            # print(left, right)
+            # all_froms = left + right
+            # all_nodes = []
+            # for from_clause in all_froms:
+                # from_alias = from_clause[from_clause.find(" as ")+4:]
+                # if "_info" in from_alias:
+                    # print(from_alias)
+                    # pdb.set_trace()
+                # all_nodes.append(from_alias)
+
+            # all_nodes.sort()
+            # all_nodes = " ".join(all_nodes)
+            # physical_join_ops[all_nodes] = plan["Node Type"]
+
+            if len(left) == 1 and len(right) == 1:
+                # __update_scan(plan["Plans"][0])
+                # __update_scan(plan["Plans"][1])
+                return ""
+
+            if len(left) == 1:
+                # __update_scan(plan["Plans"][0])
+                return __extract_jo(plan["Plans"][1])
+
+            if len(right) == 1:
+                # __update_scan(plan["Plans"][1])
+                return __extract_jo(plan["Plans"][0])
+
+            return ("(" + __extract_jo(plan["Plans"][0])
+                    + ") CROSS JOIN ("
+                    + __extract_jo(plan["Plans"][1]) + ")")
+
+        return __extract_jo(plan["Plans"][0])
+
+    try:
+        ex = __extract_jo(explain[0][0][0]["Plan"])
+        return cards
+
+    except Exception as e:
+        # print(explain)
+        return cards
+        # pass
+        # pdb.set_trace()
 
 def get_pg_join_order(join_graph, explain):
     '''
@@ -106,8 +176,6 @@ def get_pg_join_order(join_graph, explain):
         if plan["Node Type"] in join_types:
             left = list(extract_aliases2(plan["Plans"][0], jg=join_graph))
             right = list(extract_aliases2(plan["Plans"][1], jg=join_graph))
-
-            print(left, right)
 
             all_froms = left + right
             all_nodes = []
@@ -276,6 +344,11 @@ if __name__ == "__main__":
 
         est_join_order_sql, est_join_ops, scan_ops = get_pg_join_order(None,
                 exp)
+        true_cards = get_cards(exp)
+
+        # print(true_cards)
+        # pdb.set_trace()
+
         leading_hint = get_leading_hint(None, exp)
 
         if row["qname"] in query_sqls:
@@ -289,8 +362,18 @@ if __name__ == "__main__":
             cost_sql = get_pghint_modified_sql(sql_fixed,
                     {},
                     est_join_ops, leading_hint, scan_ops)
-            print(cost_sql)
+            # print(cost_sql)
+            # out_name = OUT_SQL_FMT.format(name = row["qname"].replace(".sql",""),
+                                # kind = "dbms-cost")
             out_name = os.path.join(out_cost_dir, row["qname"])
 
             with open(out_name, "w") as f:
                 f.write(cost_sql)
+
+            card_sql = get_pghint_modified_sql(sql_fixed,
+                    true_cards,
+                    est_join_ops, leading_hint, scan_ops)
+
+            out_name = os.path.join(out_card_dir, row["qname"])
+            with open(out_name, "w") as f:
+                f.write(card_sql)
